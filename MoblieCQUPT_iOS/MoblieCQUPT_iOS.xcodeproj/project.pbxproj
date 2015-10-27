@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B13889E1BA3531D0011EBF2 /* XBSGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1388991BA3531D0011EBF2 /* XBSGradeViewController.m */; };
-		3B13889F1BA3531D0011EBF2 /* XBSSchduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13889B1BA3531D0011EBF2 /* XBSSchduleViewController.m */; };
 		3B1388B21BA353F70011EBF2 /* XBSNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1388A91BA353F70011EBF2 /* XBSNavigationBar.m */; };
 		3B1388B41BA353F70011EBF2 /* XBSScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1388AC1BA353F70011EBF2 /* XBSScheduleTableViewCell.m */; };
 		3B1388B51BA353F70011EBF2 /* XBSScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1388AD1BA353F70011EBF2 /* XBSScheduleTableViewCell.xib */; };
@@ -18,25 +16,10 @@
 		3B1388CD1BA364530011EBF2 /* new_icon_menu_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1388C91BA364530011EBF2 /* new_icon_menu_1@2x.png */; };
 		3B1388D01BA369890011EBF2 /* new_icon_menu_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1388CE1BA369890011EBF2 /* new_icon_menu_2@2x.png */; };
 		3B1388D11BA369890011EBF2 /* new_icon_menu_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1388CF1BA369890011EBF2 /* new_icon_menu_5@2x.png */; };
-		3B1388D71BA3EEC70011EBF2 /* XBSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1388D61BA3EEC70011EBF2 /* XBSViewController.m */; };
 		3B2661051BA6E3F5008632F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2661041BA6E3F5008632F3 /* QuartzCore.framework */; };
 		3B2661071BA6E401008632F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2661061BA6E401008632F3 /* Foundation.framework */; };
 		3B2661091BA6E40A008632F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2661081BA6E40A008632F3 /* CoreGraphics.framework */; };
 		3B26610B1BA6E417008632F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B26610A1BA6E417008632F3 /* UIKit.framework */; };
-		3B2661341BA6E473008632F3 /* F3HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661131BA6E473008632F3 /* F3HAppDelegate.m */; };
-		3B2661351BA6E473008632F3 /* F3HNumberTileGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661151BA6E473008632F3 /* F3HNumberTileGameViewController.m */; };
-		3B2661361BA6E473008632F3 /* F3HTileAppearanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661171BA6E473008632F3 /* F3HTileAppearanceProvider.m */; };
-		3B2661371BA6E473008632F3 /* F3HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661191BA6E473008632F3 /* F3HViewController.m */; };
-		3B26613A1BA6E473008632F3 /* F3HGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B26611E1BA6E473008632F3 /* F3HGameModel.m */; };
-		3B26613B1BA6E473008632F3 /* F3HMergeTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661201BA6E473008632F3 /* F3HMergeTile.m */; };
-		3B26613C1BA6E473008632F3 /* F3HMoveOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661221BA6E473008632F3 /* F3HMoveOrder.m */; };
-		3B26613D1BA6E473008632F3 /* F3HQueueCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661241BA6E473008632F3 /* F3HQueueCommand.m */; };
-		3B26613E1BA6E473008632F3 /* F3HTileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661261BA6E473008632F3 /* F3HTileModel.m */; };
-		3B26613F1BA6E473008632F3 /* NumberTileGame-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B2661271BA6E473008632F3 /* NumberTileGame-Info.plist */; };
-		3B2661401BA6E473008632F3 /* F3HControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B26612B1BA6E473008632F3 /* F3HControlView.m */; };
-		3B2661411BA6E473008632F3 /* F3HGameboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B26612D1BA6E473008632F3 /* F3HGameboardView.m */; };
-		3B2661421BA6E473008632F3 /* F3HScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B26612F1BA6E473008632F3 /* F3HScoreView.m */; };
-		3B2661431BA6E473008632F3 /* F3HTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2661311BA6E473008632F3 /* F3HTileView.m */; };
 		3B37F0AD1B8C4644009C1E94 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B37F0AC1B8C4644009C1E94 /* MainViewController.m */; };
 		3B37F0B51B8C4691009C1E94 /* NSArray+We.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B37F0B01B8C4691009C1E94 /* NSArray+We.m */; };
 		3B37F0B61B8C4691009C1E94 /* NSString+We.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B37F0B21B8C4691009C1E94 /* NSString+We.m */; };
@@ -81,14 +64,10 @@
 		3B51FBA51BA328BA009FB3C0 /* UPStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51FB7B1BA328BA009FB3C0 /* UPStackMenu.m */; };
 		3B51FBA61BA328BA009FB3C0 /* UPStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51FB7D1BA328BA009FB3C0 /* UPStackMenuItem.m */; };
 		3B685C881BA44D6300E34491 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B685C871BA44D6300E34491 /* Images.xcassets */; };
-		3B685C8C1BA4783100E34491 /* XBSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685C8A1BA4783100E34491 /* XBSAboutViewController.m */; };
-		3B685C8D1BA4783100E34491 /* XBSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685C8B1BA4783100E34491 /* XBSAboutViewController.xib */; };
 		3B685C901BA47D7400E34491 /* XBSFindClassroomPeriodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685C8F1BA47D7400E34491 /* XBSFindClassroomPeriodView.m */; };
 		3BBB58741B8F6EBC0099EC58 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB58731B8F6EA10099EC58 /* iconfont.ttf */; };
 		3BC309FB1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC309F91BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.m */; };
 		3BC309FC1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC309FA1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.xib */; };
-		3BDE16281BA5E6D3008F2DB7 /* XBSFindClassroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDE16261BA5E6D3008F2DB7 /* XBSFindClassroomViewController.m */; };
-		3BDE16291BA5E6D3008F2DB7 /* XBSFindClassroomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BDE16271BA5E6D3008F2DB7 /* XBSFindClassroomViewController.xib */; };
 		3BDE162C1BA5FEED008F2DB7 /* XBSFindClassroomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDE162B1BA5FEED008F2DB7 /* XBSFindClassroomModel.m */; };
 		3BFA631B1BA1AC91005B025D /* XBSConsultConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFA631A1BA1AC91005B025D /* XBSConsultConfig.m */; };
 		CE0ADC991BDDD03E00374CDC /* 关于@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0ADC921BDDD03E00374CDC /* 关于@2x.png */; };
@@ -100,10 +79,7 @@
 		CE0ADC9F1BDDD03E00374CDC /* 补考安排@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0ADC981BDDD03E00374CDC /* 补考安排@2x.png */; };
 		CE1B36E11B9A1B6800824B96 /* new_icon_menu_3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B36DB1B9A1B6800824B96 /* new_icon_menu_3.png */; };
 		CE1B36E21B9A1B6800824B96 /* new_icon_menu_3_press.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B36DC1B9A1B6800824B96 /* new_icon_menu_3_press.png */; };
-		CE1B36E81B9A1F6F00824B96 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B36E71B9A1F6F00824B96 /* CalendarViewController.m */; };
 		CE1B36EA1B9A207100824B96 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B36E91B9A207100824B96 /* calendar.png */; };
-		CE1BE9B91B98894E00F7B08A /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1BE9B71B98894E00F7B08A /* SuggestionViewController.m */; };
-		CE1E462E1BA96083006E2CFB /* ORWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1E462D1BA96083006E2CFB /* ORWInputTextView.m */; };
 		CE267A221BA4A9B90059C2A5 /* splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE267A211BA4A9B90059C2A5 /* splash.jpg */; };
 		CE30FDDB1B9968C000C15AD4 /* bukaochaxun.png in Resources */ = {isa = PBXBuildFile; fileRef = CE30FDCE1B9968C000C15AD4 /* bukaochaxun.png */; };
 		CE30FDDC1B9968C000C15AD4 /* chenjichaxun.png in Resources */ = {isa = PBXBuildFile; fileRef = CE30FDCF1B9968C000C15AD4 /* chenjichaxun.png */; };
@@ -116,6 +92,32 @@
 		CE30FDE71B9968C000C15AD4 /* zuobiao.png in Resources */ = {isa = PBXBuildFile; fileRef = CE30FDDA1B9968C000C15AD4 /* zuobiao.png */; };
 		CE35D7081B932700005BDEBA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE35D7071B932700005BDEBA /* MineViewController.m */; };
 		CE3FC9401B9702A6000085E5 /* ORWRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FC93F1B9702A6000085E5 /* ORWRequestCache.m */; };
+		CE46485C1BDFB85900C3C24B /* XBSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46485A1BDFB85900C3C24B /* XBSAboutViewController.m */; };
+		CE46485D1BDFB85900C3C24B /* XBSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE46485B1BDFB85900C3C24B /* XBSAboutViewController.xib */; };
+		CE4648641BDFB87C00C3C24B /* ORWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648611BDFB87C00C3C24B /* ORWInputTextView.m */; };
+		CE4648651BDFB87C00C3C24B /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648631BDFB87C00C3C24B /* SuggestionViewController.m */; };
+		CE46486F1BDFB8E700C3C24B /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46486E1BDFB8E700C3C24B /* CalendarViewController.m */; };
+		CE4648741BDFB91C00C3C24B /* TitleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648721BDFB91C00C3C24B /* TitleBaseViewController.m */; };
+		CE4648751BDFB91C00C3C24B /* TitleBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4648731BDFB91C00C3C24B /* TitleBaseViewController.xib */; };
+		CE4648951BDFB96400C3C24B /* F3HAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648781BDFB96400C3C24B /* F3HAppDelegate.m */; };
+		CE4648961BDFB96400C3C24B /* F3HNumberTileGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46487A1BDFB96400C3C24B /* F3HNumberTileGameViewController.m */; };
+		CE4648971BDFB96400C3C24B /* F3HTileAppearanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46487C1BDFB96400C3C24B /* F3HTileAppearanceProvider.m */; };
+		CE4648981BDFB96400C3C24B /* F3HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46487E1BDFB96400C3C24B /* F3HViewController.m */; };
+		CE4648991BDFB96400C3C24B /* F3HGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648811BDFB96400C3C24B /* F3HGameModel.m */; };
+		CE46489A1BDFB96400C3C24B /* F3HMergeTile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648831BDFB96400C3C24B /* F3HMergeTile.m */; };
+		CE46489B1BDFB96400C3C24B /* F3HMoveOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648851BDFB96400C3C24B /* F3HMoveOrder.m */; };
+		CE46489C1BDFB96400C3C24B /* F3HQueueCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648871BDFB96400C3C24B /* F3HQueueCommand.m */; };
+		CE46489D1BDFB96400C3C24B /* F3HTileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648891BDFB96400C3C24B /* F3HTileModel.m */; };
+		CE46489E1BDFB96400C3C24B /* NumberTileGame-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE46488A1BDFB96400C3C24B /* NumberTileGame-Info.plist */; };
+		CE46489F1BDFB96400C3C24B /* F3HControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46488E1BDFB96400C3C24B /* F3HControlView.m */; };
+		CE4648A01BDFB96400C3C24B /* F3HGameboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648901BDFB96400C3C24B /* F3HGameboardView.m */; };
+		CE4648A11BDFB96400C3C24B /* F3HScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648921BDFB96400C3C24B /* F3HScoreView.m */; };
+		CE4648A21BDFB96400C3C24B /* F3HTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648941BDFB96400C3C24B /* F3HTileView.m */; };
+		CE4648BC1BDFBA0E00C3C24B /* XBSFindClassroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648B41BDFBA0E00C3C24B /* XBSFindClassroomViewController.m */; };
+		CE4648BD1BDFBA0E00C3C24B /* XBSFindClassroomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4648B51BDFBA0E00C3C24B /* XBSFindClassroomViewController.xib */; };
+		CE4648BE1BDFBA0E00C3C24B /* XBSGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648B71BDFBA0E00C3C24B /* XBSGradeViewController.m */; };
+		CE4648BF1BDFBA0E00C3C24B /* XBSSchduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648B91BDFBA0E00C3C24B /* XBSSchduleViewController.m */; };
+		CE4648C01BDFBA0E00C3C24B /* XBSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648BB1BDFBA0E00C3C24B /* XBSViewController.m */; };
 		CE5402E01BDD2DAB00488428 /* icon_menu_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5402DC1BDD2DAB00488428 /* icon_menu_4@2x.png */; };
 		CE5402E11BDD2DAB00488428 /* icon_menu_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5402DD1BDD2DAB00488428 /* icon_menu_5@2x.png */; };
 		CE5402E21BDD2DAB00488428 /* icon_menu_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5402DE1BDD2DAB00488428 /* icon_menu_1@2x.png */; };
@@ -169,8 +171,6 @@
 		D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */; };
 		D99C4A851B9AB70200BEF33C /* iconfont-meixueqi.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */; };
 		D9A9532C1B9DA4F500D62690 /* iconfont-more.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A9532B1B9DA4F500D62690 /* iconfont-more.png */; };
-		D9B577121B88742D005EFD18 /* TitleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B5770C1B88742D005EFD18 /* TitleBaseViewController.m */; };
-		D9B577131B88742D005EFD18 /* TitleBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B5770D1B88742D005EFD18 /* TitleBaseViewController.xib */; };
 		D9B5771A1B88744F005EFD18 /* iconfont-caidan-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B577181B88744F005EFD18 /* iconfont-caidan-selected.png */; };
 		D9B5771B1B88744F005EFD18 /* iconfont-caidan.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B577191B88744F005EFD18 /* iconfont-caidan.png */; };
 		D9D7BD1A1BD0C3EC000B0EC9 /* iconfont-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D7BD191BD0C3EC000B0EC9 /* iconfont-tag.png */; };
@@ -238,10 +238,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B1388981BA3531D0011EBF2 /* XBSGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSGradeViewController.h; sourceTree = "<group>"; };
-		3B1388991BA3531D0011EBF2 /* XBSGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSGradeViewController.m; sourceTree = "<group>"; };
-		3B13889A1BA3531D0011EBF2 /* XBSSchduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSSchduleViewController.h; sourceTree = "<group>"; };
-		3B13889B1BA3531D0011EBF2 /* XBSSchduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSSchduleViewController.m; sourceTree = "<group>"; };
 		3B1388A81BA353F70011EBF2 /* XBSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSNavigationBar.h; sourceTree = "<group>"; };
 		3B1388A91BA353F70011EBF2 /* XBSNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSNavigationBar.m; sourceTree = "<group>"; };
 		3B1388AB1BA353F70011EBF2 /* XBSScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSScheduleTableViewCell.h; sourceTree = "<group>"; };
@@ -255,40 +251,10 @@
 		3B1388C91BA364530011EBF2 /* new_icon_menu_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_icon_menu_1@2x.png"; sourceTree = "<group>"; };
 		3B1388CE1BA369890011EBF2 /* new_icon_menu_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_icon_menu_2@2x.png"; sourceTree = "<group>"; };
 		3B1388CF1BA369890011EBF2 /* new_icon_menu_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_icon_menu_5@2x.png"; sourceTree = "<group>"; };
-		3B1388D51BA3EEC70011EBF2 /* XBSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSViewController.h; sourceTree = "<group>"; };
-		3B1388D61BA3EEC70011EBF2 /* XBSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSViewController.m; sourceTree = "<group>"; };
 		3B2661041BA6E3F5008632F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3B2661061BA6E401008632F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B2661081BA6E40A008632F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3B26610A1BA6E417008632F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		3B2661121BA6E473008632F3 /* F3HAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HAppDelegate.h; sourceTree = "<group>"; };
-		3B2661131BA6E473008632F3 /* F3HAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HAppDelegate.m; sourceTree = "<group>"; };
-		3B2661141BA6E473008632F3 /* F3HNumberTileGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HNumberTileGameViewController.h; sourceTree = "<group>"; };
-		3B2661151BA6E473008632F3 /* F3HNumberTileGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HNumberTileGameViewController.m; sourceTree = "<group>"; };
-		3B2661161BA6E473008632F3 /* F3HTileAppearanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileAppearanceProvider.h; sourceTree = "<group>"; };
-		3B2661171BA6E473008632F3 /* F3HTileAppearanceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileAppearanceProvider.m; sourceTree = "<group>"; };
-		3B2661181BA6E473008632F3 /* F3HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HViewController.h; sourceTree = "<group>"; };
-		3B2661191BA6E473008632F3 /* F3HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HViewController.m; sourceTree = "<group>"; };
-		3B26611D1BA6E473008632F3 /* F3HGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HGameModel.h; sourceTree = "<group>"; };
-		3B26611E1BA6E473008632F3 /* F3HGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HGameModel.m; sourceTree = "<group>"; };
-		3B26611F1BA6E473008632F3 /* F3HMergeTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HMergeTile.h; sourceTree = "<group>"; };
-		3B2661201BA6E473008632F3 /* F3HMergeTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HMergeTile.m; sourceTree = "<group>"; };
-		3B2661211BA6E473008632F3 /* F3HMoveOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HMoveOrder.h; sourceTree = "<group>"; };
-		3B2661221BA6E473008632F3 /* F3HMoveOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HMoveOrder.m; sourceTree = "<group>"; };
-		3B2661231BA6E473008632F3 /* F3HQueueCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HQueueCommand.h; sourceTree = "<group>"; };
-		3B2661241BA6E473008632F3 /* F3HQueueCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HQueueCommand.m; sourceTree = "<group>"; };
-		3B2661251BA6E473008632F3 /* F3HTileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileModel.h; sourceTree = "<group>"; };
-		3B2661261BA6E473008632F3 /* F3HTileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileModel.m; sourceTree = "<group>"; };
-		3B2661271BA6E473008632F3 /* NumberTileGame-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NumberTileGame-Info.plist"; sourceTree = "<group>"; };
-		3B2661281BA6E473008632F3 /* NumberTileGame-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NumberTileGame-Prefix.pch"; sourceTree = "<group>"; };
-		3B26612A1BA6E473008632F3 /* F3HControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HControlView.h; sourceTree = "<group>"; };
-		3B26612B1BA6E473008632F3 /* F3HControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HControlView.m; sourceTree = "<group>"; };
-		3B26612C1BA6E473008632F3 /* F3HGameboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HGameboardView.h; sourceTree = "<group>"; };
-		3B26612D1BA6E473008632F3 /* F3HGameboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HGameboardView.m; sourceTree = "<group>"; };
-		3B26612E1BA6E473008632F3 /* F3HScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HScoreView.h; sourceTree = "<group>"; };
-		3B26612F1BA6E473008632F3 /* F3HScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HScoreView.m; sourceTree = "<group>"; };
-		3B2661301BA6E473008632F3 /* F3HTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileView.h; sourceTree = "<group>"; };
-		3B2661311BA6E473008632F3 /* F3HTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileView.m; sourceTree = "<group>"; };
 		3B37F0AB1B8C4644009C1E94 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
 		3B37F0AC1B8C4644009C1E94 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Main/MainViewController.m; sourceTree = "<group>"; };
 		3B37F0AF1B8C4691009C1E94 /* NSArray+We.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+We.h"; sourceTree = "<group>"; };
@@ -378,18 +344,12 @@
 		3B51FB7C1BA328BA009FB3C0 /* UPStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPStackMenuItem.h; sourceTree = "<group>"; };
 		3B51FB7D1BA328BA009FB3C0 /* UPStackMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenuItem.m; sourceTree = "<group>"; };
 		3B685C871BA44D6300E34491 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3B685C891BA4783100E34491 /* XBSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XBSAboutViewController.h; path = About/XBSAboutViewController.h; sourceTree = "<group>"; };
-		3B685C8A1BA4783100E34491 /* XBSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XBSAboutViewController.m; path = About/XBSAboutViewController.m; sourceTree = "<group>"; };
-		3B685C8B1BA4783100E34491 /* XBSAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XBSAboutViewController.xib; path = About/XBSAboutViewController.xib; sourceTree = "<group>"; };
 		3B685C8E1BA47D7400E34491 /* XBSFindClassroomPeriodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSFindClassroomPeriodView.h; sourceTree = "<group>"; };
 		3B685C8F1BA47D7400E34491 /* XBSFindClassroomPeriodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSFindClassroomPeriodView.m; sourceTree = "<group>"; };
 		3BBB58731B8F6EA10099EC58 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		3BC309F81BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSFindClassroomTableViewCell.h; sourceTree = "<group>"; };
 		3BC309F91BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSFindClassroomTableViewCell.m; sourceTree = "<group>"; };
 		3BC309FA1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBSFindClassroomTableViewCell.xib; sourceTree = "<group>"; };
-		3BDE16251BA5E6D3008F2DB7 /* XBSFindClassroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSFindClassroomViewController.h; sourceTree = "<group>"; };
-		3BDE16261BA5E6D3008F2DB7 /* XBSFindClassroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSFindClassroomViewController.m; sourceTree = "<group>"; };
-		3BDE16271BA5E6D3008F2DB7 /* XBSFindClassroomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBSFindClassroomViewController.xib; sourceTree = "<group>"; };
 		3BDE162A1BA5FEED008F2DB7 /* XBSFindClassroomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSFindClassroomModel.h; sourceTree = "<group>"; };
 		3BDE162B1BA5FEED008F2DB7 /* XBSFindClassroomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSFindClassroomModel.m; sourceTree = "<group>"; };
 		3BFA63191BA1AC91005B025D /* XBSConsultConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSConsultConfig.h; sourceTree = "<group>"; };
@@ -404,13 +364,7 @@
 		CE1B36DB1B9A1B6800824B96 /* new_icon_menu_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_icon_menu_3.png; sourceTree = "<group>"; };
 		CE1B36DC1B9A1B6800824B96 /* new_icon_menu_3_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_icon_menu_3_press.png; sourceTree = "<group>"; };
 		CE1B36DE1B9A1B6800824B96 /* new_icon_menu_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_icon_menu_1.png; sourceTree = "<group>"; };
-		CE1B36E61B9A1F6F00824B96 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		CE1B36E71B9A1F6F00824B96 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		CE1B36E91B9A207100824B96 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		CE1BE9B61B98894E00F7B08A /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
-		CE1BE9B71B98894E00F7B08A /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
-		CE1E462C1BA96083006E2CFB /* ORWInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWInputTextView.h; sourceTree = "<group>"; };
-		CE1E462D1BA96083006E2CFB /* ORWInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWInputTextView.m; sourceTree = "<group>"; };
 		CE267A211BA4A9B90059C2A5 /* splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash.jpg; sourceTree = "<group>"; };
 		CE30FDCE1B9968C000C15AD4 /* bukaochaxun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bukaochaxun.png; sourceTree = "<group>"; };
 		CE30FDCF1B9968C000C15AD4 /* chenjichaxun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chenjichaxun.png; sourceTree = "<group>"; };
@@ -428,6 +382,55 @@
 		CE3FC93E1B9702A6000085E5 /* ORWRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWRequestCache.h; sourceTree = "<group>"; };
 		CE3FC93F1B9702A6000085E5 /* ORWRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWRequestCache.m; sourceTree = "<group>"; };
 		CE3FC9421B973228000085E5 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		CE4648591BDFB85900C3C24B /* XBSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSAboutViewController.h; sourceTree = "<group>"; };
+		CE46485A1BDFB85900C3C24B /* XBSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSAboutViewController.m; sourceTree = "<group>"; };
+		CE46485B1BDFB85900C3C24B /* XBSAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBSAboutViewController.xib; sourceTree = "<group>"; };
+		CE4648601BDFB87C00C3C24B /* ORWInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWInputTextView.h; sourceTree = "<group>"; };
+		CE4648611BDFB87C00C3C24B /* ORWInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWInputTextView.m; sourceTree = "<group>"; };
+		CE4648621BDFB87C00C3C24B /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		CE4648631BDFB87C00C3C24B /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		CE46486D1BDFB8E700C3C24B /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		CE46486E1BDFB8E700C3C24B /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		CE4648711BDFB91C00C3C24B /* TitleBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBaseViewController.h; sourceTree = "<group>"; };
+		CE4648721BDFB91C00C3C24B /* TitleBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBaseViewController.m; sourceTree = "<group>"; };
+		CE4648731BDFB91C00C3C24B /* TitleBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleBaseViewController.xib; sourceTree = "<group>"; };
+		CE4648771BDFB96400C3C24B /* F3HAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HAppDelegate.h; sourceTree = "<group>"; };
+		CE4648781BDFB96400C3C24B /* F3HAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HAppDelegate.m; sourceTree = "<group>"; };
+		CE4648791BDFB96400C3C24B /* F3HNumberTileGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HNumberTileGameViewController.h; sourceTree = "<group>"; };
+		CE46487A1BDFB96400C3C24B /* F3HNumberTileGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HNumberTileGameViewController.m; sourceTree = "<group>"; };
+		CE46487B1BDFB96400C3C24B /* F3HTileAppearanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileAppearanceProvider.h; sourceTree = "<group>"; };
+		CE46487C1BDFB96400C3C24B /* F3HTileAppearanceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileAppearanceProvider.m; sourceTree = "<group>"; };
+		CE46487D1BDFB96400C3C24B /* F3HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HViewController.h; sourceTree = "<group>"; };
+		CE46487E1BDFB96400C3C24B /* F3HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HViewController.m; sourceTree = "<group>"; };
+		CE4648801BDFB96400C3C24B /* F3HGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HGameModel.h; sourceTree = "<group>"; };
+		CE4648811BDFB96400C3C24B /* F3HGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HGameModel.m; sourceTree = "<group>"; };
+		CE4648821BDFB96400C3C24B /* F3HMergeTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HMergeTile.h; sourceTree = "<group>"; };
+		CE4648831BDFB96400C3C24B /* F3HMergeTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HMergeTile.m; sourceTree = "<group>"; };
+		CE4648841BDFB96400C3C24B /* F3HMoveOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HMoveOrder.h; sourceTree = "<group>"; };
+		CE4648851BDFB96400C3C24B /* F3HMoveOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HMoveOrder.m; sourceTree = "<group>"; };
+		CE4648861BDFB96400C3C24B /* F3HQueueCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HQueueCommand.h; sourceTree = "<group>"; };
+		CE4648871BDFB96400C3C24B /* F3HQueueCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HQueueCommand.m; sourceTree = "<group>"; };
+		CE4648881BDFB96400C3C24B /* F3HTileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileModel.h; sourceTree = "<group>"; };
+		CE4648891BDFB96400C3C24B /* F3HTileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileModel.m; sourceTree = "<group>"; };
+		CE46488A1BDFB96400C3C24B /* NumberTileGame-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NumberTileGame-Info.plist"; sourceTree = "<group>"; };
+		CE46488B1BDFB96400C3C24B /* NumberTileGame-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NumberTileGame-Prefix.pch"; sourceTree = "<group>"; };
+		CE46488D1BDFB96400C3C24B /* F3HControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HControlView.h; sourceTree = "<group>"; };
+		CE46488E1BDFB96400C3C24B /* F3HControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HControlView.m; sourceTree = "<group>"; };
+		CE46488F1BDFB96400C3C24B /* F3HGameboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HGameboardView.h; sourceTree = "<group>"; };
+		CE4648901BDFB96400C3C24B /* F3HGameboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HGameboardView.m; sourceTree = "<group>"; };
+		CE4648911BDFB96400C3C24B /* F3HScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HScoreView.h; sourceTree = "<group>"; };
+		CE4648921BDFB96400C3C24B /* F3HScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HScoreView.m; sourceTree = "<group>"; };
+		CE4648931BDFB96400C3C24B /* F3HTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3HTileView.h; sourceTree = "<group>"; };
+		CE4648941BDFB96400C3C24B /* F3HTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3HTileView.m; sourceTree = "<group>"; };
+		CE4648B31BDFBA0E00C3C24B /* XBSFindClassroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSFindClassroomViewController.h; sourceTree = "<group>"; };
+		CE4648B41BDFBA0E00C3C24B /* XBSFindClassroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSFindClassroomViewController.m; sourceTree = "<group>"; };
+		CE4648B51BDFBA0E00C3C24B /* XBSFindClassroomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBSFindClassroomViewController.xib; sourceTree = "<group>"; };
+		CE4648B61BDFBA0E00C3C24B /* XBSGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSGradeViewController.h; sourceTree = "<group>"; };
+		CE4648B71BDFBA0E00C3C24B /* XBSGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSGradeViewController.m; sourceTree = "<group>"; };
+		CE4648B81BDFBA0E00C3C24B /* XBSSchduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSSchduleViewController.h; sourceTree = "<group>"; };
+		CE4648B91BDFBA0E00C3C24B /* XBSSchduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSSchduleViewController.m; sourceTree = "<group>"; };
+		CE4648BA1BDFBA0E00C3C24B /* XBSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSViewController.h; sourceTree = "<group>"; };
+		CE4648BB1BDFBA0E00C3C24B /* XBSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSViewController.m; sourceTree = "<group>"; };
 		CE5402DC1BDD2DAB00488428 /* icon_menu_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu_4@2x.png"; sourceTree = "<group>"; };
 		CE5402DD1BDD2DAB00488428 /* icon_menu_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu_5@2x.png"; sourceTree = "<group>"; };
 		CE5402DE1BDD2DAB00488428 /* icon_menu_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu_1@2x.png"; sourceTree = "<group>"; };
@@ -494,9 +497,6 @@
 		D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconfont_meizhou.png; sourceTree = "<group>"; };
 		D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-meixueqi.png"; sourceTree = "<group>"; };
 		D9A9532B1B9DA4F500D62690 /* iconfont-more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-more.png"; sourceTree = "<group>"; };
-		D9B5770B1B88742D005EFD18 /* TitleBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBaseViewController.h; sourceTree = "<group>"; };
-		D9B5770C1B88742D005EFD18 /* TitleBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBaseViewController.m; sourceTree = "<group>"; };
-		D9B5770D1B88742D005EFD18 /* TitleBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleBaseViewController.xib; sourceTree = "<group>"; };
 		D9B577181B88744F005EFD18 /* iconfont-caidan-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-caidan-selected.png"; sourceTree = "<group>"; };
 		D9B577191B88744F005EFD18 /* iconfont-caidan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-caidan.png"; sourceTree = "<group>"; };
 		D9D7BD191BD0C3EC000B0EC9 /* iconfont-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-tag.png"; sourceTree = "<group>"; };
@@ -629,57 +629,6 @@
 				D9F548C41B9CA83F006F5EFF /* SystemConfiguration.framework */,
 			);
 			name = Framework;
-			sourceTree = "<group>";
-		};
-		3B26610D1BA6E473008632F3 /* NumberTileGame */ = {
-			isa = PBXGroup;
-			children = (
-				3B2661121BA6E473008632F3 /* F3HAppDelegate.h */,
-				3B2661131BA6E473008632F3 /* F3HAppDelegate.m */,
-				3B2661141BA6E473008632F3 /* F3HNumberTileGameViewController.h */,
-				3B2661151BA6E473008632F3 /* F3HNumberTileGameViewController.m */,
-				3B2661161BA6E473008632F3 /* F3HTileAppearanceProvider.h */,
-				3B2661171BA6E473008632F3 /* F3HTileAppearanceProvider.m */,
-				3B2661181BA6E473008632F3 /* F3HViewController.h */,
-				3B2661191BA6E473008632F3 /* F3HViewController.m */,
-				3B26611C1BA6E473008632F3 /* Models */,
-				3B2661271BA6E473008632F3 /* NumberTileGame-Info.plist */,
-				3B2661281BA6E473008632F3 /* NumberTileGame-Prefix.pch */,
-				3B2661291BA6E473008632F3 /* Views */,
-			);
-			path = NumberTileGame;
-			sourceTree = "<group>";
-		};
-		3B26611C1BA6E473008632F3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3B26611D1BA6E473008632F3 /* F3HGameModel.h */,
-				3B26611E1BA6E473008632F3 /* F3HGameModel.m */,
-				3B26611F1BA6E473008632F3 /* F3HMergeTile.h */,
-				3B2661201BA6E473008632F3 /* F3HMergeTile.m */,
-				3B2661211BA6E473008632F3 /* F3HMoveOrder.h */,
-				3B2661221BA6E473008632F3 /* F3HMoveOrder.m */,
-				3B2661231BA6E473008632F3 /* F3HQueueCommand.h */,
-				3B2661241BA6E473008632F3 /* F3HQueueCommand.m */,
-				3B2661251BA6E473008632F3 /* F3HTileModel.h */,
-				3B2661261BA6E473008632F3 /* F3HTileModel.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		3B2661291BA6E473008632F3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3B26612A1BA6E473008632F3 /* F3HControlView.h */,
-				3B26612B1BA6E473008632F3 /* F3HControlView.m */,
-				3B26612C1BA6E473008632F3 /* F3HGameboardView.h */,
-				3B26612D1BA6E473008632F3 /* F3HGameboardView.m */,
-				3B26612E1BA6E473008632F3 /* F3HScoreView.h */,
-				3B26612F1BA6E473008632F3 /* F3HScoreView.m */,
-				3B2661301BA6E473008632F3 /* F3HTileView.h */,
-				3B2661311BA6E473008632F3 /* F3HTileView.m */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		3B37F0AE1B8C4691009C1E94 /* We */ = {
@@ -852,33 +801,6 @@
 			name = Consult;
 			sourceTree = "<group>";
 		};
-		3B9FD0A31B984E3B0081A100 /* About */ = {
-			isa = PBXGroup;
-			children = (
-				3B26610D1BA6E473008632F3 /* NumberTileGame */,
-				3B685C891BA4783100E34491 /* XBSAboutViewController.h */,
-				3B685C8A1BA4783100E34491 /* XBSAboutViewController.m */,
-				3B685C8B1BA4783100E34491 /* XBSAboutViewController.xib */,
-			);
-			name = About;
-			sourceTree = "<group>";
-		};
-		3BBB58531B8F3DE90099EC58 /* Consult */ = {
-			isa = PBXGroup;
-			children = (
-				3B1388D51BA3EEC70011EBF2 /* XBSViewController.h */,
-				3B1388D61BA3EEC70011EBF2 /* XBSViewController.m */,
-				3B1388981BA3531D0011EBF2 /* XBSGradeViewController.h */,
-				3B1388991BA3531D0011EBF2 /* XBSGradeViewController.m */,
-				3B13889A1BA3531D0011EBF2 /* XBSSchduleViewController.h */,
-				3B13889B1BA3531D0011EBF2 /* XBSSchduleViewController.m */,
-				3BDE16251BA5E6D3008F2DB7 /* XBSFindClassroomViewController.h */,
-				3BDE16261BA5E6D3008F2DB7 /* XBSFindClassroomViewController.m */,
-				3BDE16271BA5E6D3008F2DB7 /* XBSFindClassroomViewController.xib */,
-			);
-			path = Consult;
-			sourceTree = "<group>";
-		};
 		CE0ADC911BDDD03E00374CDC /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,34 +827,6 @@
 				CE1B36DE1B9A1B6800824B96 /* new_icon_menu_1.png */,
 			);
 			path = Archive;
-			sourceTree = "<group>";
-		};
-		CE1B36E51B9A1F3B00824B96 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				CE1B36E61B9A1F6F00824B96 /* CalendarViewController.h */,
-				CE1B36E71B9A1F6F00824B96 /* CalendarViewController.m */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		CE1BE9B51B98892700F7B08A /* Suggestion */ = {
-			isa = PBXGroup;
-			children = (
-				CE1E462B1BA95FE8006E2CFB /* InputTextView */,
-				CE1BE9B61B98894E00F7B08A /* SuggestionViewController.h */,
-				CE1BE9B71B98894E00F7B08A /* SuggestionViewController.m */,
-			);
-			path = Suggestion;
-			sourceTree = "<group>";
-		};
-		CE1E462B1BA95FE8006E2CFB /* InputTextView */ = {
-			isa = PBXGroup;
-			children = (
-				CE1E462C1BA96083006E2CFB /* ORWInputTextView.h */,
-				CE1E462D1BA96083006E2CFB /* ORWInputTextView.m */,
-			);
-			path = InputTextView;
 			sourceTree = "<group>";
 		};
 		CE267A201BA4A9A00059C2A5 /* LuanchImage */ = {
@@ -968,6 +862,10 @@
 		CE35D7051B9326C3005BDEBA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				CE4648B21BDFBA0E00C3C24B /* Consult */,
+				CE46486C1BDFB8E700C3C24B /* Calendar */,
+				CE46485E1BDFB87C00C3C24B /* Suggestion */,
+				CE4648581BDFB85900C3C24B /* About */,
 				CEE1E2231B99A0D80088EC7C /* ButtonView */,
 				CE35D7061B932700005BDEBA /* MineViewController.h */,
 				CE35D7071B932700005BDEBA /* MineViewController.m */,
@@ -981,6 +879,122 @@
 				CE3FC9421B973228000085E5 /* iconfont.ttf */,
 			);
 			name = "Icon-Font";
+			sourceTree = "<group>";
+		};
+		CE4648581BDFB85900C3C24B /* About */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648761BDFB96400C3C24B /* NumberTileGame */,
+				CE4648591BDFB85900C3C24B /* XBSAboutViewController.h */,
+				CE46485A1BDFB85900C3C24B /* XBSAboutViewController.m */,
+				CE46485B1BDFB85900C3C24B /* XBSAboutViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		CE46485E1BDFB87C00C3C24B /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				CE46485F1BDFB87C00C3C24B /* InputTextView */,
+				CE4648621BDFB87C00C3C24B /* SuggestionViewController.h */,
+				CE4648631BDFB87C00C3C24B /* SuggestionViewController.m */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
+		CE46485F1BDFB87C00C3C24B /* InputTextView */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648601BDFB87C00C3C24B /* ORWInputTextView.h */,
+				CE4648611BDFB87C00C3C24B /* ORWInputTextView.m */,
+			);
+			path = InputTextView;
+			sourceTree = "<group>";
+		};
+		CE46486C1BDFB8E700C3C24B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CE46486D1BDFB8E700C3C24B /* CalendarViewController.h */,
+				CE46486E1BDFB8E700C3C24B /* CalendarViewController.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CE4648701BDFB91C00C3C24B /* TitleBase */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648711BDFB91C00C3C24B /* TitleBaseViewController.h */,
+				CE4648721BDFB91C00C3C24B /* TitleBaseViewController.m */,
+				CE4648731BDFB91C00C3C24B /* TitleBaseViewController.xib */,
+			);
+			path = TitleBase;
+			sourceTree = "<group>";
+		};
+		CE4648761BDFB96400C3C24B /* NumberTileGame */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648771BDFB96400C3C24B /* F3HAppDelegate.h */,
+				CE4648781BDFB96400C3C24B /* F3HAppDelegate.m */,
+				CE4648791BDFB96400C3C24B /* F3HNumberTileGameViewController.h */,
+				CE46487A1BDFB96400C3C24B /* F3HNumberTileGameViewController.m */,
+				CE46487B1BDFB96400C3C24B /* F3HTileAppearanceProvider.h */,
+				CE46487C1BDFB96400C3C24B /* F3HTileAppearanceProvider.m */,
+				CE46487D1BDFB96400C3C24B /* F3HViewController.h */,
+				CE46487E1BDFB96400C3C24B /* F3HViewController.m */,
+				CE46487F1BDFB96400C3C24B /* Models */,
+				CE46488A1BDFB96400C3C24B /* NumberTileGame-Info.plist */,
+				CE46488B1BDFB96400C3C24B /* NumberTileGame-Prefix.pch */,
+				CE46488C1BDFB96400C3C24B /* Views */,
+			);
+			path = NumberTileGame;
+			sourceTree = "<group>";
+		};
+		CE46487F1BDFB96400C3C24B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648801BDFB96400C3C24B /* F3HGameModel.h */,
+				CE4648811BDFB96400C3C24B /* F3HGameModel.m */,
+				CE4648821BDFB96400C3C24B /* F3HMergeTile.h */,
+				CE4648831BDFB96400C3C24B /* F3HMergeTile.m */,
+				CE4648841BDFB96400C3C24B /* F3HMoveOrder.h */,
+				CE4648851BDFB96400C3C24B /* F3HMoveOrder.m */,
+				CE4648861BDFB96400C3C24B /* F3HQueueCommand.h */,
+				CE4648871BDFB96400C3C24B /* F3HQueueCommand.m */,
+				CE4648881BDFB96400C3C24B /* F3HTileModel.h */,
+				CE4648891BDFB96400C3C24B /* F3HTileModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE46488C1BDFB96400C3C24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE46488D1BDFB96400C3C24B /* F3HControlView.h */,
+				CE46488E1BDFB96400C3C24B /* F3HControlView.m */,
+				CE46488F1BDFB96400C3C24B /* F3HGameboardView.h */,
+				CE4648901BDFB96400C3C24B /* F3HGameboardView.m */,
+				CE4648911BDFB96400C3C24B /* F3HScoreView.h */,
+				CE4648921BDFB96400C3C24B /* F3HScoreView.m */,
+				CE4648931BDFB96400C3C24B /* F3HTileView.h */,
+				CE4648941BDFB96400C3C24B /* F3HTileView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE4648B21BDFBA0E00C3C24B /* Consult */ = {
+			isa = PBXGroup;
+			children = (
+				CE4648B31BDFBA0E00C3C24B /* XBSFindClassroomViewController.h */,
+				CE4648B41BDFBA0E00C3C24B /* XBSFindClassroomViewController.m */,
+				CE4648B51BDFBA0E00C3C24B /* XBSFindClassroomViewController.xib */,
+				CE4648B61BDFBA0E00C3C24B /* XBSGradeViewController.h */,
+				CE4648B71BDFBA0E00C3C24B /* XBSGradeViewController.m */,
+				CE4648B81BDFBA0E00C3C24B /* XBSSchduleViewController.h */,
+				CE4648B91BDFBA0E00C3C24B /* XBSSchduleViewController.m */,
+				CE4648BA1BDFBA0E00C3C24B /* XBSViewController.h */,
+				CE4648BB1BDFBA0E00C3C24B /* XBSViewController.m */,
+			);
+			path = Consult;
 			sourceTree = "<group>";
 		};
 		CE5402DB1BDD2DAB00488428 /* TarbarImg */ = {
@@ -1207,17 +1221,12 @@
 		CEF61B5D1B82BE0C0014B980 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3BBB58531B8F3DE90099EC58 /* Consult */,
-				E263C73D1BA35E26008488FA /* Finder */,
-				E263C7921BA35E60008488FA /* News */,
-				3B9FD0A31B984E3B0081A100 /* About */,
-				E23826FF1B9477D80058970E /* Course */,
 				E2E7DE211B94764A0081F699 /* Login */,
-				CE35D7051B9326C3005BDEBA /* Mine */,
-				CE1B36E51B9A1F3B00824B96 /* Calendar */,
-				D9B5770A1B88742D005EFD18 /* TitleBase */,
-				CE1BE9B51B98892700F7B08A /* Suggestion */,
 				CEE837A41B855E9C00959779 /* Main */,
+				E23826FF1B9477D80058970E /* Course */,
+				E263C7921BA35E60008488FA /* News */,
+				E263C73D1BA35E26008488FA /* Finder */,
+				CE35D7051B9326C3005BDEBA /* Mine */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1267,19 +1276,10 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		D9B5770A1B88742D005EFD18 /* TitleBase */ = {
-			isa = PBXGroup;
-			children = (
-				D9B5770B1B88742D005EFD18 /* TitleBaseViewController.h */,
-				D9B5770C1B88742D005EFD18 /* TitleBaseViewController.m */,
-				D9B5770D1B88742D005EFD18 /* TitleBaseViewController.xib */,
-			);
-			path = TitleBase;
-			sourceTree = "<group>";
-		};
 		E23826FF1B9477D80058970E /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				CE4648701BDFB91C00C3C24B /* TitleBase */,
 				E23827001B9477D80058970E /* CourseButton.h */,
 				E23827011B9477D80058970E /* CourseButton.m */,
 				E23827021B9477D80058970E /* CourseView.h */,
@@ -1566,14 +1566,12 @@
 				E263C7861BA35E26008488FA /* WebViewController.xib in Resources */,
 				CE78939B1B87067B000D8B57 /* 60-2.png in Resources */,
 				3B51FB8D1BA328BA009FB3C0 /* MJRefresh.bundle in Resources */,
-				3B685C8D1BA4783100E34491 /* XBSAboutViewController.xib in Resources */,
 				3BC309FC1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.xib in Resources */,
 				CE5402E21BDD2DAB00488428 /* icon_menu_1@2x.png in Resources */,
 				CE1B36E21B9A1B6800824B96 /* new_icon_menu_3_press.png in Resources */,
 				CE5402E11BDD2DAB00488428 /* icon_menu_5@2x.png in Resources */,
 				E263C77B1BA35E26008488FA /* cqupt3@2x.jpg in Resources */,
 				E263C7731BA35E26008488FA /* ChuangyeViewController.xib in Resources */,
-				3B26613F1BA6E473008632F3 /* NumberTileGame-Info.plist in Resources */,
 				E263C7881BA35E26008488FA /* ShakeViewController.xib in Resources */,
 				CE0ADC9D1BDDD03E00374CDC /* 空教室@2x.png in Resources */,
 				CEF273941B90D573009B5BA2 /* 20-3exam.png in Resources */,
@@ -1584,9 +1582,9 @@
 				E28D2A8F1BB3E43100490C41 /* ok.png in Resources */,
 				E263C77A1BA35E26008488FA /* cqupt2@2x.jpg in Resources */,
 				3B685C881BA44D6300E34491 /* Images.xcassets in Resources */,
+				CE46489E1BDFB96400C3C24B /* NumberTileGame-Info.plist in Resources */,
 				3B1388D11BA369890011EBF2 /* new_icon_menu_5@2x.png in Resources */,
 				CEF273851B90D573009B5BA2 /* 20-2.png in Resources */,
-				3BDE16291BA5E6D3008F2DB7 /* XBSFindClassroomViewController.xib in Resources */,
 				D96125F51B9F1178002D4F80 /* iconfont-location.png in Resources */,
 				CE5C7D5F1B87FF4D00699E3E /* 29-3.png in Resources */,
 				D9A9532C1B9DA4F500D62690 /* iconfont-more.png in Resources */,
@@ -1602,12 +1600,14 @@
 				CEF61B391B82BC950014B980 /* Main.storyboard in Resources */,
 				CEF2738A1B90D573009B5BA2 /* 20-2补考.png in Resources */,
 				E263C7781BA35E26008488FA /* community@2x.png in Resources */,
+				CE4648BD1BDFBA0E00C3C24B /* XBSFindClassroomViewController.xib in Resources */,
 				CEE1E21E1B9994A80088EC7C /* guanyu.png in Resources */,
 				E263C78E1BA35E26008488FA /* ShopDetailViewController.xib in Resources */,
 				E263C7841BA35E26008488FA /* MapViewController.xib in Resources */,
 				3B51FB901BA328BA009FB3C0 /* MJRefreshExample-Info.plist in Resources */,
 				CE30FDE41B9968C000C15AD4 /* tuichu.png in Resources */,
 				D9B5771A1B88744F005EFD18 /* iconfont-caidan-selected.png in Resources */,
+				CE46485D1BDFB85900C3C24B /* XBSAboutViewController.xib in Resources */,
 				CE1B36E11B9A1B6800824B96 /* new_icon_menu_3.png in Resources */,
 				E238270A1B9477D80058970E /* CourseViewController.xib in Resources */,
 				CE5402E31BDD2DAB00488428 /* icon_menu_2@2x.png in Resources */,
@@ -1649,6 +1649,7 @@
 				E263C79E1BA35E60008488FA /* MeCell.xib in Resources */,
 				E263C7901BA35E26008488FA /* ShopTableViewCell.xib in Resources */,
 				E263C78A1BA35E26008488FA /* loading@2x.png in Resources */,
+				CE4648751BDFB91C00C3C24B /* TitleBaseViewController.xib in Resources */,
 				CEE1E2201B9994E90088EC7C /* yijianfankui.png in Resources */,
 				CEF273871B90D573009B5BA2 /* 20-2c.png in Resources */,
 				D96125E11B9F0C53002D4F80 /* iconfont-wodekecheng.png in Resources */,
@@ -1656,7 +1657,6 @@
 				E263C79C1BA35E60008488FA /* FirstViewController.xib in Resources */,
 				CE0ADC9F1BDDD03E00374CDC /* 补考安排@2x.png in Resources */,
 				CEF273861B90D573009B5BA2 /* 20-2b.png in Resources */,
-				D9B577131B88742D005EFD18 /* TitleBaseViewController.xib in Resources */,
 				E263C7711BA35E26008488FA /* ButtonView.xib in Resources */,
 				E263C7811BA35E26008488FA /* shakeForShop@2x.png in Resources */,
 				E263C7771BA35E26008488FA /* chuangye@2x.png in Resources */,
@@ -1682,100 +1682,100 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE46489A1BDFB96400C3C24B /* F3HMergeTile.m in Sources */,
 				3B51FB911BA328BA009FB3C0 /* MJRefreshFooterView.m in Sources */,
-				3B26613C1BA6E473008632F3 /* F3HMoveOrder.m in Sources */,
+				CE4648BC1BDFBA0E00C3C24B /* XBSFindClassroomViewController.m in Sources */,
 				CEF61B361B82BC950014B980 /* ViewController.m in Sources */,
 				3B1388B21BA353F70011EBF2 /* XBSNavigationBar.m in Sources */,
-				3B2661361BA6E473008632F3 /* F3HTileAppearanceProvider.m in Sources */,
 				3BFA631B1BA1AC91005B025D /* XBSConsultConfig.m in Sources */,
 				3B1388BA1BA354930011EBF2 /* XBSConsultButtonClicker.m in Sources */,
 				3B51FB971BA328BA009FB3C0 /* ProgressHUD.m in Sources */,
 				3B51FB831BA328BA009FB3C0 /* AFURLConnectionOperation.m in Sources */,
+				CE4648961BDFB96400C3C24B /* F3HNumberTileGameViewController.m in Sources */,
 				3B51FB8A1BA328BA009FB3C0 /* FMDatabasePool.m in Sources */,
 				CEF61B331B82BC950014B980 /* AppDelegate.m in Sources */,
 				E263C7741BA35E26008488FA /* CommunityViewController.m in Sources */,
 				3B51FB9C1BA328BA009FB3C0 /* UIButton+AFNetworking.m in Sources */,
 				3B51FB841BA328BA009FB3C0 /* AFURLRequestSerialization.m in Sources */,
-				3B2661421BA6E473008632F3 /* F3HScoreView.m in Sources */,
-				D9B577121B88742D005EFD18 /* TitleBaseViewController.m in Sources */,
+				CE4648741BDFB91C00C3C24B /* TitleBaseViewController.m in Sources */,
 				E263C79F1BA35E60008488FA /* NewsViewController.m in Sources */,
 				3B51FB981BA328BA009FB3C0 /* UIColor+BFPaperColors.m in Sources */,
 				3B37F0AD1B8C4644009C1E94 /* MainViewController.m in Sources */,
-				CE1B36E81B9A1F6F00824B96 /* CalendarViewController.m in Sources */,
 				E23827081B9477D80058970E /* CourseView.m in Sources */,
 				3B51FB7F1BA328BA009FB3C0 /* AFHTTPRequestOperationManager.m in Sources */,
 				3BDE162C1BA5FEED008F2DB7 /* XBSFindClassroomModel.m in Sources */,
+				CE4648951BDFB96400C3C24B /* F3HAppDelegate.m in Sources */,
 				3B1388BD1BA354BB0011EBF2 /* XBSConsultDataBundle.m in Sources */,
+				CE4648A21BDFB96400C3C24B /* F3HTileView.m in Sources */,
 				3B685C901BA47D7400E34491 /* XBSFindClassroomPeriodView.m in Sources */,
-				3B2661341BA6E473008632F3 /* F3HAppDelegate.m in Sources */,
 				3B51FB811BA328BA009FB3C0 /* AFNetworkReachabilityManager.m in Sources */,
 				CEC93BE01B9B114500AC9E00 /* LoginEntry.m in Sources */,
 				3B51FB931BA328BA009FB3C0 /* UIScrollView+MJExtension.m in Sources */,
 				3B51FB801BA328BA009FB3C0 /* AFHTTPSessionManager.m in Sources */,
 				3BC309FB1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.m in Sources */,
-				CE1E462E1BA96083006E2CFB /* ORWInputTextView.m in Sources */,
-				3B2661351BA6E473008632F3 /* F3HNumberTileGameViewController.m in Sources */,
+				CE46489D1BDFB96400C3C24B /* F3HTileModel.m in Sources */,
 				E263C7891BA35E26008488FA /* DetailDishView.m in Sources */,
 				E263C7871BA35E26008488FA /* ShakeViewController.m in Sources */,
 				E263C79B1BA35E60008488FA /* FirstViewController.m in Sources */,
+				CE4648A11BDFB96400C3C24B /* F3HScoreView.m in Sources */,
 				E238270E1B9478190058970E /* Course.m in Sources */,
-				3B26613E1BA6E473008632F3 /* F3HTileModel.m in Sources */,
 				E263C79D1BA35E60008488FA /* MeCell.m in Sources */,
-				3B2661371BA6E473008632F3 /* F3HViewController.m in Sources */,
 				3B51FB8B1BA328BA009FB3C0 /* FMDatabaseQueue.m in Sources */,
+				CE4648BE1BDFBA0E00C3C24B /* XBSGradeViewController.m in Sources */,
 				CEE837B71B86C35000959779 /* NetWork.m in Sources */,
 				3B51FB951BA328BA009FB3C0 /* UIView+MJExtension.m in Sources */,
 				3B1388B41BA353F70011EBF2 /* XBSScheduleTableViewCell.m in Sources */,
 				3B51FB821BA328BA009FB3C0 /* AFSecurityPolicy.m in Sources */,
 				E263C78D1BA35E26008488FA /* ShopDetailViewController.m in Sources */,
 				E263C7721BA35E26008488FA /* ChuangyeViewController.m in Sources */,
-				3B13889E1BA3531D0011EBF2 /* XBSGradeViewController.m in Sources */,
 				3B51FBA21BA328BA009FB3C0 /* ExampleAnimation.m in Sources */,
 				3B51FB9F1BA328BA009FB3C0 /* UIRefreshControl+AFNetworking.m in Sources */,
 				E263C78B1BA35E26008488FA /* MenuViewController.m in Sources */,
 				E23827091B9477D80058970E /* CourseViewController.m in Sources */,
 				3B37F0B71B8C4691009C1E94 /* We.m in Sources */,
-				3B26613D1BA6E473008632F3 /* F3HQueueCommand.m in Sources */,
-				3B2661401BA6E473008632F3 /* F3HControlView.m in Sources */,
 				CE35D7081B932700005BDEBA /* MineViewController.m in Sources */,
-				3B1388D71BA3EEC70011EBF2 /* XBSViewController.m in Sources */,
 				3B51FB921BA328BA009FB3C0 /* MJRefreshHeaderView.m in Sources */,
 				3B51FB7E1BA328BA009FB3C0 /* AFHTTPRequestOperation.m in Sources */,
 				E263C78F1BA35E26008488FA /* ShopTableViewCell.m in Sources */,
 				CE3FC9401B9702A6000085E5 /* ORWRequestCache.m in Sources */,
+				CE46489C1BDFB96400C3C24B /* F3HQueueCommand.m in Sources */,
+				CE4648A01BDFB96400C3C24B /* F3HGameboardView.m in Sources */,
 				3B51FB941BA328BA009FB3C0 /* UIScrollView+MJRefresh.m in Sources */,
-				3BDE16281BA5E6D3008F2DB7 /* XBSFindClassroomViewController.m in Sources */,
+				CE46489B1BDFB96400C3C24B /* F3HMoveOrder.m in Sources */,
 				3B51FB8F1BA328BA009FB3C0 /* MJRefreshConst.m in Sources */,
+				CE4648641BDFB87C00C3C24B /* ORWInputTextView.m in Sources */,
 				CEE1E2261B99A1020088EC7C /* MineButton.m in Sources */,
 				3B51FB9A1BA328BA009FB3C0 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				3B51FBA01BA328BA009FB3C0 /* UIWebView+AFNetworking.m in Sources */,
+				CE4648971BDFB96400C3C24B /* F3HTileAppearanceProvider.m in Sources */,
 				3B51FBA61BA328BA009FB3C0 /* UPStackMenuItem.m in Sources */,
 				3B51FBA51BA328BA009FB3C0 /* UPStackMenu.m in Sources */,
-				3B2661431BA6E473008632F3 /* F3HTileView.m in Sources */,
+				CE46489F1BDFB96400C3C24B /* F3HControlView.m in Sources */,
 				3B51FB8E1BA328BA009FB3C0 /* MJRefreshBaseView.m in Sources */,
+				CE4648C01BDFBA0E00C3C24B /* XBSViewController.m in Sources */,
 				3B51FBA31BA328BA009FB3C0 /* OrangeAnimation.m in Sources */,
 				3B51FB991BA328BA009FB3C0 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				3B26613B1BA6E473008632F3 /* F3HMergeTile.m in Sources */,
 				3B51FB871BA328BA009FB3C0 /* BFPaperCheckbox.m in Sources */,
+				CE4648BF1BDFBA0E00C3C24B /* XBSSchduleViewController.m in Sources */,
 				3B37F0B61B8C4691009C1E94 /* NSString+We.m in Sources */,
 				E263C7851BA35E26008488FA /* WebViewController.m in Sources */,
+				CE46485C1BDFB85900C3C24B /* XBSAboutViewController.m in Sources */,
+				CE4648991BDFB96400C3C24B /* F3HGameModel.m in Sources */,
 				3B51FB881BA328BA009FB3C0 /* FMDatabase.m in Sources */,
 				CEF61B301B82BC950014B980 /* main.m in Sources */,
 				3B51FB8C1BA328BA009FB3C0 /* FMResultSet.m in Sources */,
 				3B51FB9E1BA328BA009FB3C0 /* UIProgressView+AFNetworking.m in Sources */,
 				3B37F0B51B8C4691009C1E94 /* NSArray+We.m in Sources */,
-				3B685C8C1BA4783100E34491 /* XBSAboutViewController.m in Sources */,
 				3B51FB861BA328BA009FB3C0 /* AFURLSessionManager.m in Sources */,
 				E2E7DE251B94764A0081F699 /* LoginViewController.m in Sources */,
-				3B13889F1BA3531D0011EBF2 /* XBSSchduleViewController.m in Sources */,
 				E23827071B9477D80058970E /* CourseButton.m in Sources */,
-				CE1BE9B91B98894E00F7B08A /* SuggestionViewController.m in Sources */,
+				CE4648981BDFB96400C3C24B /* F3HViewController.m in Sources */,
 				3B51FB9B1BA328BA009FB3C0 /* UIAlertView+AFNetworking.m in Sources */,
+				CE46486F1BDFB8E700C3C24B /* CalendarViewController.m in Sources */,
 				E263C7761BA35E26008488FA /* FinderViewController.m in Sources */,
-				3B26613A1BA6E473008632F3 /* F3HGameModel.m in Sources */,
-				3B2661411BA6E473008632F3 /* F3HGameboardView.m in Sources */,
 				3B51FB851BA328BA009FB3C0 /* AFURLResponseSerialization.m in Sources */,
 				E263C7831BA35E26008488FA /* MapViewController.m in Sources */,
+				CE4648651BDFB87C00C3C24B /* SuggestionViewController.m in Sources */,
 				3B51FB9D1BA328BA009FB3C0 /* UIImageView+AFNetworking.m in Sources */,
 				E263C7911BA35E26008488FA /* ShopViewController.m in Sources */,
 				3B51FB891BA328BA009FB3C0 /* FMDatabaseAdditions.m in Sources */,
