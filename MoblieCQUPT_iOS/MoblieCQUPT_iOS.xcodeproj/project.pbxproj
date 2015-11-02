@@ -92,6 +92,10 @@
 		CE30FDE71B9968C000C15AD4 /* zuobiao.png in Resources */ = {isa = PBXBuildFile; fileRef = CE30FDDA1B9968C000C15AD4 /* zuobiao.png */; };
 		CE35D7081B932700005BDEBA /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE35D7071B932700005BDEBA /* MineViewController.m */; };
 		CE3FC9401B9702A6000085E5 /* ORWRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3FC93F1B9702A6000085E5 /* ORWRequestCache.m */; };
+		CE4334471BE7C52D000C407D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4334461BE7C52D000C407D /* NotificationCenter.framework */; };
+		CE43344D1BE7C52D000C407D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43344C1BE7C52D000C407D /* TodayViewController.m */; };
+		CE43344F1BE7C52D000C407D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE43344E1BE7C52D000C407D /* MainInterface.storyboard */; };
+		CE4334521BE7C52D000C407D /* ClassWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE4334441BE7C52D000C407D /* ClassWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE46485C1BDFB85900C3C24B /* XBSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46485A1BDFB85900C3C24B /* XBSAboutViewController.m */; };
 		CE46485D1BDFB85900C3C24B /* XBSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE46485B1BDFB85900C3C24B /* XBSAboutViewController.xib */; };
 		CE4648641BDFB87C00C3C24B /* ORWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4648611BDFB87C00C3C24B /* ORWInputTextView.m */; };
@@ -228,6 +232,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE4334501BE7C52D000C407D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF61B221B82BC950014B980 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE4334431BE7C52D000C407D;
+			remoteInfo = ClassWidget;
+		};
 		CEF61B441B82BC950014B980 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEF61B221B82BC950014B980 /* Project object */;
@@ -236,6 +247,20 @@
 			remoteInfo = MoblieCQUPT_iOS;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CE4334561BE7C52D000C407D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CE4334521BE7C52D000C407D /* ClassWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B1388A81BA353F70011EBF2 /* XBSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSNavigationBar.h; sourceTree = "<group>"; };
@@ -382,6 +407,12 @@
 		CE3FC93E1B9702A6000085E5 /* ORWRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWRequestCache.h; sourceTree = "<group>"; };
 		CE3FC93F1B9702A6000085E5 /* ORWRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWRequestCache.m; sourceTree = "<group>"; };
 		CE3FC9421B973228000085E5 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		CE4334441BE7C52D000C407D /* ClassWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClassWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4334461BE7C52D000C407D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		CE43344A1BE7C52D000C407D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE43344B1BE7C52D000C407D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		CE43344C1BE7C52D000C407D /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		CE43344E1BE7C52D000C407D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		CE4648591BDFB85900C3C24B /* XBSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSAboutViewController.h; sourceTree = "<group>"; };
 		CE46485A1BDFB85900C3C24B /* XBSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSAboutViewController.m; sourceTree = "<group>"; };
 		CE46485B1BDFB85900C3C24B /* XBSAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBSAboutViewController.xib; sourceTree = "<group>"; };
@@ -576,6 +607,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE4334411BE7C52D000C407D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4334471BE7C52D000C407D /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF61B271B82BC950014B980 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -881,6 +920,33 @@
 			name = "Icon-Font";
 			sourceTree = "<group>";
 		};
+		CE4334451BE7C52D000C407D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE4334461BE7C52D000C407D /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE4334481BE7C52D000C407D /* ClassWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CE43344B1BE7C52D000C407D /* TodayViewController.h */,
+				CE43344C1BE7C52D000C407D /* TodayViewController.m */,
+				CE43344E1BE7C52D000C407D /* MainInterface.storyboard */,
+				CE4334491BE7C52D000C407D /* Supporting Files */,
+			);
+			path = ClassWidget;
+			sourceTree = "<group>";
+		};
+		CE4334491BE7C52D000C407D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE43344A1BE7C52D000C407D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		CE4648581BDFB85900C3C24B /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,6 +1175,8 @@
 				CEF61B601B82BE1B0014B980 /* SDK */,
 				CEF61B2C1B82BC950014B980 /* MoblieCQUPT_iOS */,
 				CEF61B461B82BC950014B980 /* MoblieCQUPT_iOSTests */,
+				CE4334481BE7C52D000C407D /* ClassWidget */,
+				CE4334451BE7C52D000C407D /* Frameworks */,
 				CEF61B2B1B82BC950014B980 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1118,6 +1186,7 @@
 			children = (
 				CEF61B2A1B82BC950014B980 /* 掌上重邮.app */,
 				CEF61B431B82BC950014B980 /* MoblieCQUPT_iOSTests.xctest */,
+				CE4334441BE7C52D000C407D /* ClassWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1475,6 +1544,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CE4334431BE7C52D000C407D /* ClassWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4334551BE7C52D000C407D /* Build configuration list for PBXNativeTarget "ClassWidget" */;
+			buildPhases = (
+				CE4334401BE7C52D000C407D /* Sources */,
+				CE4334411BE7C52D000C407D /* Frameworks */,
+				CE4334421BE7C52D000C407D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClassWidget;
+			productName = ClassWidget;
+			productReference = CE4334441BE7C52D000C407D /* ClassWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CEF61B291B82BC950014B980 /* MoblieCQUPT_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF61B4D1B82BC950014B980 /* Build configuration list for PBXNativeTarget "MoblieCQUPT_iOS" */;
@@ -1482,10 +1568,12 @@
 				CEF61B261B82BC950014B980 /* Sources */,
 				CEF61B271B82BC950014B980 /* Frameworks */,
 				CEF61B281B82BC950014B980 /* Resources */,
+				CE4334561BE7C52D000C407D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CE4334511BE7C52D000C407D /* PBXTargetDependency */,
 			);
 			name = MoblieCQUPT_iOS;
 			productName = MoblieCQUPT_iOS;
@@ -1519,6 +1607,10 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Orange-W";
 				TargetAttributes = {
+					CE4334431BE7C52D000C407D = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = MFV8K76J3Y;
+					};
 					CEF61B291B82BC950014B980 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = MFV8K76J3Y;
@@ -1544,11 +1636,20 @@
 			targets = (
 				CEF61B291B82BC950014B980 /* MoblieCQUPT_iOS */,
 				CEF61B421B82BC950014B980 /* MoblieCQUPT_iOSTests */,
+				CE4334431BE7C52D000C407D /* ClassWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE4334421BE7C52D000C407D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE43344F1BE7C52D000C407D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF61B281B82BC950014B980 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1678,6 +1779,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE4334401BE7C52D000C407D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE43344D1BE7C52D000C407D /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF61B261B82BC950014B980 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1793,6 +1902,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE4334511BE7C52D000C407D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE4334431BE7C52D000C407D /* ClassWidget */;
+			targetProxy = CE4334501BE7C52D000C407D /* PBXContainerItemProxy */;
+		};
 		CEF61B451B82BC950014B980 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CEF61B291B82BC950014B980 /* MoblieCQUPT_iOS */;
@@ -1820,6 +1934,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE4334531BE7C52D000C407D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ClassWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CE4334541BE7C52D000C407D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ClassWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CEF61B4B1B82BC950014B980 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1981,6 +2125,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE4334551BE7C52D000C407D /* Build configuration list for PBXNativeTarget "ClassWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4334531BE7C52D000C407D /* Debug */,
+				CE4334541BE7C52D000C407D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CEF61B251B82BC950014B980 /* Build configuration list for PBXProject "MoblieCQUPT_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
