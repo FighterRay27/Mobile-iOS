@@ -43,7 +43,8 @@
         label1.textAlignment = NSTextAlignmentCenter;
         [view addSubview:label1];
         
-        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(label1.frame.size.width+view.frame.size.width/10*2, view.frame.size.height/3, view.frame.size.width/10*6, view.frame.size.width/10)];
+        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(label1.frame.size.width+view.frame.size.width/10*2, view.frame.size.height/3, view.frame.size.width/10*6, view.frame.size.height)];
+        label2.numberOfLines = 0;
         label2.center = CGPointMake(view.frame.size.width/10*6, view.frame.size.height/2);
         label2.font = [UIFont systemFontOfSize:16];
         label2.text = array3[i];

@@ -374,6 +374,10 @@
     _backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _backgroundView.backgroundColor = [UIColor blackColor];
     _backgroundView.alpha = 0.7;
+    UIButton *backgroundViewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backgroundViewBtn.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    [backgroundViewBtn addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
+    [_backgroundView addSubview:backgroundViewBtn];
     [[[UIApplication sharedApplication]keyWindow]addSubview:_backgroundView];
     
     _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, ScreenWidth/9*7, ScreenHeight/7*5)];
@@ -442,15 +446,15 @@
     if (_weekViewShow) {
         [_shadeView removeFromSuperview];
         [UIView animateWithDuration:0.3 animations:^{
-            _backView.transform = CGAffineTransformMakeTranslation(0, 0);
+            _backView.frame = CGRectMake(0, -ScreenHeight/2, _backView.frame.size.width, _backView.frame.size.height);
         } completion:nil];
         _tagView.transform = CGAffineTransformMakeRotation(0);
         _weekViewShow = NO;
     }else {
         [UIView animateWithDuration:0.3 animations:^{
-            _backView.transform = CGAffineTransformMakeTranslation(0, _backView
-                                                                   .frame.size.height+64);
+            _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
         } completion:^(BOOL finished) {
+            _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
             [[[UIApplication sharedApplication]keyWindow]addSubview:_shadeView];
         }];
         _tagView.transform = CGAffineTransformMakeRotation(M_PI);
@@ -462,7 +466,7 @@
 - (void)hiddenWeekView {
     [_shadeView removeFromSuperview];
     [UIView animateWithDuration:0.3 animations:^{
-        _backView.transform = CGAffineTransformMakeTranslation(0, 0);
+        _backView.frame = CGRectMake(0, -ScreenHeight/2, _backView.frame.size.width, _backView.frame.size.height);
     } completion:nil];
     _tagView.transform = CGAffineTransformMakeRotation(0);
     _weekViewShow = NO;
@@ -504,7 +508,7 @@
 - (void)clickShadeView {
     [_shadeView removeFromSuperview];
     [UIView animateWithDuration:0.3 animations:^{
-        _backView.transform = CGAffineTransformMakeTranslation(0, 0);
+        _backView.frame = CGRectMake(0, -ScreenHeight/2, _backView.frame.size.width, _backView.frame.size.height);
     } completion:nil];
     _tagView.transform = CGAffineTransformMakeRotation(0);
     _weekViewShow = NO;
@@ -537,8 +541,16 @@
     
     if (gesture.state == UIGestureRecognizerStateChanged) {
         CGPoint point = [gesture translationInView:_backView];//求出手指在屏幕上的位移
-        _backView.center = CGPointMake(_backView.center.x,_startPoint.y + point.y);
-        _shadeView.center = CGPointMake(_shadeView.center.x, _startPoint1.y + point.y);
+        if (point.y < 0) {
+            _backView.center = CGPointMake(_backView.center.x,_startPoint.y + point.y);
+            _shadeView.center = CGPointMake(_shadeView.center.x, _startPoint1.y + point.y);
+        }
+    }
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        CGPoint point = [gesture translationInView:_backView];
+        if (point.y < 0) {
+            [self hiddenWeekView];
+        }
     }
 }
 
