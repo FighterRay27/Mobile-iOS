@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "We.h"
-#import "AFNetworking.h"
+#import <AFNetworking.h>
 
 @interface MainViewController : UITabBarController
 @end

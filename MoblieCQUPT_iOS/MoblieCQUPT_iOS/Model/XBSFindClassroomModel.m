@@ -9,7 +9,7 @@
 #import "XBSFindClassroomModel.h"
 #import "ProgressHUD.h"
 #import "XBSConsultConfig.h"
-#import "AFNetworking.h"
+#import <AFNetworking.h>
 #import "XBSFindClassroomViewController.h"
 #import "XBSConsultDataBundle.h"
 #import "XBSFindClassroomPeriodView.h"

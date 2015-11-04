@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CourseView.h"
-#import "UPStackMenu.h"
+#import <UPStackMenu.h>
 
 
 @interface CourseViewController : UIViewController<UITabBarControllerDelegate>

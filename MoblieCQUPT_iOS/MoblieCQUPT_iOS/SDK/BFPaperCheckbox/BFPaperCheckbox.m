@@ -27,7 +27,7 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-#import "BFPaperCheckbox.h"
+#import <BFPaperCheckbox.h>
 #import "UIColor+BFPaperColors.h"
 
 @interface BFPaperCheckbox()
@@ -992,7 +992,7 @@ static NSString *const mark_eraseLongLine = @"largeCheckmarkLine2";
     CGPathAddLineToPoint(path, NULL,
                          self.centerPoint.x + offset.x - radius * c,
                          self.centerPoint.y + offset.y - radius * s);
-    
+  
     return path;
 }
 
