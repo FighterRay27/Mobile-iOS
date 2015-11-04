@@ -525,7 +525,6 @@
         for (int i = 0; i < _weekDataArray.count; i ++) {
             if ([_weekDataArray[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
                 NSMutableDictionary *weekDataDic = [[NSMutableDictionary alloc]initWithDictionary:_weekDataArray[i]];
-                [weekDataDic setObject:[NSString stringWithFormat:@"%ld周",week] forKey:@"rawWeek"];
                 [weekCourseArray addObject:weekDataDic];
             }
         }
