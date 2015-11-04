@@ -1,0 +1,9 @@
+platform :ios,8.4
+  
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'UIColor+BFPaperColors'
+pod 'FMDB'
+pod 'UPStackMenu'
+pod 'BFPaperCheckbox'
+pod 'BugHD'
