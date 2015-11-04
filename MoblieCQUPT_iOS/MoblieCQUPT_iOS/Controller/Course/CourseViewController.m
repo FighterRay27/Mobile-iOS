@@ -129,8 +129,9 @@
     [shadeViewBtn addTarget:self action:@selector(clickShadeView) forControlEvents:UIControlEventTouchUpInside];
     [_shadeView  addSubview:shadeViewBtn];
     
-    _dataArray = [userDefault objectForKey:@"dataArray"];
-    [self handleData:_dataArray];
+    _weekDataArray = [userDefault objectForKey:@"weekDataArray"];
+    _weekDataArray = [self getWeekCourseArray:[nowWeek integerValue]];
+    [self handleData:_weekDataArray];
     [self loadNetData];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = YES;
