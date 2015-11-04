@@ -36,18 +36,20 @@
         imageView.image = [UIImage imageNamed:array2[i]];
         [view addSubview:imageView];
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(imageView.frame.size.width+view.frame.size.width/25*2, view.frame.size.height/3, view.frame.size.width/10*1.5, view.frame.size.width/10)];
-        label1.center = CGPointMake(view.frame.size.width/10*2, view.frame.size.height/2);
+        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(imageView.frame.size.width+view.frame.size.width/25*2, view.frame.size.height/3, view.frame.size.width/10*1.5, view.frame.size.height/3)];
         label1.text = array1[i];
         label1.font = [UIFont systemFontOfSize:14];
+        [label1 sizeToFit];
+        label1.center = CGPointMake(view.frame.size.width/10*2, view.frame.size.height/2);
         label1.textAlignment = NSTextAlignmentCenter;
         [view addSubview:label1];
         
-        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(label1.frame.size.width+view.frame.size.width/10*2, view.frame.size.height/3, view.frame.size.width/10*6, view.frame.size.height)];
-        label2.numberOfLines = 0;
-        label2.center = CGPointMake(view.frame.size.width/10*6, view.frame.size.height/2);
-        label2.font = [UIFont systemFontOfSize:16];
+        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectZero];
+        label2.font = [UIFont systemFontOfSize:14];
         label2.text = array3[i];
+        label2.numberOfLines = 0;
+        CGRect rect = [label2.text boundingRectWithSize:CGSizeMake(view.frame.size.width/10*6, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:label2.font} context:nil];
+        label2.frame = CGRectMake(label1.frame.size.width+view.frame.size.width/10*2, label1.frame.origin.y, rect.size.width, rect.size.height);
         [view addSubview:label2];
     }
     [self addSubview:infoView];
