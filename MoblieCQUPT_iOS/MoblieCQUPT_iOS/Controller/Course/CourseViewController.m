@@ -548,7 +548,31 @@
     if (gesture.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [gesture translationInView:_backView];
         if (point.y < 0) {
-            [self hiddenWeekView];
+            if (point.y > -60) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                    _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.05 animations:^{
+                        _backView.frame = CGRectMake(0, 61, _backView.frame.size.width, _backView.frame.size.height);
+                        _shadeView.frame = CGRectMake(0, _backView.frame.size.height+61, ScreenWidth, ScreenHeight);
+                    } completion:^(BOOL finished) {
+                        [UIView animateWithDuration:0.05 animations:^{
+                            _backView.frame = CGRectMake(0, 63, _backView.frame.size.width, _backView.frame.size.height);
+                            _shadeView.frame = CGRectMake(0, _backView.frame.size.height+63, ScreenWidth, ScreenHeight);
+                        } completion:^(BOOL finished) {
+                            [UIView animateWithDuration:0.05 animations:^{
+                                _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                                _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
+                            } completion:nil];
+                        }];
+                    }];
+                }];
+                
+            }else {
+               [self hiddenWeekView];
+            }
+            
         }
     }
 }
