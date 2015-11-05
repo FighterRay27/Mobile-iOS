@@ -279,20 +279,23 @@
 }
 
 - (void)handleColor:(NSMutableArray *)courses {
-    _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242", @"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+    _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
     NSMutableArray *courseArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < courses.count; i ++) {
         [courseArray addObject:[courses[i] objectForKey:@"course"]];
     }
     NSSet *courseSet = [NSSet setWithArray:courseArray];
-    int j = 0;
     for (NSString *string in courseSet) {
+        if (_colorArray.count == 0) {
+            _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+        }
+        int j = arc4random()%_colorArray.count;
         for (int i = 0; i < courses.count; i ++) {
             if ([string isEqualToString:[NSString stringWithFormat:@"%@",[courses[i] objectForKey:@"course"]]]) {
                 [courses[i] setObject:_colorArray[j] forKey:@"color"];
             }
         }
-        j++;
+        [_colorArray removeObject:_colorArray[j]];
     }
 }
 
@@ -528,6 +531,7 @@
                 [weekCourseArray addObject:weekDataDic];
             }
         }
+        [self handleColor:weekCourseArray];
     }
     return weekCourseArray;
 }
