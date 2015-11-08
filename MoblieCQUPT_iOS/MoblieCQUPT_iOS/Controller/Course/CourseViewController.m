@@ -15,7 +15,7 @@
 #import "CourseButton.h"
 #import "CourseView.h"
 #import "LoginViewController.h"
-#import "ProgressHUD.h"
+
 
 @interface CourseViewController ()<UIScrollViewDelegate,UPStackMenuItemDelegate,UPStackMenuDelegate>
 
@@ -533,6 +533,8 @@
         }
         [self handleColor:weekCourseArray];
     }
+    
+    
     return weekCourseArray;
 }
 

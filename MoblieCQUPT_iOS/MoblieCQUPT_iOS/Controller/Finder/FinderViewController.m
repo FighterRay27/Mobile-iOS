@@ -25,14 +25,22 @@
 
 @property (strong, nonatomic) UIView *buttonsView;
 
-@property (weak, nonatomic) IBOutlet UIButton *shopButton;
-@property (weak, nonatomic) IBOutlet UIButton *redrockButton;
-@property (weak, nonatomic) IBOutlet UIButton *chuangyeButton;
-@property (weak, nonatomic) IBOutlet UIButton *mapButton;
-@property (weak, nonatomic) IBOutlet UIButton *shakeButton;
-@property (weak, nonatomic) IBOutlet UIButton *communityButton;
+//@property (weak, nonatomic) IBOutlet UIButton *shopButton;
+//@property (weak, nonatomic) IBOutlet UIButton *redrockButton;
+//@property (weak, nonatomic) IBOutlet UIButton *chuangyeButton;
+//@property (weak, nonatomic) IBOutlet UIButton *mapButton;
+//@property (weak, nonatomic) IBOutlet UIButton *shakeButton;
+//@property (weak, nonatomic) IBOutlet UIButton *communityButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *width;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *redrockBtn;
+@property (weak, nonatomic) IBOutlet UIButton *mapBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shakeForShopBtn;
+@property (weak, nonatomic) IBOutlet UIButton *communityBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chuangyeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shopBtn;
 
 @end
 
@@ -49,39 +57,11 @@
         _mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, MAIN_SCREEN_H);
     }
     [self.view addSubview:_mainScrollView];
-
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ButtonView" owner:self options:nil];
-    _buttonsView = [nib objectAtIndex:0];
-    _buttonsView.frame = CGRectMake(0, MAIN_SCREEN_W/1.3 , MAIN_SCREEN_W, 300);
-    [self.mainScrollView addSubview:_buttonsView];
     
     //图片轮播
     self.automaticallyAdjustsScrollViewInsets = NO;//防止出现20或64的下移
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [_shopButton addTarget:self
-                    action:@selector(enterShop)
-          forControlEvents:UIControlEventTouchUpInside];
-    
-    [_redrockButton addTarget:self
-                       action:@selector(enterWeb)
-             forControlEvents:UIControlEventTouchUpInside];
-    
-    [_chuangyeButton addTarget:self
-                        action:@selector(enterIntroduction)
-              forControlEvents:UIControlEventTouchUpInside];
-    
-    [_mapButton addTarget:self
-                   action:@selector(enterMap)
-         forControlEvents:UIControlEventTouchUpInside];
-    
-    [_shakeButton addTarget:self
-                     action:@selector(enterShake)
-           forControlEvents:UIControlEventTouchUpInside];
-    
-    [_communityButton addTarget:self
-                      action:@selector(enterCommunity)
-            forControlEvents:UIControlEventTouchUpInside];
+
     
     //设置图片
     for(int i=0;i<kCount;i++){
@@ -102,6 +82,51 @@
     self.pageControl.currentPage=0;
     //时钟开始
     [self startTime];
+    
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"View" owner:self options:nil];
+    _buttonsView = [nib objectAtIndex:0];
+    _buttonsView.frame = CGRectMake(0, _scrollView.frame.size.height+64 , MAIN_SCREEN_W, MAIN_SCREEN_W/3*2);
+    [self.mainScrollView addSubview:_buttonsView];
+    
+    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(MAIN_SCREEN_W/3, 0, 1, _buttonsView.frame.size.height)];
+    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(MAIN_SCREEN_W/3*2, 0, 1, _buttonsView.frame.size.height)];
+    UIView *line3 = [[UIView alloc]initWithFrame:CGRectMake(0, _buttonsView.frame.size.height/2, MAIN_SCREEN_W, 1)];
+    UIView *line4 = [[UIView alloc]initWithFrame:CGRectMake(0, _buttonsView.frame.size.height, MAIN_SCREEN_W, 1)];
+    
+    line1.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
+    line2.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
+    line3.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
+    line4.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
+    
+    [_buttonsView addSubview:line1];
+    [_buttonsView addSubview:line2];
+    [_buttonsView addSubview:line3];
+    [_buttonsView addSubview:line4];
+    
+
+    [_shopBtn addTarget:self
+                 action:@selector(enterShop)
+       forControlEvents:UIControlEventTouchUpInside];
+    
+    [_redrockBtn addTarget:self
+                    action:@selector(enterWeb)
+          forControlEvents:UIControlEventTouchUpInside];
+    
+    [_chuangyeBtn addTarget:self
+                     action:@selector(enterIntroduction)
+           forControlEvents:UIControlEventTouchUpInside];
+    
+    [_mapBtn addTarget:self
+                action:@selector(enterMap)
+      forControlEvents:UIControlEventTouchUpInside];
+    
+    [_shakeForShopBtn addTarget:self
+                         action:@selector(enterShake)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    [_communityBtn addTarget:self
+                      action:@selector(enterCommunity)
+            forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -155,7 +180,7 @@
 {
     if(_scrollView==nil){
         //初始化scrollView
-        _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_W/1.4)];
+        _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, MAIN_SCREEN_W, 215)];
         _scrollView.backgroundColor=[UIColor clearColor];
         [self.mainScrollView addSubview:_scrollView];
         //设置scrollView的相关属性
@@ -180,8 +205,8 @@
         _pageControl.bounds=CGRectMake(0, 0, size.width, size.height);
         _pageControl.center=CGPointMake(self.view.center.x,  MAIN_SCREEN_W/1.4 - 15);
         //相关的属性
-        //        _pageControl.pageIndicatorTintColor=[UIColor grayColor];
-        //        _pageControl.currentPageIndicatorTintColor=[UIColor blackColor];
+        _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
+        _pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:25/255.0 green:170/255.0 blue:254/255.0 alpha:1];
         //添加控件
         [self.mainScrollView addSubview:_pageControl];
         //添加事件
@@ -224,7 +249,5 @@
     _pageControl.currentPage = num;
     
 }
-
-
 
 @end

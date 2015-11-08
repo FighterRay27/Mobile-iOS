@@ -10,7 +10,6 @@
 #import "NetWork.h"
 #import "CourseViewController.h"
 #import "LoginEntry.h"
-#import "ProgressHUD.h"
 
 #define Base_Login @"http://hongyan.cqupt.edu.cn/api/verify"
 
@@ -110,7 +109,6 @@
 
 - (void)loginButton:(UIButton *)sender {
     sender.enabled = NO;
-    [ProgressHUD show:@"登录中"];
     [UIView animateWithDuration:1.5 animations:^{
         [sender setTitle:@"登录中" forState:UIControlStateNormal];
     } completion:nil];
@@ -122,7 +120,6 @@
                      WithReturnValeuBlock:^(id returnValue) {
                          self.dataDic = returnValue;
                          if (![_dataDic[@"info"] isEqualToString:@"success"]) {
-                             [ProgressHUD showError:@"账号或密码输入错误,请重新输入"];
                              [UIView animateWithDuration:0.8 animations:^{
                                  [sender setTitle:@"登录" forState:UIControlStateNormal];
                              } completion:nil];
@@ -136,7 +133,6 @@
                          }
                      } WithFailureBlock:^{
                          sender.enabled = YES;
-                         [ProgressHUD showError:@"请检查你的网络连接"];
                          [UIView animateWithDuration:0.8 animations:^{
                              [sender setTitle:@"登录" forState:UIControlStateNormal];
                          } completion:nil];
