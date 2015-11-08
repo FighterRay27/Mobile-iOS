@@ -25,12 +25,6 @@
 
 @property (strong, nonatomic) UIView *buttonsView;
 
-//@property (weak, nonatomic) IBOutlet UIButton *shopButton;
-//@property (weak, nonatomic) IBOutlet UIButton *redrockButton;
-//@property (weak, nonatomic) IBOutlet UIButton *chuangyeButton;
-//@property (weak, nonatomic) IBOutlet UIButton *mapButton;
-//@property (weak, nonatomic) IBOutlet UIButton *shakeButton;
-//@property (weak, nonatomic) IBOutlet UIButton *communityButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *width;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
 
@@ -180,7 +174,7 @@
 {
     if(_scrollView==nil){
         //初始化scrollView
-        _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, MAIN_SCREEN_W, 215)];
+        _scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, MAIN_SCREEN_W, MAIN_SCREEN_W*0.56)];
         _scrollView.backgroundColor=[UIColor clearColor];
         [self.mainScrollView addSubview:_scrollView];
         //设置scrollView的相关属性
@@ -203,7 +197,7 @@
         //控件的尺寸
         CGSize size=[_pageControl sizeForNumberOfPages:kCount];
         _pageControl.bounds=CGRectMake(0, 0, size.width, size.height);
-        _pageControl.center=CGPointMake(self.view.center.x,  MAIN_SCREEN_W/1.4 - 15);
+        _pageControl.center=CGPointMake(MAIN_SCREEN_W - 50,  MAIN_SCREEN_W/1.4 - 10);
         //相关的属性
         _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
         _pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:25/255.0 green:170/255.0 blue:254/255.0 alpha:1];
