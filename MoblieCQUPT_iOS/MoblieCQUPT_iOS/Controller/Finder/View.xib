@@ -9,11 +9,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinderViewController">
             <connections>
                 <outlet property="chuangyeBtn" destination="Wen-Ml-eKg" id="ddq-FB-7cw"/>
+                <outlet property="chuangyeOfView" destination="0d7-ka-VWR" id="jw0-0R-OnW"/>
+                <outlet property="chuangyeView" destination="Iyr-oU-I3f" id="mH4-oh-d0A"/>
                 <outlet property="communityBtn" destination="dmO-d4-ZBx" id="7kd-xT-TdQ"/>
+                <outlet property="communityOfView" destination="aHW-4D-OHq" id="Epu-rI-QlM"/>
+                <outlet property="communityView" destination="dNn-T0-Z7y" id="uD4-ar-lPo"/>
                 <outlet property="mapBtn" destination="Dhg-o3-BHY" id="rX4-fz-Ty4"/>
+                <outlet property="mapOfView" destination="LjP-ih-Q0h" id="aFh-V0-Ksz"/>
+                <outlet property="mapView" destination="tlz-1A-jVU" id="rVb-J0-yxY"/>
                 <outlet property="redrockBtn" destination="h0y-1z-gkq" id="IVf-TO-dJ9"/>
+                <outlet property="redrockOfView" destination="kpx-wp-5ZK" id="khv-2v-gvC"/>
+                <outlet property="redrockView" destination="Ydb-aH-H6u" id="gir-Be-elh"/>
                 <outlet property="shakeForShopBtn" destination="yzI-Q2-ulJ" id="VLu-tM-9Mm"/>
+                <outlet property="shakeForShopOfView" destination="zqB-NQ-d7D" id="hwl-5E-Blk"/>
+                <outlet property="shakeForShopView" destination="Y0c-qc-pGr" id="uo5-gZ-TKO"/>
                 <outlet property="shopBtn" destination="QNK-wP-f51" id="WrM-S6-sXL"/>
+                <outlet property="shopOfView" destination="evX-lm-pxr" id="Wbp-bB-NON"/>
+                <outlet property="shopView" destination="Kiy-Kg-nvN" id="oJZ-HJ-DvS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

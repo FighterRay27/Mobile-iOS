@@ -36,6 +36,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *chuangyeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *shopBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *redrockView;
+@property (weak, nonatomic) IBOutlet UIView *mapView;
+@property (weak, nonatomic) IBOutlet UIView *shakeForShopView;
+@property (weak, nonatomic) IBOutlet UIView *communityView;
+@property (weak, nonatomic) IBOutlet UIView *chuangyeView;
+@property (weak, nonatomic) IBOutlet UIView *shopView;
+@property (weak, nonatomic) IBOutlet UIView *shopOfView;
+@property (weak, nonatomic) IBOutlet UIView *chuangyeOfView;
+@property (weak, nonatomic) IBOutlet UIView *communityOfView;
+@property (weak, nonatomic) IBOutlet UIView *shakeForShopOfView;
+@property (weak, nonatomic) IBOutlet UIView *mapOfView;
+@property (weak, nonatomic) IBOutlet UIView *redrockOfView;
+
 @end
 
 @implementation FinderViewController
@@ -97,30 +110,47 @@
     [_buttonsView addSubview:line3];
     [_buttonsView addSubview:line4];
     
-
     [_shopBtn addTarget:self
                  action:@selector(enterShop)
        forControlEvents:UIControlEventTouchUpInside];
+    [_shopBtn addTarget:self
+                 action:@selector(clickShop)
+       forControlEvents:UIControlEventTouchDown];
     
     [_redrockBtn addTarget:self
                     action:@selector(enterWeb)
           forControlEvents:UIControlEventTouchUpInside];
+    [_redrockBtn addTarget:self
+                    action:@selector(clickRedrock)
+          forControlEvents:UIControlEventTouchDown];
     
     [_chuangyeBtn addTarget:self
                      action:@selector(enterIntroduction)
            forControlEvents:UIControlEventTouchUpInside];
+    [_chuangyeBtn addTarget:self
+                     action:@selector(clickChuangye)
+           forControlEvents:UIControlEventTouchDown];
     
     [_mapBtn addTarget:self
                 action:@selector(enterMap)
       forControlEvents:UIControlEventTouchUpInside];
+    [_mapBtn addTarget:self
+                action:@selector(clickMap)
+      forControlEvents:UIControlEventTouchDown];
     
     [_shakeForShopBtn addTarget:self
                          action:@selector(enterShake)
                forControlEvents:UIControlEventTouchUpInside];
+    [_shakeForShopBtn addTarget:self
+                         action:@selector(clickShake)
+               forControlEvents:UIControlEventTouchDown];
     
     [_communityBtn addTarget:self
                       action:@selector(enterCommunity)
             forControlEvents:UIControlEventTouchUpInside];
+    [_communityBtn addTarget:self
+                      action:@selector(clickCommunity)
+            forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -137,36 +167,77 @@
     ShopViewController *svc = [[ShopViewController alloc] init];
     [self.navigationController pushViewController:svc
                                          animated:YES];
+    _shopView.backgroundColor = [UIColor clearColor];
+    _shopOfView.backgroundColor = [UIColor clearColor];
+}
+- (void)clickShop {
+    _shopView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _shopOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 - (void)enterWeb{
     WebViewController *wvc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     [self.navigationController pushViewController:wvc
                                          animated:YES];
+    _redrockView.backgroundColor = [UIColor clearColor];
+    _redrockOfView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)clickRedrock {
+    _redrockView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _redrockOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 - (void)enterIntroduction{
     ChuangyeViewController *cvc = [[ChuangyeViewController alloc] init];
     [self.navigationController pushViewController:cvc
                                          animated:YES];
+    _chuangyeView.backgroundColor = [UIColor clearColor];
+    _chuangyeOfView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)clickChuangye {
+    _chuangyeView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _chuangyeOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 - (void)enterMap{
     MapViewController *mvc = [[MapViewController alloc] init];
     [self.navigationController pushViewController:mvc
                                          animated:YES];
+    _mapView.backgroundColor = [UIColor clearColor];
+    _mapOfView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)clickMap {
+    _mapView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _mapOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 - (void)enterShake{
     ShakeViewController *svc = [[ShakeViewController alloc] init];
     [self.navigationController pushViewController:svc
                                          animated:YES];
+    _shakeForShopView.backgroundColor = [UIColor clearColor];
+    _shakeForShopOfView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)clickShake {
+    _shakeForShopView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _shakeForShopOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 - (void)enterCommunity{
     CommunityViewController *cvc = [[CommunityViewController alloc] init];
     [self.navigationController pushViewController:cvc
                                          animated:YES];
+    _communityView.backgroundColor = [UIColor clearColor];
+    _communityOfView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)clickCommunity {
+    _communityView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+    _communityOfView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
 }
 
 #pragma mark - 图片轮播
