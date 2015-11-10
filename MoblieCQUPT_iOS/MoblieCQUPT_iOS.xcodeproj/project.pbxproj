@@ -152,6 +152,7 @@
 		D9D7BD1A1BD0C3EC000B0EC9 /* iconfont-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D7BD191BD0C3EC000B0EC9 /* iconfont-tag.png */; };
 		D9DF23A51BD32FF8007874D9 /* iconfont-name.png in Resources */ = {isa = PBXBuildFile; fileRef = D9DF23A31BD32FF8007874D9 /* iconfont-name.png */; };
 		D9DF23A61BD32FF8007874D9 /* iconfont-password.png in Resources */ = {isa = PBXBuildFile; fileRef = D9DF23A41BD32FF8007874D9 /* iconfont-password.png */; };
+		D9FAECF71BEDF5220010ED3F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FAECF61BEDF5220010ED3F /* View.xib */; settings = {ASSET_TAGS = (); }; };
 		E23827071B9477D80058970E /* CourseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E23827011B9477D80058970E /* CourseButton.m */; };
 		E23827081B9477D80058970E /* CourseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23827031B9477D80058970E /* CourseView.m */; };
 		E23827091B9477D80058970E /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23827051B9477D80058970E /* CourseViewController.m */; };
@@ -440,6 +441,7 @@
 		D9DF23A31BD32FF8007874D9 /* iconfont-name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-name.png"; sourceTree = "<group>"; };
 		D9DF23A41BD32FF8007874D9 /* iconfont-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-password.png"; sourceTree = "<group>"; };
 		D9F548C41B9CA83F006F5EFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D9FAECF61BEDF5220010ED3F /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		E23827001B9477D80058970E /* CourseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseButton.h; sourceTree = "<group>"; };
 		E23827011B9477D80058970E /* CourseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseButton.m; sourceTree = "<group>"; };
 		E23827021B9477D80058970E /* CourseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseView.h; sourceTree = "<group>"; };
@@ -1170,6 +1172,7 @@
 				E263C7471BA35E26008488FA /* FinderViewController.h */,
 				E263C7481BA35E26008488FA /* FinderViewController.m */,
 				E263C73E1BA35E26008488FA /* ButtonView.xib */,
+				D9FAECF61BEDF5220010ED3F /* View.xib */,
 				E263C73F1BA35E26008488FA /* chuangyegu */,
 				E263C7431BA35E26008488FA /* Community */,
 				E263C7491BA35E26008488FA /* icon */,
@@ -1366,6 +1369,7 @@
 				CEF61B281B82BC950014B980 /* Resources */,
 				CE4334561BE7C52D000C407D /* Embed App Extensions */,
 				6020B742D2DFB7C326F08835 /* Copy Pods Resources */,
+				00EAE2DB88C3711BA7B56D61 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1472,6 +1476,7 @@
 				D96125EF1B9F1010002D4F80 /* iconfont-week.png in Resources */,
 				CEE1E2281B99AFF00088EC7C /* tuichu_red.png in Resources */,
 				CEF61B391B82BC950014B980 /* Main.storyboard in Resources */,
+				D9FAECF71BEDF5220010ED3F /* View.xib in Resources */,
 				CEF2738A1B90D573009B5BA2 /* 20-2补考.png in Resources */,
 				E263C7781BA35E26008488FA /* community@2x.png in Resources */,
 				CE3BC7ED1BE8C63B0002CBA4 /* XBSFindClassroomViewController.xib in Resources */,
@@ -1546,6 +1551,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00EAE2DB88C3711BA7B56D61 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6020B742D2DFB7C326F08835 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

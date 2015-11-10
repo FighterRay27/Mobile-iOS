@@ -76,6 +76,7 @@ static Boolean isClick = NO;
 
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     if ([item isEqual:self.tabBar.items[0]]) {
         self.navigationController.navigationBarHidden = YES;
     }else{
