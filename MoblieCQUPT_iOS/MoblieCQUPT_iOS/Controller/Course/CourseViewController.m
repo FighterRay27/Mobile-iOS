@@ -36,6 +36,7 @@
 @property (strong, nonatomic)NSArray *dataArray;
 @property (strong, nonatomic)NSArray *weekDataArray;
 @property (strong, nonatomic)NSMutableArray *buttonTag;
+@property (strong, nonatomic)NSMutableArray *courseBackViewTag;
 
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIPageControl *page;
@@ -151,14 +152,19 @@
     [_mainView addSubview:dayView];
     _mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, ScreenWidth, _mainView.frame.size.height - 30)];
     
+    _courseBackViewTag = [NSMutableArray array];
     for (int i = 0; i < 7; i ++) {
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake((i+0.5)*kWidthGrid, 0, kWidthGrid-2, kWidthGrid*12-2)];
         NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:[NSDate date]];
         NSInteger weekDay = [componets weekday];
+        if (weekDay == 1) {
+            weekDay = 8;
+        }
         if (i == weekDay - 2) {
             view.backgroundColor = [UIColor colorWithRed:253/255.0 green:246/255.0 blue:235/255.0 alpha:1];
         }
         [_mainScrollView addSubview:view];
+        [_courseBackViewTag addObject:view];
     }
     
     NSArray *array = @[@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",@"周日"];
@@ -506,6 +512,25 @@
     _dataArray = [self getWeekCourseArray:sender.tag];
     [self handleData:_dataArray];
     [self showWeekList];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *nowWeek = [user objectForKey:@"nowWeek"];
+    if (sender.tag != [nowWeek integerValue]) {
+        for (int i = 0; i < _courseBackViewTag.count; i ++) {
+            UIView *view = _courseBackViewTag[i];
+            view.backgroundColor = [UIColor clearColor];
+            _courseBackViewTag[i] = view;
+        }
+    }else if (sender.tag == [nowWeek integerValue]) {
+        NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:[NSDate date]];
+        NSInteger weekDay = [componets weekday];
+        if (weekDay == 1) {
+            weekDay = 8;
+        }
+        UIView *view = _courseBackViewTag[weekDay - 2];
+        view.backgroundColor = [UIColor colorWithRed:253/255.0 green:246/255.0 blue:235/255.0 alpha:1];
+        _courseBackViewTag[weekDay - 2] = view;
+    }
 }
 
 - (void)clickShadeView {
@@ -553,7 +578,8 @@
     }
     if (gesture.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [gesture translationInView:_backView];
-        if (point.y < 0) {
+        CGPoint point1 = [gesture velocityInView:_backView];
+        if (point1.y < 0) {
             if (point.y > -60) {
                 [UIView animateWithDuration:0.2 animations:^{
                     _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
@@ -574,11 +600,29 @@
                         }];
                     }];
                 }];
-                
             }else {
                [self hiddenWeekView];
             }
-            
+        }else if (point1.y > 0) {
+            [UIView animateWithDuration:0.2 animations:^{
+                _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.05 animations:^{
+                    _backView.frame = CGRectMake(0, 61, _backView.frame.size.width, _backView.frame.size.height);
+                    _shadeView.frame = CGRectMake(0, _backView.frame.size.height+61, ScreenWidth, ScreenHeight);
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.05 animations:^{
+                        _backView.frame = CGRectMake(0, 63, _backView.frame.size.width, _backView.frame.size.height);
+                        _shadeView.frame = CGRectMake(0, _backView.frame.size.height+63, ScreenWidth, ScreenHeight);
+                    } completion:^(BOOL finished) {
+                        [UIView animateWithDuration:0.05 animations:^{
+                            _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                            _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
+                        } completion:nil];
+                    }];
+                }];
+            }];
         }
     }
 }
