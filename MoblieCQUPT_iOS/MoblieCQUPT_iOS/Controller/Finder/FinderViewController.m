@@ -114,12 +114,18 @@
                  action:@selector(enterShop)
        forControlEvents:UIControlEventTouchUpInside];
     [_shopBtn addTarget:self
+                 action:@selector(enterShop)
+       forControlEvents:UIControlEventTouchUpOutside];
+    [_shopBtn addTarget:self
                  action:@selector(clickShop)
        forControlEvents:UIControlEventTouchDown];
     
     [_redrockBtn addTarget:self
                     action:@selector(enterWeb)
           forControlEvents:UIControlEventTouchUpInside];
+    [_redrockBtn addTarget:self
+                    action:@selector(enterWeb)
+          forControlEvents:UIControlEventTouchUpOutside];
     [_redrockBtn addTarget:self
                     action:@selector(clickRedrock)
           forControlEvents:UIControlEventTouchDown];
@@ -128,12 +134,18 @@
                      action:@selector(enterIntroduction)
            forControlEvents:UIControlEventTouchUpInside];
     [_chuangyeBtn addTarget:self
+                     action:@selector(enterIntroduction)
+           forControlEvents:UIControlEventTouchUpOutside];
+    [_chuangyeBtn addTarget:self
                      action:@selector(clickChuangye)
            forControlEvents:UIControlEventTouchDown];
     
     [_mapBtn addTarget:self
                 action:@selector(enterMap)
       forControlEvents:UIControlEventTouchUpInside];
+    [_mapBtn addTarget:self
+                action:@selector(enterMap)
+      forControlEvents:UIControlEventTouchUpOutside];
     [_mapBtn addTarget:self
                 action:@selector(clickMap)
       forControlEvents:UIControlEventTouchDown];
@@ -142,12 +154,18 @@
                          action:@selector(enterShake)
                forControlEvents:UIControlEventTouchUpInside];
     [_shakeForShopBtn addTarget:self
+                         action:@selector(enterShake)
+               forControlEvents:UIControlEventTouchUpOutside];
+    [_shakeForShopBtn addTarget:self
                          action:@selector(clickShake)
                forControlEvents:UIControlEventTouchDown];
     
     [_communityBtn addTarget:self
                       action:@selector(enterCommunity)
             forControlEvents:UIControlEventTouchUpInside];
+    [_communityBtn addTarget:self
+                      action:@selector(enterCommunity)
+            forControlEvents:UIControlEventTouchUpOutside];
     [_communityBtn addTarget:self
                       action:@selector(clickCommunity)
             forControlEvents:UIControlEventTouchDown];
