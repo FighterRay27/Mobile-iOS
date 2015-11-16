@@ -249,6 +249,9 @@
                     _clickBtn = weekBtn1;
                 }
                 [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekBtn1.titleLabel.text] forState:UIControlStateNormal];
+                [_titleButton sizeToFit];
+                _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
+                _tagView.center = CGPointMake(_titleButton.center.x+_titleButton.frame.size.width/2+8, _nav.frame.size.height/2+10);
                 if ([nowWeek integerValue] > 6 && [nowWeek integerValue] < 13) {
                     _weekScrollView.contentOffset = CGPointMake(0, _weekScrollView.frame.size.height/2);
                 }
