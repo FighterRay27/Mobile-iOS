@@ -111,13 +111,14 @@
     
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
-    _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
     [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
+    [_titleButton sizeToFit];
+    _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
     [_titleButton addTarget:self action:@selector(showWeekList) forControlEvents:UIControlEventTouchUpInside];
     [_nav addSubview:_titleButton];
     
     _tagView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 13, 6)];
-    _tagView.center = CGPointMake(ScreenWidth/2+37, _nav.frame.size.height/2+10);
+    _tagView.center = CGPointMake(_titleButton.center.x+_titleButton.frame.size.width/2+8, _nav.frame.size.height/2+10);
     _tagView.image = [UIImage imageNamed:@"iconfont-titleTag.png"];
     [_nav addSubview:_tagView];
     
@@ -485,17 +486,14 @@
     for (int i = 0; i < _buttonTag.count; i ++) {
         [_buttonTag[i] removeFromSuperview];
     }
-    if (sender.tag >= 0 && sender.tag <= 10) {
-        _tagView.center = CGPointMake(ScreenWidth/2+37, _nav.frame.size.height/2+10);
-    }else if (sender.tag > 10 && sender.tag < 19) {
-        _tagView.center = CGPointMake(ScreenWidth/2+45, _nav.frame.size.height/2+10);
-    }
-    
     if (_clickBtn == nil) {
         sender.selected = YES;
         [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         sender.backgroundColor = [UIColor colorWithRed:250/255.0 green:165/255.0 blue:69/255.0 alpha:1];
         [_titleButton setTitle:[NSString stringWithFormat:@"%@",sender.titleLabel.text] forState:UIControlStateNormal];
+        [_titleButton sizeToFit];
+        _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
+        _tagView.center = CGPointMake(_titleButton.center.x+_titleButton.frame.size.width/2+8, _nav.frame.size.height/2+10);
         _clickBtn = sender;
     }else if (_clickBtn == sender) {
         sender.selected = YES;
@@ -507,6 +505,9 @@
         [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         sender.backgroundColor = [UIColor colorWithRed:250/255.0 green:165/255.0 blue:69/255.0 alpha:1];
         [_titleButton setTitle:[NSString stringWithFormat:@"%@",sender.titleLabel.text] forState:UIControlStateNormal];
+        [_titleButton sizeToFit];
+        _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
+        _tagView.center = CGPointMake(_titleButton.center.x+_titleButton.frame.size.width/2+8, _nav.frame.size.height/2+10);
         _clickBtn = sender;
     }
     _dataArray = [self getWeekCourseArray:sender.tag];
