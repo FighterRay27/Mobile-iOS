@@ -457,22 +457,24 @@
 
 - (void)showWeekList {
     if (_weekViewShow) {
-        [_shadeView removeFromSuperview];
-        [UIView animateWithDuration:0.3 animations:^{
-            _backView.frame = CGRectMake(0, -ScreenHeight/2, _backView.frame.size.width, _backView.frame.size.height);
-        } completion:nil];
         _tagView.transform = CGAffineTransformMakeRotation(0);
-        _weekViewShow = NO;
+        [UIView animateWithDuration:0 animations:^{
+            [_shadeView removeFromSuperview];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.3 animations:^{
+                _backView.frame = CGRectMake(0, -ScreenHeight/2, _backView.frame.size.width, _backView.frame.size.height);
+                _weekViewShow = NO;
+            } completion:nil];
+        }];
     }else {
+        _tagView.transform = CGAffineTransformMakeRotation(M_PI);
         [UIView animateWithDuration:0.3 animations:^{
             _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
         } completion:^(BOOL finished) {
             _shadeView.frame = CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight);
             [[[UIApplication sharedApplication]keyWindow]addSubview:_shadeView];
+            _weekViewShow = YES;
         }];
-        _tagView.transform = CGAffineTransformMakeRotation(M_PI);
-        _weekViewShow = YES;
-        
     }
 }
 
