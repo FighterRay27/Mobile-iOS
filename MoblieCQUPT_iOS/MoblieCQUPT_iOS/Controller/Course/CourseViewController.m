@@ -109,7 +109,6 @@
     _nav = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
     _nav.backgroundColor = MAIN_COLOR;
     [self.view addSubview:_nav];
-    
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
     [_titleButton setTitle:[NSString stringWithFormat:@"%@",_weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
@@ -239,13 +238,13 @@
         for (int i = 0; i < _weekBtnArray.count; i ++) {
             if (i == [nowWeek integerValue]) {
                 UIButton *weekBtn1 = _weekBtnArray[i];
+                [weekBtn1 setTitle:@"本周" forState:UIControlStateNormal];
                 if (_clickBtn != weekBtn1 || _clickBtn == nil) {
                     _clickBtn.selected = NO;
                     [_clickBtn setTitle:[NSString stringWithFormat:@"%@",_weekArray[i-1]] forState:UIControlStateNormal];
                     [_clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                     _clickBtn.backgroundColor = [UIColor whiteColor];
                     weekBtn1.selected = YES;
-                    [weekBtn1 setTitle:@"本周" forState:UIControlStateNormal];
                     [weekBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     weekBtn1.backgroundColor = [UIColor colorWithRed:250/255.0 green:165/255.0 blue:69/255.0 alpha:1];
                     [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekBtn1.titleLabel.text] forState:UIControlStateNormal];
