@@ -29,20 +29,21 @@
 @property (strong, nonatomic) UIView *nav;
 @property (strong, nonatomic) NSMutableArray *weekBtnArray;
 
-@property (strong, nonatomic)UIView *mainView;
-@property (strong, nonatomic)UIScrollView *mainScrollView;
-@property (strong, nonatomic)NSMutableArray *colorArray;
-@property (strong, nonatomic)NSMutableSet *registRepeatClassSet;
-@property (strong, nonatomic)NSArray *dataArray;
-@property (strong, nonatomic)NSArray *weekDataArray;
-@property (strong, nonatomic)NSMutableArray *buttonTag;
-@property (strong, nonatomic)NSMutableArray *courseBackViewTag;
+@property (strong, nonatomic) UIView *mainView;
+@property (strong, nonatomic) UIScrollView *mainScrollView;
+@property (strong, nonatomic) NSMutableArray *colorArray;
+@property (strong, nonatomic) NSMutableSet *registRepeatClassSet;
+@property (strong, nonatomic) NSArray *dataArray;
+@property (strong, nonatomic) NSArray *weekDataArray;
+@property (strong, nonatomic) NSArray *weekArray;
+@property (strong, nonatomic) NSMutableArray *buttonTag;
+@property (strong, nonatomic) NSMutableArray *courseBackViewTag;
 
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIPageControl *page;
 @property (strong, nonatomic) UIView *alertView;
 
-@property (strong, nonatomic)NSMutableDictionary *parameter;
+@property (strong, nonatomic) NSMutableDictionary *parameter;
 @property (assign, nonatomic) CGPoint startPoint;
 @property (assign, nonatomic) CGPoint startPoint1;
 @end
@@ -64,13 +65,13 @@
     _weekScrollView.bounces = NO;
     [_backView addSubview:_weekScrollView];
     
-    NSArray *weekArray = @[@"本学期",@"第一周",@"第二周",@"第三周",@"第四周",@"第五周",@"第六周",@"第七周",@"第八周",@"第九周",@"第十周",@"第十一周",@"第十二周",@"第十三周",@"第十四周",@"第十五周",@"第十六周",@"第十七周",@"第十八周"];
+    _weekArray = @[@"本学期",@"第一周",@"第二周",@"第三周",@"第四周",@"第五周",@"第六周",@"第七周",@"第八周",@"第九周",@"第十周",@"第十一周",@"第十二周",@"第十三周",@"第十四周",@"第十五周",@"第十六周",@"第十七周",@"第十八周"];
     NSString *nowWeek = [userDefault objectForKey:@"nowWeek"];
     _weekBtnArray = [NSMutableArray array];
     for (int i = 0; i < 19; i ++) {
         UIButton *weekBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         weekBtn.frame = CGRectMake(0, 35*i, ScreenWidth, 35);
-        [weekBtn setTitle:weekArray[i] forState:UIControlStateNormal];
+        [weekBtn setTitle:_weekArray[i] forState:UIControlStateNormal];
         if (nowWeek != nil && i == [nowWeek integerValue]) {
             weekBtn.selected = YES;
             [weekBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -111,7 +112,7 @@
     
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
-    [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
+    [_titleButton setTitle:[NSString stringWithFormat:@"%@",_weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
     [_titleButton sizeToFit];
     _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
     [_titleButton addTarget:self action:@selector(showWeekList) forControlEvents:UIControlEventTouchUpInside];
@@ -240,9 +241,11 @@
                 UIButton *weekBtn1 = _weekBtnArray[i];
                 if (_clickBtn != weekBtn1 || _clickBtn == nil) {
                     _clickBtn.selected = NO;
+                    [_clickBtn setTitle:[NSString stringWithFormat:@"%@",_weekArray[i-1]] forState:UIControlStateNormal];
                     [_clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                     _clickBtn.backgroundColor = [UIColor whiteColor];
                     weekBtn1.selected = YES;
+                    [weekBtn1 setTitle:@"本周" forState:UIControlStateNormal];
                     [weekBtn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     weekBtn1.backgroundColor = [UIColor colorWithRed:250/255.0 green:165/255.0 blue:69/255.0 alpha:1];
                     [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekBtn1.titleLabel.text] forState:UIControlStateNormal];
@@ -258,6 +261,7 @@
             }
         }
     } WithFailureBlock:^{
+        NSLog(@"课表数据请求失败");
     }];
 }
 
