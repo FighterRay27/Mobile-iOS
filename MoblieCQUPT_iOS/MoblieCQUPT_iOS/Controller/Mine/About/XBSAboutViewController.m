@@ -27,7 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
     self.tapNum = 0;
     [self.appName setTextColor:[UIColor paperColorGray500]];
     [self.appVersion setTextColor:[UIColor paperColorGray500]];
