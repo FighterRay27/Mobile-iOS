@@ -100,10 +100,10 @@
     UIView *line3 = [[UIView alloc]initWithFrame:CGRectMake(0, _buttonsView.frame.size.height/2, MAIN_SCREEN_W, 1)];
     UIView *line4 = [[UIView alloc]initWithFrame:CGRectMake(0, _buttonsView.frame.size.height, MAIN_SCREEN_W, 1)];
     
-    line1.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
-    line2.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
-    line3.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
-    line4.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
+    line1.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
+    line2.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
+    line3.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
+    line4.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
     
     [_buttonsView addSubview:line1];
     [_buttonsView addSubview:line2];
