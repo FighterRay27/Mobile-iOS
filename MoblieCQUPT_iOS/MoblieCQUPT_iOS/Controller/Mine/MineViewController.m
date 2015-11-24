@@ -246,6 +246,19 @@
         [label sizeToFit];
         label.center = CGPointMake(label.center.x, cell.center.y);
         [cell addSubview:label];
+        
+        CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+        CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+        if (indexPath.section!=4 && indexPath.section!=8) {
+        
+           UIView *coverView = [[UIView alloc]initWithFrame:
+                                CGRectMake(rect.origin.x,
+                                           rect.origin.y-cell.frame.size.height/2,
+                                           imgView.frame.size.width+12,
+                                           2)];
+            coverView.backgroundColor = [UIColor whiteColor];
+            [tableView addSubview:coverView];
+        }
 
         
     }
