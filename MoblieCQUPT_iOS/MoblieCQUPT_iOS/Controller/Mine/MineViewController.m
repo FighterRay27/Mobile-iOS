@@ -39,7 +39,7 @@
     _mainScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _mainScrollView.showsVerticalScrollIndicator=NO;
     _mainScrollView.backgroundColor = [UIColor whiteColor];
-    _mainScrollView.bounces = NO;
+    _mainScrollView.bounces = YES;
     [self.view addSubview:_mainScrollView];
     
     _currentHeight = 65;
@@ -134,6 +134,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView setAutoresizesSubviews:NO];
+        [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
     
     return _tableView;
@@ -198,25 +199,24 @@
         if(indexPath.section == 0){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"imageHead"];
 //            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-            CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
-            CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//            CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+//            CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
             UIButton *headImage = [self getMyPhotoWithFrame:CGRectMake(20, CGRectGetHeight(cell.frame)/2, 50, 50)];
-            headImage.center = CGPointMake(headImage.center.x
-                                           , rectInTableView.origin.y+size.height);
+            headImage.center = CGPointMake(headImage.center.x, 40);
             
-            
-            [cell addSubview:headImage];
+//            headImage.center = CGPointMake(headImage.center.x, cell.contentView.frame.size.height);
+            [cell.contentView addSubview:headImage];
             
             UILabel *label = [[UILabel alloc] init];
             label.text = [LoginEntry getByUserdefaultWithKey:@"name"];
             label.frame = CGRectMake(headImage.frame.size.width+30, 0, 0, 0);
             label.font = [UIFont fontWithName:@"Arial" size:16];
-            label.tintColor = [UIColor lightTextColor];
+            label.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
             [label sizeToFit];
             label.center = CGPointMake(label.center.x, headImage.center.y);
             
             
-            [cell addSubview:label];
+            [cell.contentView addSubview:label];
             return  cell;
         }
         
@@ -230,36 +230,46 @@
         UIImageView *imgView = [[UIImageView alloc]initWithImage:img];
         
         /** 登出图标 **/
-        if (indexPath.section == [_cellDictionary count]-1 ) {
-            imgView.tintColor = [UIColor blackColor];
-        }
+//        if (indexPath.section == [_cellDictionary count]-1 ) {
+//            imgView.tintColor = [UIColor redColor];
+//        }
         
-        imgView.frame = CGRectMake(8, CGRectGetHeight(cell.frame)/2, MAIN_SCREEN_W*0.05, MAIN_SCREEN_W*0.05);
+//        imgView.frame = CGRectMake(8, CGRectGetHeight(cell.frame)/2, MAIN_SCREEN_W*0.05, MAIN_SCREEN_W*0.05);
+        imgView.tintColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:0.7];
+        imgView.frame = CGRectMake(20, CGRectGetHeight(cell.frame)/2, 18, 18);
         imgView.center = CGPointMake(imgView.center.x, cell.contentView.center.y);
         [cell addSubview:imgView];
         
         
         UILabel *label = [[UILabel alloc] init];
         label.text = _cellDictionary[indexPath.section][@"cell"];
-        label.frame = CGRectMake(16+CGRectGetWidth(imgView.frame), 0, 0, 0);
-        label.font = [UIFont fontWithName:@"Arial" size:15];
+        label.frame = CGRectMake(20+imgView.frame.origin.x+imgView.frame.size.width, 0, 0, 0);
+        label.font = [UIFont fontWithName:@"Arial" size:14];
+        label.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         [label sizeToFit];
         label.center = CGPointMake(label.center.x, cell.center.y);
         [cell addSubview:label];
         
-        CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
-        CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
-        if (indexPath.section!=4 && indexPath.section!=8) {
-        
-           UIView *coverView = [[UIView alloc]initWithFrame:
-                                CGRectMake(rect.origin.x,
-                                           rect.origin.y-cell.frame.size.height/2,
-                                           imgView.frame.size.width+12,
-                                           2)];
-            coverView.backgroundColor = [UIColor whiteColor];
-            [tableView addSubview:coverView];
+//        CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+//        CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+//        if (indexPath.section!=4 && indexPath.section!=8) {
+//        
+//           UIView *coverView = [[UIView alloc]initWithFrame:
+//                                CGRectMake(rect.origin.x,
+//                                           rect.origin.y-cell.frame.size.height/2,
+//                                           imgView.frame.size.width+12,
+//                                           2)];
+//            coverView.backgroundColor = [UIColor whiteColor];
+//            [tableView addSubview:coverView];
+//        }
+        NSSet *set = [NSSet setWithObjects:@2,@3,@4,@6,@7, nil];
+        NSSet *nowSet = [NSSet setWithObject:[NSNumber numberWithInteger:indexPath.section]];
+        if ([nowSet isSubsetOfSet:set]) {
+            UIView *underLine = [[UIView alloc]initWithFrame:CGRectMake(label.frame.origin.x, 0, MAIN_SCREEN_W, 0.5)];
+            underLine.backgroundColor = [UIColor colorWithRed:187/255.0 green:187/255.0 blue:187/255.0 alpha:0.5];
+            [cell addSubview:underLine];
+            
         }
-
         
     }
     
@@ -268,7 +278,7 @@
 
 #pragma mark 分割tableview设置
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSSet *set = [NSSet setWithObjects:@1,@5, nil];
+    NSSet *set = [NSSet setWithObjects:@1,@5,@8, nil];
     NSSet *nowSet = [NSSet setWithObject:[NSNumber numberWithInteger:section]];
     if ([nowSet isSubsetOfSet:set]) {
         return 15;
@@ -280,9 +290,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        return 100;
+        return 80;
     }
-    return -1;
+    return 42;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
