@@ -154,6 +154,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark 加载主要页面
 - (void)initView {
     _registRepeatClassSet = [[NSMutableSet alloc] init];
     _mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 49)];
@@ -213,7 +215,7 @@
     }
     self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
 }
-
+#pragma mark 请求课表数据
 - (void)loadNetData {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *stuNum = [userDefault objectForKey:@"stuNum"];
@@ -274,7 +276,7 @@
         NSLog(@"课表数据请求失败");
     }];
 }
-
+#pragma mark 处理课表数据的周数
 - (void)handleWeek:(NSMutableArray *)array {
     if (array != nil && array.count > 0) {
         for (int i = 0; i < array.count; i++) {
@@ -301,7 +303,7 @@
         }
     }
 }
-
+#pragma mark 处理课表颜色
 - (void)handleColor:(NSMutableArray *)courses {
     _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
     NSMutableArray *courseArray = [[NSMutableArray alloc]init];
@@ -364,7 +366,7 @@
     }
 }
 
-#pragma mark - 私有方法
+#pragma mark - 颜色私有方法
 //处理随机颜色字符串
 - (UIColor *)handleRandomColorStr:(NSString *)randomColorStr
 {
@@ -378,6 +380,7 @@
     return [UIColor lightGrayColor];
 }
 
+#pragma mark 课表button点击方法
 - (void)courseClick:(UIButton *)sender {
     NSInteger tagNum = sender.tag;
     NSInteger endNum = tagNum;
@@ -397,6 +400,8 @@
     }
     [self viewCourseWithTag:tagNum endTag:endNum];
 }
+
+#pragma mark 课表详情页面
 - (void)viewCourseWithTag:(NSInteger )starTag endTag:(NSInteger)endTag {
     _backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _backgroundView.backgroundColor = [UIColor blackColor];
@@ -561,7 +566,7 @@
     _tagView.transform = CGAffineTransformMakeRotation(0);
     _weekViewShow = NO;
 }
-
+#pragma mark 获取周课表
 - (NSMutableArray *)getWeekCourseArray:(NSInteger)week {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSArray *dataArray = [userDefault objectForKey:@"dataArray"];
@@ -582,7 +587,7 @@
     
     return weekCourseArray;
 }
-
+#pragma mark 手势
 - (void)backViewChange:(UIPanGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {
         _startPoint = _backView.center;

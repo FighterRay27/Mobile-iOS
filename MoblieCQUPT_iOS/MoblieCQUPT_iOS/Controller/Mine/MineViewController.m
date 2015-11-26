@@ -33,12 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor whiteColor];
     _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H-20)];
     _mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 600);
     _mainScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     _mainScrollView.showsVerticalScrollIndicator=NO;
-    _mainScrollView.backgroundColor = [UIColor whiteColor];
     _mainScrollView.bounces = YES;
     [self.view addSubview:_mainScrollView];
     
