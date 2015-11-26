@@ -18,7 +18,12 @@
     self.layer.cornerRadius = 1;
     [self addSubview:self.placeHolderLabel];
     
-    _placeHolderLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+    _placeHolderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    self.font = [UIFont fontWithName:@"Helvetica" size:16];
+    self.scrollEnabled = NO;//不可滚动
+    
+    
+
 
 
 }
@@ -34,7 +39,7 @@
     
     CGSize maximumSize = CGSizeMake(self.frame.size.width-16, self.frame.size.height-16);
 
-    CGRect stringRect= [_placeHolder boundingRectWithSize:maximumSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:14]} context:nil];
+    CGRect stringRect= [_placeHolder boundingRectWithSize:maximumSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:16]} context:nil];
     CGRect finalFrame = CGRectMake(8, 8,  stringRect.size.width, stringRect.size.height);
     _placeHolderLabel.frame = finalFrame;
 }
