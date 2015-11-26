@@ -18,13 +18,19 @@
     self.layer.cornerRadius = 1;
     [self addSubview:self.placeHolderLabel];
     
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    //    style.lineSpacing = 10;//增加行高
+    style.headIndent = 5;//头部缩进，相当于左padding
+    //    style.tailIndent = 10;//相当于右padding
+    //    style.lineHeightMultiple = 1.5;//行间距是多少倍
+    style.alignment = NSTextAlignmentLeft;//对齐方式
+    style.firstLineHeadIndent = 5;//首行头缩进
+    style.paragraphSpacing = 10;//段落后面的间距
+    //    style.paragraphSpacingBefore = 20;//段落之前的间距
+    self.typingAttributes = @{NSParagraphStyleAttributeName:style};
     _placeHolderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     self.font = [UIFont fontWithName:@"Helvetica" size:16];
     self.scrollEnabled = NO;//不可滚动
-    
-    
-
-
 
 }
 

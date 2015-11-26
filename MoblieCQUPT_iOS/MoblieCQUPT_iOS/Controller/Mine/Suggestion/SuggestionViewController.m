@@ -27,9 +27,9 @@
     _suggestTextView = [[ORWInputTextView alloc] initWithFrame:CGRectMake(-1, 74, MAIN_SCREEN_W+2, 250)];
     [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
     _suggestTextView.delegate = self;
-    [_suggestTextView setContentInset:UIEdgeInsetsMake(0, 20, 0, 5)];//设置UITextView的内边距
+    [_suggestTextView setContentInset:UIEdgeInsetsMake(0, 10, 0, 5)];//设置UITextView的内边距
     [self.view addSubview:_suggestTextView];
-    
+
 }
 
 
