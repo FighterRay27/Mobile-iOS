@@ -27,7 +27,9 @@
     _suggestTextView = [[ORWInputTextView alloc] initWithFrame:CGRectMake(-1, 74, MAIN_SCREEN_W+2, 250)];
     [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
     _suggestTextView.delegate = self;
+    [_suggestTextView setContentInset:UIEdgeInsetsMake(0, 10, 0, 5)];//设置UITextView的内边距
     [self.view addSubview:_suggestTextView];
+
 }
 
 
@@ -53,24 +55,38 @@
     self.navigationController.navigationBar.barTintColor = MAIN_COLOR;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-
+    self.navigationItem.rightBarButtonItem = self.send;
+    self.send.enabled   = NO;
+    self.send.tintColor = [UIColor blackColor];
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [_suggestTextView resignFirstResponder];
 }
 
-- (void)textViewDidChange:(UITextView *)textView{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    
+    
     if (_suggestTextView.text.length > 5) {
-        self.navigationItem.rightBarButtonItem = self.send;
+        self.send.enabled   = YES;
+        self.send.tintColor = [UIColor greenColor];
         
-    }else if (_suggestTextView.text.length > 0){
+    }else if (_suggestTextView.text.length > 0 &&
+              _suggestTextView.text.length<=5){
+        self.send.enabled   = NO;
+        self.send.tintColor = [UIColor blackColor];
         [_suggestTextView setPlaceHolder:@""];
     }else{
-        self.navigationItem.rightBarButtonItem = nil;
         [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
     }
+    return YES;
 }
+
+//- (void)textViewDidChange:(UITextView *)textView{
+//    
+//}
 
 
 -(void)sendSuggest{
