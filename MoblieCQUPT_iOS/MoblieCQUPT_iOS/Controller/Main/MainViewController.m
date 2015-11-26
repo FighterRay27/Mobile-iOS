@@ -41,6 +41,7 @@ static Boolean isClick = NO;
         vc.title = item[whichVc];
         
         [vc.tabBarItem setImage:[UIImage imageNamed:[NSString stringWithFormat:@"icon_menu_%d.png",whichVc+1]]];
+        [vc.tabBarItem setSelectedImage:[UIImage imageNamed:[NSString stringWithFormat:@"icon_menu_selected_%d.png",whichVc+1]]];
 //        vc.navigationController.navigationBar.hidden = NO;
         vc.navigationController.navigationBar.tintColor = kItemTintColor;
         vc.navigationController.navigationBar.barTintColor = kBarTintColor;

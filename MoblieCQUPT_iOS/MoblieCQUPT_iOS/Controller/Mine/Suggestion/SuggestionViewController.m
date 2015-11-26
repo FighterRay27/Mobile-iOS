@@ -22,9 +22,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = RGBColor(235, 240, 239, 1);
+    self.view.backgroundColor = RGBColor(243, 244, 245, 1);
     
-    _suggestTextView = [[ORWInputTextView alloc] initWithFrame:CGRectMake(20, 84, MAIN_SCREEN_W-40, (MAIN_SCREEN_W-40)/4)];
+    _suggestTextView = [[ORWInputTextView alloc] initWithFrame:CGRectMake(-1, 74, MAIN_SCREEN_W+2, 250)];
     [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
     _suggestTextView.delegate = self;
     [self.view addSubview:_suggestTextView];
@@ -34,7 +34,7 @@
 - (UIBarButtonItem *)send{
     if (!_send) {
         _send = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(sendSuggest)];
-        _send.tintColor = [UIColor greenColor];
+        _send.tintColor = [UIColor whiteColor];
     }
     return _send;
 }

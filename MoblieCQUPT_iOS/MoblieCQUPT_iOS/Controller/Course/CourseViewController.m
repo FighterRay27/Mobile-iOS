@@ -111,7 +111,17 @@
     [self.view addSubview:_nav];
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
-    [_titleButton setTitle:[NSString stringWithFormat:@"%@",_weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
+    if (nowWeek) {
+        for (int i = 1; i < _weekArray.count; i++) {
+            if (i == [nowWeek integerValue]) {
+                UIButton *weekBtn1 = _weekBtnArray[i];
+                [weekBtn1 setTitle:@"本周" forState:UIControlStateNormal];
+                [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekBtn1.titleLabel.text] forState:UIControlStateNormal];
+            }
+        }
+    }else {
+        [_titleButton setTitle:[NSString stringWithFormat:@"%@",_weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
+    }
     [_titleButton sizeToFit];
     _titleButton.center = CGPointMake(ScreenWidth/2, _nav.frame.size.height/2+10);
     [_titleButton addTarget:self action:@selector(showWeekList) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +143,7 @@
     
     _weekDataArray = [userDefault objectForKey:@"weekDataArray"];
     _weekDataArray = [self getWeekCourseArray:[nowWeek integerValue]];
+    _dataArray = _weekDataArray;
     [self handleData:_weekDataArray];
     [self loadNetData];
     // Do any additional setup after loading the view from its nib.
@@ -155,7 +166,7 @@
     
     _courseBackViewTag = [NSMutableArray array];
     for (int i = 0; i < 7; i ++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake((i+0.5)*kWidthGrid, 0, kWidthGrid-2, kWidthGrid*12-2)];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake((i+0.5)*kWidthGrid+1, 0, kWidthGrid-2, kWidthGrid*12-2)];
         NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:[NSDate date]];
         NSInteger weekDay = [componets weekday];
         if (weekDay == 1) {
@@ -553,15 +564,15 @@
 
 - (NSMutableArray *)getWeekCourseArray:(NSInteger)week {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    _dataArray = [userDefault objectForKey:@"dataArray"];
-    _weekDataArray = [userDefault objectForKey:@"weekDataArray"];
+    NSArray *dataArray = [userDefault objectForKey:@"dataArray"];
+    NSArray *weekDataArray = [userDefault objectForKey:@"weekDataArray"];
     NSMutableArray *weekCourseArray = [NSMutableArray array];
     if (week == 0) {
-        weekCourseArray = [NSMutableArray arrayWithArray:_dataArray];
+        weekCourseArray = [NSMutableArray arrayWithArray:dataArray];
     }else {
-        for (int i = 0; i < _weekDataArray.count; i ++) {
-            if ([_weekDataArray[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
-                NSMutableDictionary *weekDataDic = [[NSMutableDictionary alloc]initWithDictionary:_weekDataArray[i]];
+        for (int i = 0; i < weekDataArray.count; i ++) {
+            if ([weekDataArray[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
+                NSMutableDictionary *weekDataDic = [[NSMutableDictionary alloc]initWithDictionary:weekDataArray[i]];
                 [weekCourseArray addObject:weekDataDic];
             }
         }

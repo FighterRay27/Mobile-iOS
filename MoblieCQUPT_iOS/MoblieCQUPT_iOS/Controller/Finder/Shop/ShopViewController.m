@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-    self.navigationItem.title = @"周边小店";
+    self.navigationItem.title = @"周边美食";
     _flag = 1;
     
     [self setupRefresh];
