@@ -119,7 +119,7 @@
        [self dataFlash];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
+
         UINib *nib = [UINib nibWithNibName:@"ShopTableViewCell" bundle:nil];//从当前工程中识别xib文件
         [_tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     }
@@ -167,12 +167,13 @@
     [cell.picture setImageWithURL:[NSURL URLWithString:_data[indexPath.row][@"shopimg_src"]]];
     cell.nameLabel.text = _data[indexPath.row][@"name"];
     cell.addressLabel.text = _data[indexPath.row][@"shop_address"];
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 100;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

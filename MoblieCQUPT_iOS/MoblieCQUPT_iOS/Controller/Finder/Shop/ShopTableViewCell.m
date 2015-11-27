@@ -12,9 +12,9 @@
 
 - (void)awakeFromNib {
     //添加图片和文本的适应处理
-    self.picture.layer.shadowColor = [UIColor blackColor].CGColor;//设置阴影颜色
-    self.picture.layer.shadowOffset = CGSizeMake(3 , 3);
-    self.picture.layer.shadowOpacity = 0.5;
+//    self.picture.layer.shadowColor = [UIColor blackColor].CGColor;//设置阴影颜色
+//    self.picture.layer.shadowOffset = CGSizeMake(3 , 3);
+//    self.picture.layer.shadowOpacity = 0.5;
 }
 
 @end
