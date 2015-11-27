@@ -51,7 +51,7 @@
                                     <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="redrock.png" translatesAutoresizingMaskIntoConstraints="NO" id="LaF-dm-aFa">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="redrock_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="LaF-dm-aFa">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="0WH-Yh-NLU"/>
@@ -85,7 +85,7 @@
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-ih-Q0h">
                             <rect key="frame" x="30" y="25" width="68" height="81"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="map.png" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-hr-5BS">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="map_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-hr-5BS">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="luy-ag-wg3"/>
@@ -137,7 +137,7 @@
                                     <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shakeForShop.png" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-l4-nkH">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shakeForShop_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-l4-nkH">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="GR7-M8-gOV"/>
@@ -169,14 +169,14 @@
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHW-4D-OHq">
                             <rect key="frame" x="30" y="25" width="68" height="81"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="community.png" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-jv-udY">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="community_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-jv-udY">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="4iF-cG-lq1"/>
                                         <constraint firstAttribute="width" constant="50" id="WeE-RK-42Q"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="晒秘密" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS1-nc-tBJ" userLabel="community">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="重邮社区" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS1-nc-tBJ" userLabel="community">
                                     <rect key="frame" x="-2" y="60" width="70" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="sLa-mp-tMn"/>
@@ -211,14 +211,14 @@
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-ka-VWR">
                             <rect key="frame" x="30" y="25" width="68" height="81"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="chuangye.png" translatesAutoresizingMaskIntoConstraints="NO" id="OzJ-YQ-L8N">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="chuangye_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="OzJ-YQ-L8N">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="9Ac-xI-rDr"/>
                                         <constraint firstAttribute="width" constant="50" id="E0g-O1-BPt"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="班级聊" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P7-UA-2WR" userLabel="chuangye">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="创业谷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P7-UA-2WR" userLabel="chuangye">
                                     <rect key="frame" x="-2" y="60" width="70" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="70" id="FJ8-8e-wNO"/>
@@ -253,7 +253,7 @@
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evX-lm-pxr">
                             <rect key="frame" x="30" y="25" width="69" height="81"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shop.png" translatesAutoresizingMaskIntoConstraints="NO" id="K0k-I4-qcg">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shop_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="K0k-I4-qcg">
                                     <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="Ta0-vS-0r8"/>
@@ -336,11 +336,11 @@
         </view>
     </objects>
     <resources>
-        <image name="chuangye.png" width="48" height="48"/>
-        <image name="community.png" width="48" height="48"/>
-        <image name="map.png" width="48" height="48"/>
-        <image name="redrock.png" width="48" height="48"/>
-        <image name="shakeForShop.png" width="48" height="48"/>
-        <image name="shop.png" width="48" height="48"/>
+        <image name="chuangye_new.png" width="50" height="50"/>
+        <image name="community_new.png" width="50" height="50"/>
+        <image name="map_new.png" width="50" height="50"/>
+        <image name="redrock_new.png" width="50" height="50"/>
+        <image name="shakeForShop_new.png" width="50" height="50"/>
+        <image name="shop_new.png" width="50" height="50"/>
     </resources>
 </document>
