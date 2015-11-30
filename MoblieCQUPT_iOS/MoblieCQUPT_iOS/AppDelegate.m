@@ -21,6 +21,10 @@
     // Override point for customization after application launch.
     //BUGHD
     [BugHD handleCrashWithKey:@"24f1019e4d09ab778e0b9f2780ae4de0"];
+    
+    //3D-Touch
+    [self creatShortCutItemWithIcon];
+    
     //友盟统计
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([userDefault objectForKey:@"time"] != nil) {
@@ -117,6 +121,62 @@
 
     return YES;
 }
+
+#pragma mark - 3D-Touch
+
+- (void)creatShortCutItemWithIcon{
+    UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeDate];
+    UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeMail];
+    UIApplicationShortcutIcon *icon3 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeTime];
+    UIApplicationShortcutIcon *icon4 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeHome];
+    
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"course" localizedTitle:@"本周课表" localizedSubtitle:nil icon:icon1 userInfo:nil]];
+    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"news" localizedTitle:@"教务信息" localizedSubtitle:nil icon:icon2 userInfo:nil]];
+    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"exam" localizedTitle:@"考试安排" localizedSubtitle:nil icon:icon3 userInfo:nil]];
+    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"classroom" localizedTitle:@"查空教室" localizedSubtitle:nil icon:icon4 userInfo:nil]];
+    [UIApplication sharedApplication].shortcutItems = items;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
+    if ([shortcutItem.type isEqualToString:@"news"]) {
+        [self launchViewController:1];
+    }else if ([shortcutItem.type isEqualToString:@"course"]){
+        [self launchViewController:0];
+    }else if ([shortcutItem.type isEqualToString:@"exam"]){
+        [self launchViewController:3];
+    }else if ([shortcutItem.type isEqualToString:@"classroom"]){
+        [self launchViewController:3];
+    }
+}
+
+- (void)launchViewController:(NSInteger) selectIndex {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if ([userDefault objectForKey:@"time"] != nil) {
+        NSDate *currentTime = [NSDate date];
+        NSDate *dataTime = [userDefault objectForKey:@"time"];
+        if ([dataTime timeIntervalSinceDate:currentTime] > 0) {
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UINavigationController *view = [storyBoard instantiateViewControllerWithIdentifier:@"MainNavigation"];
+            UITabBarController *tab = (UITabBarController *)view.viewControllers[0];
+            tab.selectedIndex = selectIndex;
+            self.window.rootViewController = view;
+        }else {
+            [userDefault removeObjectForKey:@"stuNum"];
+            [userDefault removeObjectForKey:@"idNum"];
+            [userDefault removeObjectForKey:@"dataArray"];
+            [userDefault removeObjectForKey:@"time"];
+            [userDefault synchronize];
+            LoginViewController *login = [[LoginViewController alloc]init];
+            self.window.rootViewController = login;
+        }
+    }else {
+        LoginViewController *login = [[LoginViewController alloc]init];
+        self.window.rootViewController = login;
+    }
+}
+
+#pragma mark - Location Notication
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification
 
