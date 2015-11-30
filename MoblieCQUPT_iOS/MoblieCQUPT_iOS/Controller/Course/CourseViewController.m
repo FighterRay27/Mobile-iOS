@@ -417,15 +417,17 @@
     _alertView.layer.cornerRadius = 1.0;
     [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
     
-    UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, ScreenWidth/9*7-20, 40)];
+    UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 10, ScreenWidth/9*7-30, 40)];
+    [_alertView addSubview:infotitleView];
+    UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(6, 0, ScreenWidth/9*7-10, 40)];
     infoLabel.text = @"课程详细信息";
-    infoLabel.textAlignment = NSTextAlignmentCenter;
-    infoLabel.font = [UIFont systemFontOfSize:24];
+    infoLabel.textAlignment = NSTextAlignmentLeft;
+    infoLabel.font = [UIFont systemFontOfSize:20];
     infoLabel.textColor = MAIN_COLOR;
-    [_alertView addSubview:infoLabel];
+    [infotitleView addSubview:infoLabel];
     
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 60, ScreenWidth/9*7, 2)];
-    lineView.backgroundColor = MAIN_COLOR;
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 60, ScreenWidth/9*7, 1)];
+    lineView.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
     [_alertView addSubview:lineView];
                                                                                                                                                                                                                                 
     UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(10, ScreenHeight-ScreenHeight/7*2-50, ScreenWidth/9*7-20, 45)];

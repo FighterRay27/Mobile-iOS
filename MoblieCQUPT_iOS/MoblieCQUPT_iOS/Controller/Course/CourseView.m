@@ -38,6 +38,7 @@
         
         UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(imageView.frame.size.width+view.frame.size.width/25*2, view.frame.size.height/3, view.frame.size.width/10*1.5, view.frame.size.height/3)];
         label1.text = array1[i];
+        label1.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         label1.font = [UIFont systemFontOfSize:14];
         [label1 sizeToFit];
         label1.center = CGPointMake(view.frame.size.width/10*2, view.frame.size.height/2);

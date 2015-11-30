@@ -65,22 +65,34 @@
     [_suggestTextView resignFirstResponder];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    
-    
-    if (_suggestTextView.text.length > 5) {
-        self.send.enabled   = YES;
-        self.send.tintColor = [UIColor whiteColor];
-        
-    }else if (_suggestTextView.text.length > 0 &&
-              _suggestTextView.text.length<=5){
+- (void)textViewDidChange:(UITextView *)textView{
+    if (_suggestTextView.text.length <= 0) {
+        [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
+    }else if(_suggestTextView.text.length>0 && _suggestTextView.text.length<=5){
         self.send.enabled   = NO;
         self.send.tintColor = [UIColor clearColor];
         [_suggestTextView setPlaceHolder:@""];
     }else{
-        [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
+        self.send.enabled   = YES;
+        self.send.tintColor = [UIColor whiteColor];
     }
+}
+
+- (BOOL)textView:(UITextView *)textView didChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (_suggestTextView.text.length <= 0) {
+        [_suggestTextView setPlaceHolder:@"请描述一下您所遇到的程序错误,非常感谢您对掌上重邮成长的帮助。"];
+    }else if(_suggestTextView.text.length>0 && _suggestTextView.text.length<=5){
+        self.send.enabled   = NO;
+        self.send.tintColor = [UIColor clearColor];
+        [_suggestTextView setPlaceHolder:@""];
+    }else{
+        self.send.enabled   = YES;
+        self.send.tintColor = [UIColor whiteColor];
+    }
+    
+    
+
     return YES;
 }
 
