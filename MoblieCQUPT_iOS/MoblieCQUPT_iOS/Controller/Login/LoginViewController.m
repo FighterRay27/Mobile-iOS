@@ -106,7 +106,6 @@
     }
 }
 
-
 - (void)loginButton:(UIButton *)sender {
     sender.enabled = NO;
     [UIView animateWithDuration:1.5 animations:^{

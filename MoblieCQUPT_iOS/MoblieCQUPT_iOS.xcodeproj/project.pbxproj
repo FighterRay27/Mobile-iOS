@@ -143,6 +143,8 @@
 		D952C7591C0C75B300AA24C0 /* iconfont-status.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7531C0C75B300AA24C0 /* iconfont-status.png */; };
 		D952C75A1C0C75B300AA24C0 /* iconfont-week.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7541C0C75B300AA24C0 /* iconfont-week.png */; };
 		D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7551C0C75B300AA24C0 /* iconfont-wodekecheng.png */; };
+		D952C75F1C0EC44500AA24C0 /* iconfont-shop1.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C75D1C0EC44500AA24C0 /* iconfont-shop1.png */; };
+		D952C7601C0EC44500AA24C0 /* iconfont-shop2.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C75E1C0EC44500AA24C0 /* iconfont-shop2.png */; };
 		D95E8E5B1BD91AC8001776D5 /* iconfont-backTag.png in Resources */ = {isa = PBXBuildFile; fileRef = D95E8E5A1BD91AC8001776D5 /* iconfont-backTag.png */; };
 		D98B5D1A1C08483E0010BC9E /* chuangye_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98B5D151C08483E0010BC9E /* chuangye_new@2x.png */; };
 		D98B5D1B1C08483E0010BC9E /* community_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98B5D161C08483E0010BC9E /* community_new@2x.png */; };
@@ -442,6 +444,8 @@
 		D952C7531C0C75B300AA24C0 /* iconfont-status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-status.png"; sourceTree = "<group>"; };
 		D952C7541C0C75B300AA24C0 /* iconfont-week.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-week.png"; sourceTree = "<group>"; };
 		D952C7551C0C75B300AA24C0 /* iconfont-wodekecheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-wodekecheng.png"; sourceTree = "<group>"; };
+		D952C75D1C0EC44500AA24C0 /* iconfont-shop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-shop1.png"; sourceTree = "<group>"; };
+		D952C75E1C0EC44500AA24C0 /* iconfont-shop2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-shop2.png"; sourceTree = "<group>"; };
 		D95E8E5A1BD91AC8001776D5 /* iconfont-backTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-backTag.png"; sourceTree = "<group>"; };
 		D98B5D151C08483E0010BC9E /* chuangye_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chuangye_new@2x.png"; sourceTree = "<group>"; };
 		D98B5D161C08483E0010BC9E /* community_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_new@2x.png"; sourceTree = "<group>"; };
@@ -1091,6 +1095,7 @@
 		CEF61B541B82BDFE0014B980 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D952C75C1C0EC43700AA24C0 /* Shop */,
 				CE0ADC911BDDD03E00374CDC /* Mine */,
 				CE5402DB1BDD2DAB00488428 /* TarbarImg */,
 				CE1B36E91B9A207100824B96 /* calendar.png */,
@@ -1173,6 +1178,15 @@
 				CEF61B6C1B82D58B0014B980 /* PrefixHeader.pch */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		D952C75C1C0EC43700AA24C0 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				D952C75D1C0EC44500AA24C0 /* iconfont-shop1.png */,
+				D952C75E1C0EC44500AA24C0 /* iconfont-shop2.png */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		E23826FF1B9477D80058970E /* Course */ = {
@@ -1493,6 +1507,7 @@
 				D952C75A1C0C75B300AA24C0 /* iconfont-week.png in Resources */,
 				CE5402E01BDD2DAB00488428 /* icon_menu_4@2x.png in Resources */,
 				CEF2738D1B90D573009B5BA2 /* 20-3.png in Resources */,
+				D952C7601C0EC44500AA24C0 /* iconfont-shop2.png in Resources */,
 				D98B5D1E1C08483E0010BC9E /* shop_new@2x.png in Resources */,
 				CE30FDDB1B9968C000C15AD4 /* bukaochaxun.png in Resources */,
 				D98BFDF01C06F40000B7D53A /* icon_menu_selected_5@2x.png in Resources */,
@@ -1566,6 +1581,7 @@
 				E28BAE781B91B0E300EC4964 /* 20-3c.png in Resources */,
 				CE267A221BA4A9B90059C2A5 /* splash.jpg in Resources */,
 				CEE6147C1BEA3F2B004873AA /* ProgressHUD.bundle in Resources */,
+				D952C75F1C0EC44500AA24C0 /* iconfont-shop1.png in Resources */,
 				CE5C7D5B1B87FF3900699E3E /* 40-3.png in Resources */,
 				CE0ADC9A1BDDD03E00374CDC /* 反馈信息@2x.png in Resources */,
 				E263C79E1BA35E60008488FA /* MeCell.xib in Resources */,
