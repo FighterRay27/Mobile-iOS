@@ -103,7 +103,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"11");
     if(indexPath.section == 0 || indexPath.section == 2) {
         return 40;
     }else if (indexPath.section == 1) {
@@ -125,7 +124,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-//    NSLog(@"%@",NSStringFromCGRect(cell.contentView.frame));
+   
+//    NSLog(@"%lf", [self tableView:tableView heightForRowAtIndexPath:indexPath]);
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 15)];
@@ -134,8 +134,9 @@
             titleLabel.textColor = [UIColor colorWithRed:57/255.0 green:57/255.0 blue:57/255.0 alpha:1];
             [titleLabel sizeToFit];
             titleLabel.center = CGPointMake(MAIN_SCREEN_W/2, 20);
-//            NSLog(@"11  %f",cell.frame.size.height);
             [cell addSubview:titleLabel];
+            [cell setUserInteractionEnabled:NO];
+            
         }else {
             UILabel *shopInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 15)];
             shopInfoLabel.text = @"暂无本店介绍";
@@ -144,6 +145,7 @@
             [shopInfoLabel sizeToFit];
             shopInfoLabel.center = CGPointMake(15+shopInfoLabel.frame.size.width/2, 20);
             [cell addSubview:shopInfoLabel];
+            [cell setUserInteractionEnabled:NO];
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
@@ -154,10 +156,10 @@
             [shopInfoLabel sizeToFit];
             shopInfoLabel.center = CGPointMake(15+shopInfoLabel.frame.size.width/2, 20);
             [cell addSubview:shopInfoLabel];
+            [cell setUserInteractionEnabled:NO];
         }else {
             for (int i = 0; i < 2; i ++) {
                 UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, 65/2*i, MAIN_SCREEN_W-20, 65/2)];
-//                NSLog(@"22  %f",cell.frame.size.height);
                 UIImageView *ima = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 15, 15)];
                 ima.image = [UIImage imageNamed:[NSString stringWithFormat:@"iconfont-shop%d.png",i+1]];
                 ima.contentMode = UIViewContentModeScaleAspectFit;
@@ -173,6 +175,7 @@
                 [view addSubview:label];
                 [view addSubview:ima];
                 [cell addSubview:view];
+                [cell setUserInteractionEnabled:NO];
             }
         }
     }else if (indexPath.section == 2) {
@@ -192,6 +195,7 @@
             [shopInfoLabel sizeToFit];
             shopInfoLabel.center = CGPointMake(15+shopInfoLabel.frame.size.width/2, 20);
             [cell addSubview:shopInfoLabel];
+            [cell setUserInteractionEnabled:NO];
         }else {
             UILabel *shopInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 15)];
             shopInfoLabel.text = @"暂无";
@@ -200,8 +204,11 @@
             [shopInfoLabel sizeToFit];
             shopInfoLabel.center = CGPointMake(15+shopInfoLabel.frame.size.width/2, 20);
             [cell addSubview:shopInfoLabel];
+            [cell setUserInteractionEnabled:NO];
         }
     }
+    
+    
     return cell;
 }
 
