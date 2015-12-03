@@ -30,13 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadNetData];
     [self.view addSubview:self.scrollView];
     _picture = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, 190)];
-    [_picture setImageWithURL:[NSURL URLWithString:_detailData[@"shopimg_src"]]];
     [self.scrollView addSubview:_picture];
-    [self.scrollView addSubview:self.tableView];
-    _nameLabel.text = _detailData[@"name"];
-    _addressLabel.text = _detailData[@"shop_address"];
     _menu = [[NSMutableArray alloc] init];
     
     if (_detailData) {
@@ -56,11 +53,21 @@
     }
 }
 
+- (void)loadNetData {
+    [NetWork NetRequestPOSTWithRequestURL:@"http://hongyan.cqupt.edu.cn/cyxbs_api_2014/cqupthelp/index.php/admin/shop/shopInfo" WithParameter:@{@"id":_detailData[@"id"]} WithReturnValeuBlock:^(id returnValue) {
+        _shopInfoData = [NSMutableDictionary dictionaryWithCapacity:10];
+        [_shopInfoData setObject:returnValue[@"data"] forKey:@"infoData"];
+        [self.scrollView addSubview:self.tableView];
+        [_picture setImageWithURL:[NSURL URLWithString:_detailData[@"shopimg_src"]]];
+    } WithFailureBlock:^{
+        NSLog(@"失败啦");
+    }];
+}
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H)];
         _scrollView.showsVerticalScrollIndicator = YES;
-        _scrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 667);
+        _scrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 604);
         _scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
     return _scrollView;
@@ -125,21 +132,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
    
+   
 //    NSLog(@"%lf", [self tableView:tableView heightForRowAtIndexPath:indexPath]);
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 15)];
             titleLabel.font = [UIFont systemFontOfSize:16];
-            titleLabel.text = _detailData[@"name"];
+            titleLabel.text = _shopInfoData[@"infoData"][@"shop_name"];
             titleLabel.textColor = [UIColor colorWithRed:57/255.0 green:57/255.0 blue:57/255.0 alpha:1];
             [titleLabel sizeToFit];
             titleLabel.center = CGPointMake(MAIN_SCREEN_W/2, 20);
             [cell addSubview:titleLabel];
             [cell setUserInteractionEnabled:NO];
-            
         }else {
             UILabel *shopInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 15)];
-            shopInfoLabel.text = @"暂无本店介绍";
+//            shopInfoLabel.text = @"暂无本店介绍";
+            shopInfoLabel.text = _shopInfoData[@"infoData"][@"shop_content"];
             shopInfoLabel.font = [UIFont systemFontOfSize:13];
             shopInfoLabel.textColor = [UIColor colorWithRed:152/255.0 green:152/255.0 blue:152/255.0 alpha:1];
             [shopInfoLabel sizeToFit];
@@ -158,6 +166,7 @@
             [cell addSubview:shopInfoLabel];
             [cell setUserInteractionEnabled:NO];
         }else {
+            NSArray *shopInfoArray = @[_shopInfoData[@"infoData"][@"shop_address"],[NSString stringWithFormat:@"电话:%@",_shopInfoData[@"infoData"][@"shop_tel"]]];
             for (int i = 0; i < 2; i ++) {
                 UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, 65/2*i, MAIN_SCREEN_W-20, 65/2)];
                 UIImageView *ima = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 15, 15)];
@@ -166,7 +175,7 @@
                 ima.center = CGPointMake(ima.frame.size.width/2, view.frame.size.height/2);
                 
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(ima.frame.size.width+10, 0, 0, 15)];
-                label.text = _detailData[@"shop_address"];
+                label.text = shopInfoArray[i];
                 label.font = [UIFont systemFontOfSize:13];
                 label.textColor = [UIColor colorWithRed:54/255.0 green:54/255.0 blue:54/255.0 alpha:1];
                 [label sizeToFit];
