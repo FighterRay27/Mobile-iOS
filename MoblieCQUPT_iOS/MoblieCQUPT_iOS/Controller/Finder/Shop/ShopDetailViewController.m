@@ -66,7 +66,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H)];
-        _scrollView.showsVerticalScrollIndicator = YES;
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 604);
         _scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
