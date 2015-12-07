@@ -242,8 +242,7 @@
         
         /**共享数据 by Orange-W**/
         NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:kAPPGroupID];
-        [shared setObject:nowWeek forKey:kAppGroupShareNowWeek];
-        [shared setObject:_weekDataArray forKey:kAppGroupShareWeekDataArray];
+        [shared setObject:[self getWeekCourseArray:[nowWeek integerValue]] forKey:kAppGroupShareThisWeekArray];
         [shared synchronize];
         /***/
         

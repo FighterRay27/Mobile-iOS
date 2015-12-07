@@ -5,10 +5,10 @@
 //  Created by user on 15/11/3.
 //  Copyright (c) 2015年 Orange-W. All rights reserved.
 //
-
+#warning 先放这测试,remove
 #define kAPPGroupID @"group.com.mredrock.cyxbs"
-#define kAppGroupShareNowWeek @"nowWeek"
-#define kAppGroupShareWeekDataArray @"weekDataArray"
+#define kAppGroupShareNowDay @"nowDay"
+#define kAppGroupShareThisWeekArray @"thisWeekArray"
 
 
 #import "TodayViewController.h"
@@ -23,9 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:kAPPGroupID];
-    NSString *nowWeek = [shared stringForKey:kAppGroupShareNowWeek];
-    NSArray *weakDataArray = [shared objectForKey:kAppGroupShareWeekDataArray];
-    [shared synchronize];
+    NSString *nowWeek = [shared stringForKey:kAppGroupShareNowDay];
+    NSArray *weakDataArray = [shared objectForKey:kAppGroupShareThisWeekArray];
+//    [shared synchronize];
     NSLog(@"共享数据%@:%@",nowWeek,weakDataArray);
     // Do any additional setup after loading the view from its nib.
 }
@@ -36,6 +36,7 @@
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+
     // Perform any setup necessary in order to update the view.
     
     // If an error is encountered, use NCUpdateResultFailed
