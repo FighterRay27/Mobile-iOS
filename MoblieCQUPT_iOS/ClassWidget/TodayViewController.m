@@ -6,6 +6,11 @@
 //  Copyright (c) 2015年 Orange-W. All rights reserved.
 //
 
+#define kAPPGroupID @"group.com.mredrock.cyxbs"
+#define kAppGroupShareNowWeek @"nowWeek"
+#define kAppGroupShareWeekDataArray @"weekDataArray"
+
+
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
 
@@ -17,8 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *name = [[NSUserDefaults standardUserDefaults]stringForKey:@"name"];
-    NSLog(@"%@",name);
+    NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:kAPPGroupID];
+    NSString *nowWeek = [shared stringForKey:kAppGroupShareNowWeek];
+    NSArray *weakDataArray = [shared objectForKey:kAppGroupShareWeekDataArray];
+    [shared synchronize];
+    NSLog(@"共享数据%@:%@",nowWeek,weakDataArray);
     // Do any additional setup after loading the view from its nib.
 }
 
