@@ -88,8 +88,9 @@
                    //WithErrorCodeBlock: (ErrorCode) errorBlock
                      WithFailureBlock: (FailureFunction) failureBlock
 {
-    ORWRequestCache *cache = [[ORWRequestCache alloc] init];
-    [cache isOutOfDateWithUrl:requestURLString];
+//    ORWRequestCache *cache = [[ORWRequestCache alloc] init];
+//    [cache isOutOfDateWithUrl:requestURLString];
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
 //    manager =[self addCommonHeader:manager withUserToken:nil];//header
     AFHTTPRequestOperation *op = [manager POST:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *name = [[NSUserDefaults standardUserDefaults]stringForKey:@"name"];
+    NSLog(@"%@",name);
     // Do any additional setup after loading the view from its nib.
 }
 
