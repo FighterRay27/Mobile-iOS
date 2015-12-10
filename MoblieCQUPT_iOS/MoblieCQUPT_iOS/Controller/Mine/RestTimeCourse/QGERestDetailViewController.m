@@ -8,6 +8,8 @@
 
 #import "QGERestDetailViewController.h"
 
+#define Course_API @"http://hongyan.cqupt.edu.cn/redapi2/api/kebiao"
+
 @interface QGERestDetailViewController ()
 @property (strong, nonatomic) NSArray *weekArray;
 @property (assign, nonatomic) BOOL weekViewShow;
@@ -18,20 +20,36 @@
 @property (strong, nonatomic) UIView *backView;
 @property (strong, nonatomic) UIButton *clickBtn;
 @property (strong, nonatomic) UIView *titleView;
+
+@property (strong, nonatomic) UIScrollView *mainScrollView;
+@property (strong, nonatomic) UIView *mainView;
+
 @property (strong, nonatomic) NSMutableArray *weekBtnArray;
 @property (assign, nonatomic) CGPoint startPoint;
 @property (assign, nonatomic) CGPoint startPoint1;
+
+@property (strong, nonatomic) NSMutableArray *allStuCourseArray;
 @end
 
 @implementation QGERestDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initCourseTable];
+    [self initWeekSelectedList];
+    self.navigationItem.titleView = _titleView;
+    
+    [self loadAllStuCourse];
+    
+    NSLog(@"%@",_allStuNumArray);
+    // Do any additional setup after loading the view from its nib.
+}
+- (void)initWeekSelectedList {
     _weekViewShow = NO;
-    _backView = [[UIView alloc]initWithFrame:CGRectMake(0, -ScreenHeight/2, ScreenWidth, ScreenHeight/2+64)];
+    _backView = [[UIView alloc]initWithFrame:CGRectMake(0, -ScreenHeight/2+64, ScreenWidth, ScreenHeight/2)];
     [self.view addSubview:_backView];
     
-    _weekScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight/2+34)];
+    _weekScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight/2)];
     _weekScrollView.contentSize = CGSizeMake(ScreenWidth, 35*19);
     _weekScrollView.backgroundColor = [UIColor whiteColor];
     _weekScrollView.bounces = NO;
@@ -81,9 +99,7 @@
     _tagView.center = CGPointMake(_titleView.frame.size.width/2+_titleButton.frame.size.width/2+_tagView.frame.size.width/2, _titleView.frame.size.height/2);
     [_titleView addSubview:_tagView];
     
-    self.navigationItem.titleView = _titleView;
-    
-    _shadeView = [[UIView alloc]initWithFrame:CGRectMake(0, _backView.frame.size.height+64, ScreenWidth, ScreenHeight)];
+    _shadeView = [[UIView alloc]initWithFrame:CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight)];
     _shadeView.backgroundColor = [UIColor blackColor];
     _shadeView.alpha = 0.7;
     
@@ -91,7 +107,38 @@
     shadeViewBtn.frame = CGRectMake(0, 0, _shadeView.frame.size.width, _shadeView.frame.size.height);
     [shadeViewBtn addTarget:self action:@selector(clickShadeView) forControlEvents:UIControlEventTouchUpInside];
     [_shadeView  addSubview:shadeViewBtn];
-    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)initCourseTable {
+    _mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
+    [self.view addSubview:_mainView];
+    
+    UIView *dayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 30)];
+    dayView.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
+    [_mainView addSubview:dayView];
+    _mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, ScreenWidth, _mainView.frame.size.height - 30)];
+    
+    NSArray *array = @[@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",@"周日"];
+    for (int i = 0; i < 7; i ++) {
+        UILabel *dayLabel = [[UILabel alloc]initWithFrame:CGRectMake((i+0.5)*kWidthGrid, 1, kWidthGrid, 29)];
+        dayLabel.text = [NSString stringWithFormat:@"%@",array[i]];
+        dayLabel.font = [UIFont systemFontOfSize:14];
+        dayLabel.textAlignment = NSTextAlignmentCenter;
+        dayLabel.textColor = [UIColor colorWithRed:74/255.0 green:74/255.0 blue:74/255.0 alpha:1];
+        [dayView addSubview:dayLabel];
+    }
+    
+    _mainScrollView.contentSize = CGSizeMake(ScreenWidth, kWidthGrid * 12);
+    _mainScrollView.showsVerticalScrollIndicator = NO;
+    [_mainView addSubview:_mainScrollView];
+    
+    for (int i = 0; i < 12; i ++) {
+        UILabel *classNum = [[UILabel alloc]initWithFrame:CGRectMake(0, i*kWidthGrid, kWidthGrid*0.5, kWidthGrid)];
+        classNum.text = [NSString stringWithFormat:@"%d",i+1];
+        classNum.textAlignment = NSTextAlignmentCenter;
+        classNum.textColor = [UIColor colorWithRed:74/255.0 green:74/255.0 blue:74/255.0 alpha:1];
+        [_mainScrollView addSubview:classNum];
+    }
 }
 
 - (void)clickBtn:(UIButton *)sender {
@@ -136,9 +183,9 @@
     }else {
         _tagView.transform = CGAffineTransformMakeRotation(M_PI);
         [UIView animateWithDuration:0.3 animations:^{
-            _backView.frame = CGRectMake(0, 0, _backView.frame.size.width, _backView.frame.size.height);
+            _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
         } completion:^(BOOL finished) {
-            _shadeView.frame = CGRectMake(0, _backView.frame.size.height, ScreenWidth, ScreenHeight);
+            _shadeView.frame = CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight);
 //            [[[UIApplication sharedApplication]keyWindow]addSubview:_shadeView];
             [self.view addSubview:_shadeView];
             _weekViewShow = YES;
@@ -225,6 +272,32 @@
             }];
         }
     }
+}
+#pragma mark - 请求课表
+- (void)loadAllStuCourse {
+    _allStuCourseArray = [NSMutableArray array];
+    for (int i = 0; i < _allStuNumArray.count; i++) {
+        NSString *stuNum = [NSString stringWithFormat:@"%@",_allStuNumArray[i]];
+        [NetWork NetRequestPOSTWithRequestURL:Course_API WithParameter:@{@"stuNum":stuNum} WithReturnValeuBlock:^(id returnValue) {
+            [_allStuCourseArray addObject:returnValue[@"data"]];
+            if (_allStuCourseArray.count == _allStuNumArray.count) {
+                NSLog(@"%ld",_allStuCourseArray.count);
+            }
+        } WithFailureBlock:^{
+            NSLog(@"请求失败");
+        }];
+    }
+}
+#pragma mark 获取周课表
+- (NSMutableArray *)getWeekCourseArray:(NSMutableArray *)courseArray withWeek:(NSInteger)week {
+    NSMutableArray *weekCourseArray = [NSMutableArray array];
+    for (int i = 0; i < courseArray.count; i ++) {
+        if ([courseArray[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
+            NSMutableDictionary *weekDataDic = [[NSMutableDictionary alloc]initWithDictionary:courseArray[i]];
+            [weekCourseArray addObject:weekDataDic];
+        }
+    }
+    return weekCourseArray;
 }
 
 - (void)didReceiveMemoryWarning {

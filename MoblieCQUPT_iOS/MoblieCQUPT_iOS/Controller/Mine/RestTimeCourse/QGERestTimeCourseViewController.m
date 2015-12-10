@@ -170,7 +170,9 @@
 
 - (void)clickSearch {
     QGERestDetailViewController *q = [[QGERestDetailViewController alloc]init];
+    q.allStuNumArray = _stuNumArray;
     [self.navigationController pushViewController:q animated:YES];
+    [self viewDidLoad];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
