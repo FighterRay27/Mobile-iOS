@@ -33,6 +33,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //处理shortCutItem
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableView:cellForRowAtIndexPath:) name:@"gotoExam" object:nil];
+    
     _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H-20)];
     _mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 600);
     _mainScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -112,7 +115,6 @@
     [_mainScrollView addSubview:self.tableView];
     _currentHeight += _tableView.frame.size.height;
     
-
 }
 
 - (XBSConsultButtonClicker *)clicker{
@@ -284,7 +286,6 @@
         return 0.00001;
     }
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){

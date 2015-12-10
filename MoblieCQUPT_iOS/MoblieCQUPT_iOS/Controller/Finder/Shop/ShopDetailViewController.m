@@ -40,10 +40,10 @@
 - (void)displayDetailDish{
     if (_detailData) {
         MenuViewController *mvc = [[MenuViewController alloc] init];
-        mvc.shopId = _detailData[@"id"] ;
-        [self presentViewController:mvc
-                           animated:YES
-                         completion:nil];
+            mvc.shopId = _detailData[@"id"];
+            [self presentViewController:mvc
+                               animated:YES
+                             completion:nil];
     }
 }
 

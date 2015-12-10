@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import <BugHD/BugHD.h> 
+#import "MineViewController.h"
+#import "XBSGradeViewController.h"
+#import "XBSFindClassroomViewController.h"
+#import <BugHD/BugHD.h>
 
 @interface AppDelegate ()
 
@@ -139,18 +142,18 @@
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
-    if ([shortcutItem.type isEqualToString:@"news"]) {
-        [self launchViewController:1];
-    }else if ([shortcutItem.type isEqualToString:@"course"]){
-        [self launchViewController:0];
+    if ([shortcutItem.type isEqualToString:@"course"]) {
+        [self launchViewController:0 withChoose:0];
+    }else if ([shortcutItem.type isEqualToString:@"news"]){
+        [self launchViewController:1 withChoose:0];
     }else if ([shortcutItem.type isEqualToString:@"exam"]){
-        [self launchViewController:3];
+        [self launchViewController:3 withChoose:1];
     }else if ([shortcutItem.type isEqualToString:@"classroom"]){
-        [self launchViewController:3];
+        [self launchViewController:3 withChoose:2];
     }
 }
 
-- (void)launchViewController:(NSInteger) selectIndex {
+- (void)launchViewController:(NSInteger) selectIndex withChoose:(NSInteger) secondChooseIndex {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     if ([userDefault objectForKey:@"time"] != nil) {
         NSDate *currentTime = [NSDate date];
@@ -159,8 +162,21 @@
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UINavigationController *view = [storyBoard instantiateViewControllerWithIdentifier:@"MainNavigation"];
             UITabBarController *tab = (UITabBarController *)view.viewControllers[0];
-            tab.selectedIndex = selectIndex;
-            self.window.rootViewController = view;
+            
+            if (secondChooseIndex == 0) {
+                tab.selectedIndex = selectIndex;
+                self.window.rootViewController = view;
+            }else if (secondChooseIndex == 1) {
+                tab.selectedIndex = selectIndex;
+                self.window.rootViewController = view;
+//                XBSGradeViewController *gradeVC = [[XBSGradeViewController alloc] init];
+//                [tab.navigationController pushViewController:gradeVC animated:YES];
+            }else if (secondChooseIndex == 2) {
+                tab.selectedIndex = selectIndex;
+                self.window.rootViewController = view;
+                XBSFindClassroomViewController *findClassroomVC = [[XBSFindClassroomViewController alloc] init];
+                [tab presentViewController:findClassroomVC animated:YES completion:nil];
+            }
         }else {
             [userDefault removeObjectForKey:@"stuNum"];
             [userDefault removeObjectForKey:@"idNum"];
