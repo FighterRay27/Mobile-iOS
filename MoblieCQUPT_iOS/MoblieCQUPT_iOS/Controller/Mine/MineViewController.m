@@ -61,59 +61,12 @@
                          
                         ]
                        mutableCopy];
-//    UIView *topView = [[UIView  alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H*0.2)];
-//
-//    
-//    topView.backgroundColor = MAIN_COLOR;
-//
-//    _currentHeight += topView.frame.size.height;
-//    [_mainScrollView addSubview:topView];
-
-//    [_mainScrollView addSubview:self.myPhoto];
-//    [_mainScrollView addSubview:self.loginLabel];
     
     /**button **/
 //    self.clicker = [[XBSConsultButtonClicker alloc]init];
     self.clicker.delegate = (MainViewController *)self;
 
 #pragma mark 各种button的查询
-//    NSArray *tempStrArr = @[@"20-3b.png",@"20-3补考.png",@"20-3exam.png",@"20-3c.png"];
-//    NSArray *text = @[@"考试安排",@"补考安排",@"期末成绩",@"找自习室"];
-//     NSArray *tempStrArr = @[@"kaoshichaxun.png",@"bukaochaxun.png",@"chenjichaxun",@"kongjiaoshichaxun.png"];
-//    SEL s[4] = {@selector(clickForExamSchedule),@selector(clickForReexamSchedule),
-//        @selector(clickForExamGrade),@selector(clickForEmptyClassroom)};
-    
-
-//    for (int i=0; i<4; i++) {
-//        UIButton *labelButton = [[UIButton alloc] initWithFrame:CGRectMake( MAIN_SCREEN_W/4*i, _currentHeight, MAIN_SCREEN_W/4, MAIN_SCREEN_H*0.1)];
-//        labelButton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-//        labelButton.layer.borderWidth = 1;
-//        UIImage *stretchableButtonImage = [UIImage imageNamed:tempStrArr[i]];
-////        [labelButton setImage:stretchableButtonImage forState:UIControlStateNormal];
-//        UIImageView *buttonView = [[UIImageView alloc] initWithImage:stretchableButtonImage];
-//        CGRect contentFrame = CGRectMake(0, 0, MAIN_SCREEN_W*0.08, MAIN_SCREEN_W*0.08);
-//        buttonView.frame = contentFrame;
-//        buttonView.center = CGPointMake(labelButton.frame.size.width/2, labelButton.frame.size.height/2 +8 -  buttonView.frame.size.height/2);
-//        [labelButton addSubview:buttonView];
-//        
-//        CGRect textFrame = CGRectMake(0, 0, MAIN_SCREEN_W*0.04, MAIN_SCREEN_W*0.04);
-//        UILabel *textLabel = [[UILabel alloc]initWithFrame:textFrame];
-//        textLabel.text = text[i];
-//        [textLabel setFont:[UIFont fontWithName:@"GeezaPro" size:12]];
-//        [textLabel sizeToFit];
-//        textLabel.center = CGPointMake(labelButton.frame.size.width/2, labelButton.frame.size.height/2+12+textLabel.frame.size.height/2);
-//        [labelButton addSubview:buttonView];
-//       
-//        [labelButton addSubview:textLabel];
-//        
-//        [labelButton addTarget:self.clicker action:s[i] forControlEvents:UIControlEventTouchUpInside];
-//        
-//        labelButton.backgroundColor = [UIColor whiteColor];
-//        
-//        [_mainScrollView addSubview:labelButton];
-//    }
-//    
-//    _currentHeight += MAIN_SCREEN_H*0.1;
 
     [_mainScrollView addSubview:self.tableView];
     _currentHeight += _tableView.frame.size.height;
@@ -254,18 +207,7 @@
         label.center = CGPointMake(label.center.x, cell.center.y);
         [cell addSubview:label];
         
-//        CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
-//        CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
-//        if (indexPath.section!=4 && indexPath.section!=8) {
-//        
-//           UIView *coverView = [[UIView alloc]initWithFrame:
-//                                CGRectMake(rect.origin.x,
-//                                           rect.origin.y-cell.frame.size.height/2,
-//                                           imgView.frame.size.width+12,
-//                                           2)];
-//            coverView.backgroundColor = [UIColor whiteColor];
-//            [tableView addSubview:coverView];
-//        }
+
         NSSet *set = [NSSet setWithObjects:@2,@3,@4,@5,@7,@8, nil];
         NSSet *nowSet = [NSSet setWithObject:[NSNumber numberWithInteger:indexPath.section]];
         if ([nowSet isSubsetOfSet:set]) {
@@ -327,6 +269,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
