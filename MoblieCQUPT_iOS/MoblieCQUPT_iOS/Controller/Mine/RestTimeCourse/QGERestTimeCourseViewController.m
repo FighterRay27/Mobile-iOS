@@ -158,10 +158,28 @@
             [alert show];
             _stuNumField.text = @"";
         }else if([returnValue[@"info"] isEqualToString:@"success"]){
-            [_stuNumArray addObject:_stuNumField.text];
-            [_stuInfoArray addObject:returnValue[@"data"]];
-            [_table addSubview:self.tableView];
-            _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+            BOOL isHaveSameName = NO;
+            if (_stuInfoArray.count > 0) {
+                for (int i=0; i<_stuInfoArray.count; i++) {
+                    if ([returnValue[@"data"][@"name"] isEqualToString:_stuInfoArray[i]]) {
+                        isHaveSameName = YES;
+                    }
+                }
+                if (isHaveSameName) {
+                    UIAlertView *alert1 = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"输入的学号已经添加过了！O(∩_∩)O" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [alert1 show];
+                }else {
+                    [_stuNumArray addObject:_stuNumField.text];
+                    [_stuInfoArray addObject:returnValue[@"data"][@"name"]];
+                    [_tableView reloadData];
+                    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+                }
+            }else {
+                [_stuNumArray addObject:_stuNumField.text];
+                [_stuInfoArray addObject:returnValue[@"data"][@"name"]];
+                [_table addSubview:self.tableView];
+                _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+            }
         }
     } WithFailureBlock:^{
         NSLog(@"请求失败");
@@ -171,6 +189,7 @@
 - (void)clickSearch {
     QGERestDetailViewController *q = [[QGERestDetailViewController alloc]init];
     q.allStuNumArray = _stuNumArray;
+    q.allStuNameArray = _stuInfoArray;
     [self.navigationController pushViewController:q animated:YES];
     [self viewDidLoad];
 }
@@ -189,7 +208,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentify];
     }
-    cell.textLabel.text = _stuInfoArray[indexPath.row][@"name"];
+    cell.textLabel.text = _stuInfoArray[indexPath.row];
     [cell setUserInteractionEnabled:NO];
     return cell;
 }

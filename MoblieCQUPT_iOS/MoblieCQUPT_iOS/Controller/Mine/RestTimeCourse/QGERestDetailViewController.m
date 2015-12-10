@@ -29,6 +29,7 @@
 @property (assign, nonatomic) CGPoint startPoint1;
 
 @property (strong, nonatomic) NSMutableArray *allStuCourseArray;
+@property (strong, nonatomic) NSMutableArray *allStuWeelCourseArray;
 @end
 
 @implementation QGERestDetailViewController
@@ -38,10 +39,7 @@
     [self initCourseTable];
     [self initWeekSelectedList];
     self.navigationItem.titleView = _titleView;
-    
     [self loadAllStuCourse];
-    
-    NSLog(@"%@",_allStuNumArray);
     // Do any additional setup after loading the view from its nib.
 }
 - (void)initWeekSelectedList {
@@ -276,12 +274,19 @@
 #pragma mark - 请求课表
 - (void)loadAllStuCourse {
     _allStuCourseArray = [NSMutableArray array];
+    NSMutableArray *preWeekCourseArray = [NSMutableArray array];
     for (int i = 0; i < _allStuNumArray.count; i++) {
+        NSMutableArray *preStuWeekCourseArray = [NSMutableArray array];
         NSString *stuNum = [NSString stringWithFormat:@"%@",_allStuNumArray[i]];
         [NetWork NetRequestPOSTWithRequestURL:Course_API WithParameter:@{@"stuNum":stuNum} WithReturnValeuBlock:^(id returnValue) {
             [_allStuCourseArray addObject:returnValue[@"data"]];
+            for (NSInteger i = 0; i<18; i++) {
+                [preStuWeekCourseArray addObject:[self getWeekCourseArray:returnValue[@"data"] withWeek:i]];
+            }
+            [preWeekCourseArray addObject:preStuWeekCourseArray];
             if (_allStuCourseArray.count == _allStuNumArray.count) {
                 NSLog(@"%ld",_allStuCourseArray.count);
+                NSLog(@"%ld",preWeekCourseArray.count);
             }
         } WithFailureBlock:^{
             NSLog(@"请求失败");
