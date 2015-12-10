@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    //去除html中的标签(< >)
+    NSString *string = [self flattenHTML:self.delegate.htmlString trimWhiteSpace:NO];
+    NSLog(@"%@",string);
     self.navigationBar.titleLabel.text = ConsultFuntionName[2];
     
 //    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 100, [We getScreenWidth], [We getScreenHeight] - 100)];
@@ -74,6 +77,21 @@
 
 - (void)clickBack {
 	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim {
+    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    NSString *text = nil;
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text]withString:@""];
+    }
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
 }
 
 @end

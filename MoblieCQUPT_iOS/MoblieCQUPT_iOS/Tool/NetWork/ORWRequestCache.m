@@ -16,10 +16,11 @@
 @implementation ORWRequestCache
 static const NSString *dataBaseName = @"ORWCacheSqlite";
 
-static const NSString *ORWPrimaryKeyCol = @"request_url";
+static const NSString *ORWPrimaryKeyUrl = @"request_url";
+static const NSString *ORWPrimaryKeyParam = @"request_param";
 static const NSString *ORWDataCol = @"data";
 static const NSString *ORWDeadtimeCol = @"deadtime";
-static const NSInteger ORWDeafultCacheTime = 60*60*24;
+static const NSInteger ORWDeafultCacheTime = 60*60*6;
 
 + (NSString *)ORWRequestCacheDataBaseName {
     ORWRequestCache *cache = [[ORWRequestCache alloc]init];
@@ -37,7 +38,7 @@ static const NSInteger ORWDeafultCacheTime = 60*60*24;
     if (self) {
         self.db = [FMDatabase databaseWithPath:[self filePath]];
         if ([self.db open]) {
-            NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ ('%@' TEXT PRIMARY KEY,'%@' BLOG, '%@' INTEGER)", self.dataBaseName,ORWPrimaryKeyCol,ORWDataCol,ORWDeadtimeCol];
+            NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ ('%@' TEXT PRIMARY KEY,'%@' TEXT PRIMARY KEY,'%@' BLOG, '%@' INTEGER)", self.dataBaseName,ORWPrimaryKeyUrl,ORWPrimaryKeyParam,ORWDataCol,ORWDeadtimeCol];
             
             BOOL isCreate = [self.db executeUpdate:sqlCreateTable];
             if (!isCreate) {
@@ -110,7 +111,7 @@ static const NSInteger ORWDeafultCacheTime = 60*60*24;
  *  @return 请求的 data 数据字典
  */
 - (NSDictionary *)selectCacheDataWithUrl:(NSString *)url{
-    NSString *selectSql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@='%@'",self.dataBaseName,ORWPrimaryKeyCol,url];
+    NSString *selectSql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@='%@'",self.dataBaseName,ORWPrimaryKeyUrl,url];
     return [[self selectCacheDataWithSql:selectSql] firstObject];
 }
 
@@ -135,7 +136,7 @@ static const NSInteger ORWDeafultCacheTime = 60*60*24;
 
 - (NSDictionary *)fectchFirstDataFromResultSet:(FMResultSet *)resultSet
 {
-        NSString *requestUrl = [resultSet stringForColumn:[ORWPrimaryKeyCol copy]];
+        NSString *requestUrl = [resultSet stringForColumn:[ORWPrimaryKeyUrl copy]];
         NSData *requestData = [resultSet dataForColumn:[ORWDataCol copy]];
         
         NSInteger deadtime = [resultSet intForColumn:[ORWDeadtimeCol copy]];
@@ -179,7 +180,7 @@ static const NSInteger ORWDeafultCacheTime = 60*60*24;
     NSString *updateSql = [NSString
                            stringWithFormat:@"REPLACE INTO '%@' ('%@', '%@', '%@') VALUES ('%@', '%@', '%ld')",
                            self.dataBaseName,
-                           ORWPrimaryKeyCol,
+                           ORWPrimaryKeyUrl,
                            ORWDataCol,
                            ORWDeadtimeCol,
                            urlString,dictionaryData,(long)second];

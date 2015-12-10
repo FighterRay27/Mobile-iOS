@@ -34,6 +34,7 @@
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(view.frame.size.width/20, view.frame.size.height/2.5, view.frame.size.width/15, view.frame.size.width/15)];
         imageView.center = CGPointMake(view.frame.size.width/15, view.frame.size.height/2);
         imageView.image = [UIImage imageNamed:array2[i]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [view addSubview:imageView];
         
         UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(imageView.frame.size.width+view.frame.size.width/25*2, view.frame.size.height/3, view.frame.size.width/10*1.5, view.frame.size.height/3)];

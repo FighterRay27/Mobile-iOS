@@ -7,11 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopDetailViewController">
             <connections>
-                <outlet property="addressLabel" destination="5Mb-Ai-ZRh" id="DQc-un-mDf"/>
-                <outlet property="detailDishButton" destination="3Hh-qd-Wgi" id="B06-o7-Zed"/>
-                <outlet property="nameLabel" destination="LOC-UZ-rnG" id="1DM-iU-avP"/>
-                <outlet property="picture" destination="uH2-gA-QAz" id="kcT-Y2-yUT"/>
-                <outlet property="scrollView" destination="okO-TZ-u71" id="MXH-Qa-05a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -191,7 +186,4 @@
             <point key="canvasLocation" x="355.5" y="277.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="loading.png" width="215" height="144"/>
-    </resources>
 </document>

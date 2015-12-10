@@ -63,7 +63,7 @@
 //    ORWRequestCache *cache = [[ORWRequestCache alloc] init];
 //    NSLog(@"%d",[cache saveDataWithDictionary:@{@"test":@"1",@"haha":@2} url:@"http://122222223.com"]);
 //    NSLog(@"%@",[cache filePath]);
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:20];
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:20];
     
     /*
      

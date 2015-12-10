@@ -11,6 +11,7 @@
 #import "SuggestionViewController.h"
 #import "XBSAboutViewController.h"
 #import "ShakeViewController.h"
+#import "QGERestTimeCourseViewController.h"
 #import "LoginEntry.h"
 #import "LoginViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -52,10 +53,12 @@
                          @{@"cell":@"期末成绩",@"img":@"期末成绩.png",@"action":@"clickForExamGrade"},
                          @{@"cell":@"空教室",@"img":@"空教室.png",@"action":@"clickForEmptyClassroom"},
 //                        @{@"cell":@"去哪吃",@"img":@"zuobiao.png",@"controller":@"ShakeViewController"},
+                         @{@"cell":@"无课表",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
                          @{@"cell":@"校历",@"img":@"校历.png",@"controller":@"CalendarViewController"},
                          @{@"cell":@"反馈信息",@"img":@"反馈信息.png",@"controller":@"SuggestionViewController"},
                          @{@"cell":@"关于",@"img":@"关于.png",@"controller":@"XBSAboutViewController"},
                          @{@"cell":@"退出登录",@"img":@"tuichu_red_blod.png"},
+                         
                         ]
                        mutableCopy];
 //    UIView *topView = [[UIView  alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H*0.2)];
@@ -238,6 +241,7 @@
         imgView.tintColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:0.7];
         imgView.frame = CGRectMake(20, CGRectGetHeight(cell.frame)/2, 18, 18);
         imgView.center = CGPointMake(imgView.center.x, cell.contentView.center.y);
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
         [cell addSubview:imgView];
         
         
@@ -262,7 +266,7 @@
 //            coverView.backgroundColor = [UIColor whiteColor];
 //            [tableView addSubview:coverView];
 //        }
-        NSSet *set = [NSSet setWithObjects:@2,@3,@4,@6,@7, nil];
+        NSSet *set = [NSSet setWithObjects:@2,@3,@4,@5,@7,@8, nil];
         NSSet *nowSet = [NSSet setWithObject:[NSNumber numberWithInteger:indexPath.section]];
         if ([nowSet isSubsetOfSet:set]) {
             UIView *underLine = [[UIView alloc]initWithFrame:CGRectMake(label.frame.origin.x, 0, MAIN_SCREEN_W, 0.5)];
@@ -278,7 +282,7 @@
 
 #pragma mark 分割tableview设置
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSSet *set = [NSSet setWithObjects:@1,@5,@8, nil];
+    NSSet *set = [NSSet setWithObjects:@1,@6,@9, nil];
     NSSet *nowSet = [NSSet setWithObject:[NSNumber numberWithInteger:section]];
     if ([nowSet isSubsetOfSet:set]) {
         return 15;
@@ -304,7 +308,6 @@
         self.navigationController.navigationBarHidden = NO;
         [self.navigationController pushViewController:viewController animated:YES];
     }else if (indexPath.section == [_cellDictionary count]-1){
-        
         LoginViewController *login = [[LoginViewController alloc]init];
         [self.navigationController presentViewController:login animated:YES completion:^{
             [LoginEntry loginoutWithParamArrayString:@[@"dataArray",@"weekDataArray",@"nowWeek",@"defaultImageNSUrl"]];

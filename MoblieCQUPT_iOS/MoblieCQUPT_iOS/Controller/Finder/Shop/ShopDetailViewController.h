@@ -12,11 +12,12 @@
 @interface ShopDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableDictionary *detailData;
+@property (strong, nonatomic) NSMutableDictionary *shopInfoData;
 
 @property (strong, nonatomic) DetailDishView *detailDishView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *picture;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+//@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+//@property (weak, nonatomic) IBOutlet UIImageView *picture;
+//@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end
