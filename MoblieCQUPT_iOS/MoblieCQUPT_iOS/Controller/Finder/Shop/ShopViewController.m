@@ -16,11 +16,17 @@
 
 #define SHOPLIST_ENDPAGE 4
 
+#define __kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define __kScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic)UITableView *tableView;
-@property (strong, nonatomic)NSMutableArray *data;
-@property (assign, nonatomic)NSInteger flag;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *data;
+@property (assign, nonatomic) NSInteger flag;
+//peek
+@property (assign, nonatomic) CGRect sourceRect;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end
 
@@ -36,6 +42,9 @@
     
     [self setupRefresh];
     [self.view addSubview:self.tableView];
+    
+    //注册Peek和Pop方法
+    [self registerForPreviewingWithDelegate:self sourceView:self.view];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -120,7 +129,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
 
-        UINib *nib = [UINib nibWithNibName:@"ShopTableViewCell" bundle:nil];//从当前工程中识别xib文件
+        UINib *nib = [UINib nibWithNibName:@"ShopTableViewCell" bundle:nil];
         [_tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     }
     
@@ -157,11 +166,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{  
-    static NSString *cellIdentify = @"cell";//cell重用标识
+{
+    static NSString *cellIdentify = @"cell";
     ShopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
     if (!cell) {
-        cell = [[ShopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];//构造一个cell
+        cell = [[ShopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
     }
 
     [cell.picture setImageWithURL:[NSURL URLWithString:_data[indexPath.row][@"shopimg_src"]]];

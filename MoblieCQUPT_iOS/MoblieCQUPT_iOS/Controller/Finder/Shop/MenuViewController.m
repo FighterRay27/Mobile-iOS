@@ -26,12 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _returnButton.highlighted = NO;
     _data = [[NSMutableArray alloc] init];
     [_returnButton addTarget:self
                       action:@selector(returnView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.tableView];
-    
-    [self dataFlash];
+    if (!_shopId) {
+        [self dataFlash];
+    }
 }
 
 //覆盖初始化方法

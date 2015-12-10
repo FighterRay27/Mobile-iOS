@@ -46,10 +46,10 @@
 - (void)displayDetailDish{
     if (_detailData) {
         MenuViewController *mvc = [[MenuViewController alloc] init];
-        mvc.shopId = _detailData[@"id"] ;
-        [self presentViewController:mvc
-                           animated:YES
-                         completion:nil];
+            mvc.shopId = _detailData[@"id"];
+            [self presentViewController:mvc
+                               animated:YES
+                             completion:nil];
     }
 }
 
@@ -146,8 +146,8 @@
             [cell setUserInteractionEnabled:NO];
         }else {
             UILabel *shopInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 15)];
-//            shopInfoLabel.text = @"暂无本店介绍";
-            shopInfoLabel.text = _shopInfoData[@"infoData"][@"shop_content"];
+            shopInfoLabel.text = @"暂无本店介绍";
+//            shopInfoLabel.text = _shopInfoData[@"infoData"][@"shop_content"];
             shopInfoLabel.font = [UIFont systemFontOfSize:13];
             shopInfoLabel.textColor = [UIColor colorWithRed:152/255.0 green:152/255.0 blue:152/255.0 alpha:1];
             [shopInfoLabel sizeToFit];
