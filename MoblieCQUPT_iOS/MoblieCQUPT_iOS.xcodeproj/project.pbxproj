@@ -160,6 +160,7 @@
 		D991E0F71C196D9200879D4C /* RestTImeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D991E0F61C196D9200879D4C /* RestTImeDetailView.m */; };
 		D99526001C16F9D6003C27C8 /* QGERestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99525FE1C16F9D6003C27C8 /* QGERestDetailViewController.m */; };
 		D99526011C16F9D6003C27C8 /* QGERestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */; };
+		D99AAA471C1AAB3000DC5793 /* RestTimeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AAA461C1AAB3000DC5793 /* RestTimeButton.m */; };
 		D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */; };
 		D99C4A851B9AB70200BEF33C /* iconfont-meixueqi.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */; };
 		D9A9532C1B9DA4F500D62690 /* iconfont-more.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A9532B1B9DA4F500D62690 /* iconfont-more.png */; };
@@ -471,6 +472,8 @@
 		D99525FD1C16F9D6003C27C8 /* QGERestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGERestDetailViewController.h; sourceTree = "<group>"; };
 		D99525FE1C16F9D6003C27C8 /* QGERestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGERestDetailViewController.m; sourceTree = "<group>"; };
 		D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QGERestDetailViewController.xib; sourceTree = "<group>"; };
+		D99AAA451C1AAB3000DC5793 /* RestTimeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestTimeButton.h; sourceTree = "<group>"; };
+		D99AAA461C1AAB3000DC5793 /* RestTimeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestTimeButton.m; sourceTree = "<group>"; };
 		D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconfont_meizhou.png; sourceTree = "<group>"; };
 		D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-meixueqi.png"; sourceTree = "<group>"; };
 		D9A9532B1B9DA4F500D62690 /* iconfont-more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-more.png"; sourceTree = "<group>"; };
@@ -1229,6 +1232,8 @@
 				D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */,
 				D991E0F51C196D9200879D4C /* RestTImeDetailView.h */,
 				D991E0F61C196D9200879D4C /* RestTImeDetailView.m */,
+				D99AAA451C1AAB3000DC5793 /* RestTimeButton.h */,
+				D99AAA461C1AAB3000DC5793 /* RestTimeButton.m */,
 			);
 			path = RestTimeCourse;
 			sourceTree = "<group>";
@@ -1759,6 +1764,7 @@
 				CEE614921BEA4B9A004873AA /* MJRefreshConst.m in Sources */,
 				CEE614911BEA4B9A004873AA /* MJRefreshBaseView.m in Sources */,
 				CE3BC7E01BE8C6270002CBA4 /* F3HScoreView.m in Sources */,
+				D99AAA471C1AAB3000DC5793 /* RestTimeButton.m in Sources */,
 				E263C79B1BA35E60008488FA /* FirstViewController.m in Sources */,
 				E238270E1B9478190058970E /* Course.m in Sources */,
 				E263C79D1BA35E60008488FA /* MeCell.m in Sources */,
