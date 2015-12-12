@@ -7,6 +7,7 @@
 //
 
 #import "QGERestDetailViewController.h"
+#import "Course.h"
 
 #define Course_API @"http://hongyan.cqupt.edu.cn/redapi2/api/kebiao"
 
@@ -29,6 +30,8 @@
 @property (assign, nonatomic) CGPoint startPoint1;
 
 @property (strong, nonatomic) NSMutableArray *allStuCourseArray;
+@property (strong, nonatomic) NSMutableArray *allStuWeelCourseArray;
+@property (strong, nonatomic) NSMutableArray *showDataArray;
 @end
 
 @implementation QGERestDetailViewController
@@ -38,10 +41,7 @@
     [self initCourseTable];
     [self initWeekSelectedList];
     self.navigationItem.titleView = _titleView;
-    
     [self loadAllStuCourse];
-    
-    NSLog(@"%@",_allStuNumArray);
     // Do any additional setup after loading the view from its nib.
 }
 - (void)initWeekSelectedList {
@@ -276,18 +276,51 @@
 #pragma mark - 请求课表
 - (void)loadAllStuCourse {
     _allStuCourseArray = [NSMutableArray array];
+    NSMutableArray *preWeekCourseArray = [NSMutableArray array];//全部学生的每周课表
     for (int i = 0; i < _allStuNumArray.count; i++) {
+        NSMutableArray *preStuWeekCourseArray = [NSMutableArray array];//每个学生每周的课表
         NSString *stuNum = [NSString stringWithFormat:@"%@",_allStuNumArray[i]];
         [NetWork NetRequestPOSTWithRequestURL:Course_API WithParameter:@{@"stuNum":stuNum} WithReturnValeuBlock:^(id returnValue) {
             [_allStuCourseArray addObject:returnValue[@"data"]];
+            for (NSInteger i = 0; i<18; i++) {
+                [preStuWeekCourseArray addObject:[self getWeekCourseArray:returnValue[@"data"] withWeek:i+1]];
+            }
+            [preWeekCourseArray addObject:preStuWeekCourseArray];
             if (_allStuCourseArray.count == _allStuNumArray.count) {
+                [self handleShowData:_allStuCourseArray];
                 NSLog(@"%ld",_allStuCourseArray.count);
+                NSLog(@"%ld",preWeekCourseArray.count);
+//                Course *c = [[Course alloc]initWithPropertiesDictionary:preWeekCourseArray[0][7][0]];
             }
         } WithFailureBlock:^{
             NSLog(@"请求失败");
         }];
     }
 }
+#pragma mark - 处理学期
+- (void)handleShowData:(NSMutableArray *)allStuCourseArray {
+    _showDataArray = [NSMutableArray array];
+//    for (NSInteger day = 0; day < 7; day ++) {
+//        for (NSInteger begin = 1; begin <= 11; begin +=2) {
+//            
+//        }
+//    }
+    
+    for (int i = 0; i < allStuCourseArray.count; i ++) {
+        NSArray *course = allStuCourseArray[i];
+        NSLog(@"%ld",course.count);
+        NSMutableArray *day = [NSMutableArray array];
+        NSMutableArray *begin = [NSMutableArray array];
+        for (int j = 0; j < course.count; j++) {
+            [day addObject:course[j][@"hash_day"]];
+            [begin addObject:course[j][@"begin_lesson"]];
+        }
+        NSSet *daySet = [NSSet setWithArray:day];
+        NSSet *beginSet = [NSSet setWithArray:begin];
+        NSLog(@"%d~day:%@ begin:%@",i,daySet,beginSet);
+    }
+}
+
 #pragma mark 获取周课表
 - (NSMutableArray *)getWeekCourseArray:(NSMutableArray *)courseArray withWeek:(NSInteger)week {
     NSMutableArray *weekCourseArray = [NSMutableArray array];

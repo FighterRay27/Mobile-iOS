@@ -11,5 +11,6 @@
 @interface QGERestDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableArray *allStuNumArray;
+@property (strong, nonatomic) NSMutableArray *allStuNameArray;
 
 @end
