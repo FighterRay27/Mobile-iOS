@@ -90,7 +90,7 @@
     while (YES) {
         column = arc4random_uniform((uint32_t)self.dimension);
         if ([self tileForIndexPath:[NSIndexPath indexPathForRow:row inSection:column]].empty) {
-            shouldExit = YES;
+//            shouldExit = YES;
             break;
         }
         if (shouldExit) {

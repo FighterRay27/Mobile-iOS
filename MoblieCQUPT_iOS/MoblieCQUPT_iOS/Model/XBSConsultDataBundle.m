@@ -73,8 +73,8 @@
     self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [self.manager POST:API_EXAM_GRADE parameters:_postParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.htmlString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",self.htmlString);
-        NSLog(@"%@",_postParams);
+//        NSLog(@"%@",self.htmlString);
+//        NSLog(@"%@",_postParams);
         XBSGradeViewController *viewController = [[XBSGradeViewController alloc]init];
         viewController.delegate = self;
         [ProgressHUD showSuccess:ConsultCompleteHint];

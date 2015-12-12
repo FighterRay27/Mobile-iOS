@@ -23,7 +23,7 @@
         //backgroundColor
         [self setTintColor:[UIColor whiteColor]];
         [self setBackgroundImage:[We getImageColored:MAIN_COLOR Size:CGSizeMake(ScreenWidth,64)] forBarMetrics:UIBarMetricsDefault];
-        UINavigationItem *navigationItem = [[UINavigationItem alloc]initWithTitle:nil];
+        UINavigationItem *navigationItem = [[UINavigationItem alloc]initWithTitle:@""];
         
         //leftButton
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(prevPage)];

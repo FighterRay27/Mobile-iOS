@@ -250,10 +250,14 @@
         self.navigationController.navigationBarHidden = NO;
         [self.navigationController pushViewController:viewController animated:YES];
     }else if (indexPath.section == [_cellDictionary count]-1){
-        LoginViewController *login = [[LoginViewController alloc]init];
-        [self.navigationController presentViewController:login animated:YES completion:^{
-            [LoginEntry loginoutWithParamArrayString:@[@"dataArray",@"weekDataArray",@"nowWeek",@"defaultImageNSUrl"]];
-        }];
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登出帐号"
+                            message:@"所有的个人信息将清除,你确定要登出此帐号吗?"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"不,我只是手抖了（￣口￣）|||"
+                                                 otherButtonTitles:@"我确定（╯－＿－）╯╧╧ ", nil];
+        [alertView show];
+        
     }
     
     if(_cellDictionary[indexPath.section][@"action"]){
@@ -263,8 +267,16 @@
         //        [labelButton addTarget:self.clicker action:s[i] forControlEvents:UIControlEventTouchUpInside];
     }
     
-//
-    
+}
+
+#pragma 登出 alertviincludevi 代理
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        LoginViewController *login = [[LoginViewController alloc]init];
+        [self.navigationController presentViewController:login animated:YES completion:^{
+            [LoginEntry loginoutWithParamArrayString:@[@"dataArray",@"weekDataArray",@"nowWeek",@"defaultImageNSUrl"]];
+        }];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
