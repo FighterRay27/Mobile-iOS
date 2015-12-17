@@ -181,6 +181,9 @@
                 _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
             }
         }
+        for (int i = 0; i < _stuInfoArray.count; i ++) {
+            NSLog(@"%@~%@",_stuNumArray[i],_stuInfoArray[i][@"name"]);
+        }
     } WithFailureBlock:^{
         NSLog(@"请求失败");
     }];

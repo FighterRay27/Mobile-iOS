@@ -8,6 +8,7 @@
 
 #import "QGERestDetailViewController.h"
 #import "Course.h"
+#import "CourseButton.h"
 
 #define Course_API @"http://hongyan.cqupt.edu.cn/redapi2/api/kebiao"
 
@@ -31,7 +32,10 @@
 
 @property (strong, nonatomic) NSMutableArray *allStuCourseArray;
 @property (strong, nonatomic) NSMutableArray *allStuWeelCourseArray;
+@property (strong, nonatomic) NSMutableArray *preWeekCourseArray;
 @property (strong, nonatomic) NSMutableArray *showDataArray;
+@property (strong, nonatomic) NSMutableArray *buttonTag;
+@property (strong, nonatomic) NSMutableArray *colorArray;
 @end
 
 @implementation QGERestDetailViewController
@@ -276,42 +280,52 @@
 #pragma mark - 请求课表
 - (void)loadAllStuCourse {
     _allStuCourseArray = [NSMutableArray array];
-    NSMutableArray *preWeekCourseArray = [NSMutableArray array];//全部学生的每周课表
+    _preWeekCourseArray = [NSMutableArray array];//全部学生的每周课表
     for (int i = 0; i < _allStuNumArray.count; i++) {
         NSMutableArray *preStuWeekCourseArray = [NSMutableArray array];//每个学生每周的课表
         NSString *stuNum = [NSString stringWithFormat:@"%@",_allStuNumArray[i]];
         [NetWork NetRequestPOSTWithRequestURL:Course_API WithParameter:@{@"stuNum":stuNum} WithReturnValeuBlock:^(id returnValue) {
-            [_allStuCourseArray addObject:returnValue[@"data"]];
-            for (NSInteger i = 0; i<18; i++) {
-                [preStuWeekCourseArray addObject:[self getWeekCourseArray:returnValue[@"data"] withWeek:i+1]];
+            NSMutableDictionary *courseDic = [[NSMutableDictionary alloc]initWithDictionary:returnValue];
+            for (NSInteger j = 0; j < _allStuNameArray.count; j ++) {
+                NSInteger stuNum1 = [_allStuNameArray[j][@"stunum"] integerValue];
+                NSInteger stuNum2 = [courseDic[@"stuNum"] integerValue];
+                if (stuNum1 == stuNum2) {
+                    [courseDic setObject:_allStuNameArray[j][@"name"] forKey:@"name"];
+                    [_allStuCourseArray addObject:courseDic];
+                }
             }
-            [preWeekCourseArray addObject:preStuWeekCourseArray];
+            for (NSInteger i = 0; i<18; i++) {
+                [preStuWeekCourseArray addObject:[self getWeekCourseDic:courseDic withWeek:i+1]];
+            }
+            [_preWeekCourseArray addObject:preStuWeekCourseArray];
             if (_allStuCourseArray.count == _allStuNumArray.count) {
                 [self handleShowData:_allStuCourseArray];
-//                NSLog(@"%ld",_allStuCourseArray.count);
-//                NSLog(@"%ld",preWeekCourseArray.count);
-//                Course *c = [[Course alloc]initWithPropertiesDictionary:preWeekCourseArray[0][7][0]];
             }
         } WithFailureBlock:^{
             NSLog(@"请求失败");
         }];
     }
 }
+#pragma mark - -
+
 #pragma mark - 处理学期
 - (void)handleShowData:(NSMutableArray *)allStuCourseArray {
     _showDataArray = [NSMutableArray array];
     NSArray *week = @[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18];
-    for (int day = 0; day < 1; day ++) {
-        for (int begin = 1; begin < 4; begin += 2) {
+    for (int day = 0; day < 7; day ++) {
+        for (int begin = 1; begin < 12; begin += 2) {
             NSMutableDictionary *showDic = [NSMutableDictionary dictionary];
             NSMutableArray *names = [NSMutableArray array];
             for (int i = 0; i < allStuCourseArray.count; i ++) {
-                NSArray *course = allStuCourseArray[i];
+                BOOL isHaveCourse = NO;
+//                BOOL isHaveThree = NO;
+                NSArray *course = allStuCourseArray[i][@"data"];
                 NSMutableArray *preCourse = [NSMutableArray array];
                 //遍历课表内容 筛选出同一时段的 所有课程
                 for (int j = 0; j < course.count; j ++) {
                     if ([course[j][@"hash_day"] intValue] == day && [course[j][@"begin_lesson"] intValue] == begin) {
                         [preCourse addObject:course[j]];
+                        isHaveCourse = YES;
                     }
                 }
                 if(preCourse.count == 1) {
@@ -324,61 +338,166 @@
                             }
                         }
                         if (restOfWeek.count > 2) {
-                            NSString *name = [NSString stringWithFormat:@"%@(%@-%@)",_allStuNameArray[i][@"name"],restOfWeek[0],restOfWeek[restOfWeek.count-1]];
-                            [names addObject:name];
+                            BOOL isOne = NO;
+                            for (NSInteger tmp = 0; tmp < restOfWeek.count-1; tmp ++) {
+                                NSInteger pre = [restOfWeek[tmp] integerValue];
+                                NSInteger back = [restOfWeek[tmp+1] integerValue];
+                                if (pre != back-1) {
+                                    isOne = YES;
+                                    break;
+                                }
+                            }
+                            if (isOne) {
+                                NSString *name = [NSString stringWithFormat:@"%@ (除%@-%@周)",_allStuCourseArray[i][@"name"],courseWeek[0],courseWeek[courseWeek.count-1]];
+                                [names addObject:name];
+                            }else {
+                                NSString *name = [NSString stringWithFormat:@"%@ (%@-%@周)",_allStuCourseArray[i][@"name"],restOfWeek[0],restOfWeek[restOfWeek.count-1]];
+                                [names addObject:name];
+                            }
                         }else if (restOfWeek.count == 1) {
-                            NSString *name = [NSString stringWithFormat:@"%@(除第%@周)",_allStuNameArray[i][@"name"],restOfWeek[0]];
+                            NSString *name = [NSString stringWithFormat:@"%@ (第%@周)",_allStuCourseArray[i][@"name"],restOfWeek[0]];
                             [names addObject:name];
                         }else if (restOfWeek.count == 2) {
-                            NSString *name = [NSString stringWithFormat:@"%@(除%@周,%@周)",_allStuNameArray[i][@"name"],restOfWeek[0],restOfWeek[1]];
+                            NSString *name = [NSString stringWithFormat:@"%@ (%@,%@周)",_allStuCourseArray[i][@"name"],restOfWeek[0],restOfWeek[1]];
                             [names addObject:name];
                         }else if (restOfWeek.count == 0) {
-                            NSString *name = [NSString stringWithFormat:@"%@",_allStuNameArray[i][@"name"]];
+                            NSString *name = [NSString stringWithFormat:@"%@",_allStuCourseArray[i][@"name"]];
                             [names addObject:name];
                         }
-                    }else if ([preCourse[0][@"weekModel"] isEqualToString:@"all"] && ((NSArray *)preCourse[0][@"week"]).count < 3) {
+                    }else if ([preCourse[0][@"weekModel"] isEqualToString:@"all"] && ((NSArray *)preCourse[0][@"week"]).count <= 3) {
                         NSInteger count = ((NSArray *)preCourse[0][@"week"]).count;
                         if (count == 1) {
-                            NSString *name = [NSString stringWithFormat:@"%@(除第%@周)",_allStuNameArray[i][@"name"],preCourse[0][@"week"][0]];
+                            NSString *name = [NSString stringWithFormat:@"%@ (除第%@周)",_allStuCourseArray[i][@"name"],preCourse[0][@"week"][0]];
                             [names addObject:name];
                         }else if (count == 2) {
-                            NSString *name = [NSString stringWithFormat:@"%@(除%@,%@周)",_allStuNameArray[i][@"name"],preCourse[0][@"week"][0],preCourse[0][@"week"][1]];
+                            NSString *name = [NSString stringWithFormat:@"%@ (除%@,%@周)",_allStuCourseArray[i][@"name"],preCourse[0][@"week"][0],preCourse[0][@"week"][1]];
+                            [names addObject:name];
+                        }else if (count == 3) {
+                            NSString *name = [NSString stringWithFormat:@"%@ (除%@-%@周)",_allStuCourseArray[i][@"name"],preCourse[0][@"week"][0],preCourse[0][@"week"][2]];
                             [names addObject:name];
                         }
                     }else if ([preCourse[0][@"weekModel"] isEqualToString:@"single"]) {
-                        NSString *name = [NSString stringWithFormat:@"%@(双周)",_allStuNameArray[i][@"name"]];
+                        NSString *name = [NSString stringWithFormat:@"%@ (双周)",_allStuCourseArray[i][@"name"]];
                         [names addObject:name];
                     }else if ([preCourse[0][@"weekModel"] isEqualToString:@"double"]) {
-                        NSString *name = [NSString stringWithFormat:@"%@(单周)",_allStuNameArray[i][@"name"]];
+                        NSString *name = [NSString stringWithFormat:@"%@ (单周)",_allStuCourseArray[i][@"name"]];
                         [names addObject:name];
                     }
                 }else if (preCourse.count == 2) {
                     if ([preCourse[0][@"weekModel"] isEqualToString:@"single"] && [preCourse[1][@"weekModel"] isEqualToString:@"double"]) {
-                        NSString *name = [NSString stringWithFormat:@"%@",_allStuNameArray[i][@"name"]];
-                        [names addObject:name];
-                    }else if ([preCourse[0][@"weekModel"] isEqualToString:@"all"]) {
                         
+                    }else if ([preCourse[0][@"weekModel"] isEqualToString:@"all"]) {
+                        NSString *name = [NSString stringWithFormat:@"%@ (除%@,%@)",_allStuCourseArray[i][@"name"],preCourse[0][@"rawWeek"],preCourse[1][@"rawWeek"]];
+                        [names addObject:name];
                     }
+                }else if (preCourse.count > 2) {
+                    NSMutableArray *weeks = [NSMutableArray array];
+                    for (int i = 0; i < preCourse.count; i ++) {
+                        NSArray *week2 = preCourse[i][@"week"];
+                        for (int j = 0; j < week2.count; j ++) {
+                            [weeks addObject:week2[j]];
+                        }
+                    }
+                    if (weeks.count > 2) {
+                        NSString *name = [NSString stringWithFormat:@"%@ (除%@-%@周)",_allStuCourseArray[i][@"name"],weeks[0],weeks[weeks.count-1]];
+                        [names addObject:name];
+                    }
+                }
+                if (!isHaveCourse) {
+                    NSString *name = [NSString stringWithFormat:@"%@",_allStuCourseArray[i][@"name"]];
+                    [names addObject:name];
                 }
             }
             [showDic setObject:[NSNumber numberWithInt:day] forKey:@"hash_day"];
             [showDic setObject:[NSNumber numberWithInt:begin] forKey:@"begin_lesson"];
             [showDic setObject:names forKey:@"names"];
-            NSLog(@"%@",showDic);
+            [_showDataArray addObject:showDic];
+        }
+    }
+    [self handleColor:_showDataArray];
+    NSLog(@"%@",_showDataArray);
+    [self showUIWithDictionary:_showDataArray];
+}
+#pragma mark - -
+
+#pragma mark - 显示UI
+
+- (void)showUIWithDictionary:(NSMutableArray *)array {
+    _buttonTag = [NSMutableArray array];
+    for (int i = 0; i < array.count; i ++) {
+        NSDictionary *dic = array[i];
+        NSArray *names = dic[@"names"];
+        if (names.count>0) {
+            int rowNum = [[dic objectForKey:@"begin_lesson"] intValue]-1;
+            int colNum = [[dic objectForKey:@"hash_day"] intValue]+1;
+            
+            CourseButton *courseButton = [[CourseButton alloc] initWithFrame:CGRectMake((colNum-0.5)*kWidthGrid+1, kWidthGrid*rowNum+1, kWidthGrid-2, kWidthGrid*2-2)];
+            courseButton.buttonInfoDic = dic;
+            if (names.count >2 ) {
+                [courseButton setTitle:[NSString stringWithFormat:@"%@ %@ %@",names[0],names[1],names[2]] forState:UIControlStateNormal];
+            }else if (names.count == 2) {
+                [courseButton setTitle:[NSString stringWithFormat:@"%@ %@",names[0],names[1]] forState:UIControlStateNormal];
+            }else if (names.count == 1) {
+                [courseButton setTitle:[NSString stringWithFormat:@"%@",names[0]] forState:UIControlStateNormal];
+            }
+            courseButton.tag = i;
+            [_buttonTag addObject:courseButton];
+            courseButton.backgroundColor = [self handleRandomColorStr:dic[@"color"]];
+            [courseButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+            [_mainScrollView addSubview:courseButton];
         }
     }
 }
 
+#pragma mark - -
+
+#pragma mark 处理课表颜色
+- (void)handleColor:(NSMutableArray *)array {
+    _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+    for (int i = 0; i < array.count; i ++) {
+        if (_colorArray.count == 0) {
+            _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+        }
+        int j = arc4random()%_colorArray.count;
+        [array[i] setObject:_colorArray[j] forKey:@"color"];
+        [_colorArray removeObject:_colorArray[j]];
+    }
+}
+#pragma mark - -
+
+#pragma mark - 颜色私有方法
+//处理随机颜色字符串
+- (UIColor *)handleRandomColorStr:(NSString *)randomColorStr
+{
+    NSArray *array = [randomColorStr componentsSeparatedByString:@","];
+    if (array.count >2) {
+        NSString *red = array[0];
+        NSString *green = array[1];
+        NSString *blue = array[2];
+        return RGBColor(red.floatValue, green.floatValue, blue.floatValue, 1);
+    }
+    return [UIColor lightGrayColor];
+}
+#pragma mark - -
+
 #pragma mark 获取周课表
-- (NSMutableArray *)getWeekCourseArray:(NSMutableArray *)courseArray withWeek:(NSInteger)week {
-    NSMutableArray *weekCourseArray = [NSMutableArray array];
-    for (int i = 0; i < courseArray.count; i ++) {
-        if ([courseArray[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
-            NSMutableDictionary *weekDataDic = [[NSMutableDictionary alloc]initWithDictionary:courseArray[i]];
-            [weekCourseArray addObject:weekDataDic];
+- (NSMutableDictionary *)getWeekCourseDic:(NSMutableDictionary *)courseDic withWeek:(NSInteger)week {
+    NSMutableArray *data = [NSMutableArray array];
+    NSMutableDictionary *course = [[NSMutableDictionary alloc]initWithDictionary:courseDic];
+    NSArray *courseData = course[@"data"];
+    for (int i = 0; i < courseData.count; i ++) {
+        if ([courseData[i][@"week"] containsObject:[NSNumber numberWithInteger:week]]) {
+            [data addObject:courseData[i]];
         }
     }
-    return weekCourseArray;
+    [course setObject:data forKey:@"data"];
+//    NSLog(@"%@",course[@"name"]);
+    return course;
+}
+#pragma mark - -
+
+- (void)btnClick:(CourseButton *)sender {
+    NSLog(@"%@",sender.buttonInfoDic[@"names"]);
 }
 
 - (void)didReceiveMemoryWarning {
