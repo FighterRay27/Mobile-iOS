@@ -120,6 +120,12 @@
     return kTableViewCellRowHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.extensionContext openURL:[NSURL URLWithString:@"cyxbs://class"] completionHandler:^(BOOL success) {
+        NSLog(@"open succeed");
+    }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identify = @"ClassCell";
     ClassTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
