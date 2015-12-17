@@ -10,26 +10,27 @@
 #define kAppGroupShareNowDay @"nowDay"
 #define kAppGroupShareThisWeekArray @"thisWeekArray"
 #define kAutoUpdateInterval 60*5
+#define kTableViewCellRowHeight 120
 
 #import "TodayViewController.h"
+#import "ClassTableViewCell.h"
 #import <NotificationCenter/NotificationCenter.h>
 
-@interface TodayViewController () <NCWidgetProviding>
+@interface TodayViewController () <NCWidgetProviding,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) NSArray *todayClassArray;
+@property (strong, nonatomic) UITableView *classTableView;
 @end
 
 @implementation TodayViewController
 
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.view addSubview:self.classTableView];
     [self autoUpdateTimer];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Do any additional setup after loading the view from its nib.
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,7 +38,8 @@
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-
+    
+    
     // Perform any setup necessary in order to update the view.
     
     // If an error is encountered, use NCUpdateResultFailed
@@ -47,25 +49,27 @@
     completionHandler(NCUpdateResultNewData);
 }
 
-- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
+
 
 - (NSArray *)todayClassArrayFromWeakClassArray:(NSArray *)weakClassArray{
     NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:[NSDate date]];
     NSInteger today =  [componets weekday];
     today -= 1; //从周日开始转为从周一开始
     today = today>0?today:7;
-    NSLog(@"%@",[NSDate date]);
+//    NSLog(@"%@",[NSDate date]);
     
     NSMutableArray *mutableToDayClassArray = [NSMutableArray array];
     for (NSDictionary *row in weakClassArray) {
         NSString *tmpString = row[@"day"];
+
         if ([tmpString integerValue] == today) {
             [mutableToDayClassArray addObject:row];
         }
     }
-    
+    if (mutableToDayClassArray.count == 0) {
+        //如果今天没课
+        
+    }
     NSLog(@"今日周%ld,数据:%@",today,mutableToDayClassArray);
     return mutableToDayClassArray;
 }
@@ -83,13 +87,116 @@
     
 }
 
+
 - (void)updateTodayClass{
     
     [self widgetPerformUpdateWithCompletionHandler:^(NCUpdateResult result) {
         NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:kAPPGroupID];
         NSArray *weakDataArray = [shared objectForKey:kAppGroupShareThisWeekArray];
         self.todayClassArray = [self todayClassArrayFromWeakClassArray:weakDataArray];
+        [self updateView];
     }];
     NSLog(@"更新今日课程数据");
+    
+    
+    
 }
+
+#pragma UI 相关
+- (void) updateView{
+    NSLog(@"更新界面:%ld",self.todayClassArray.count);
+    [self.classTableView reloadData];
+    self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, kTableViewCellRowHeight*self.todayClassArray.count);
+    self.classTableView.frame = self.view.bounds;
+    
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.todayClassArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return kTableViewCellRowHeight;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *identify = @"ClassCell";
+    ClassTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    if (!cell) {
+        cell = [[ClassTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+    }
+    NSDictionary *lessonDictionary = self.todayClassArray[indexPath.row];
+    NSString *classTime = [NSString stringWithFormat:@"%@",
+                                            [self
+                                                           stringWithBeginLesson:
+                                                               [lessonDictionary[@"begin_lesson"] integerValue]
+                                                           period:
+                                                               [lessonDictionary[@"period"] integerValue]
+                                            ]
+                            ];
+
+    
+    cell.classNameLabel.text = lessonDictionary[@"course"];
+    cell.teacherLabel.text   = lessonDictionary[@"teacher"] ;
+    cell.classroomLabel.text = lessonDictionary[@"classroom"];
+    cell.classTimeLabel.text = classTime;
+
+    return cell;
+    
+}
+
+
+- (NSString *)stringWithBeginLesson:(NSInteger)beginLesson
+                             period:(NSInteger)time{
+    NSLog(@"%ld==%ld",beginLesson,time);
+    NSString *startTimeString,*endTimeString,*string;
+    NSInteger baseClassNum = 1;
+    if (beginLesson<5) {
+        string = @"08:00";
+        
+    }else if(beginLesson <9){
+        string = @"14:00";
+        baseClassNum = 5;
+    }else{
+        string = @"19:00";
+        baseClassNum = 9;
+    }
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+        [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        [inputFormatter setDateFormat:@"HH:mm"];
+        NSDate *inputDate = [inputFormatter dateFromString:string];
+        NSInteger addMin = (beginLesson-baseClassNum)*55;
+        if (beginLesson-baseClassNum >=3) {
+            addMin += 10;
+        }
+        NSDate *classDate = [NSDate dateWithTimeInterval:addMin*60
+                                               sinceDate:inputDate];
+        addMin = time*45 + (time-1)*10;
+        if (time >=3 ) {
+            addMin+=10;
+        }
+        NSDate *classEndDate = [NSDate dateWithTimeInterval:addMin*60
+                                                  sinceDate:classDate];
+        
+        startTimeString = [inputFormatter stringFromDate:classDate];
+        endTimeString = [inputFormatter stringFromDate:classEndDate];
+
+    return [NSString stringWithFormat:@"%@~%@",startTimeString,endTimeString];
+}
+
+- (UITableView *)classTableView{
+    if (!_classTableView) {
+        _classTableView = [[UITableView alloc]init];
+        _classTableView.delegate = self;
+        _classTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44*self.todayClassArray.count);
+        _classTableView.dataSource = self;
+        UINib *nib = [UINib nibWithNibName:@"ClassTableViewCell" bundle:nil];
+        [_classTableView registerNib:nib forCellReuseIdentifier:@"ClassCell"];
+//        _classTableView.backgroundColor = [UIColor whiteColor]
+    }
+    return _classTableView;
+}
+
+
 @end
