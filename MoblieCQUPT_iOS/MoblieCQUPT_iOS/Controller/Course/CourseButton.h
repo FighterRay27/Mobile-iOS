@@ -11,7 +11,7 @@
 
 @interface CourseButton : UIButton
 @property (strong, nonatomic)Course *coures;
-
+@property (strong, nonatomic) NSDictionary *buttonInfoDic;
 
 @end
 
