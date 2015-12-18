@@ -152,8 +152,13 @@
 }
 
 - (void)addStuNum {
+    _addBtn.enabled = NO;
+    _addBtn.backgroundColor = [UIColor colorWithRed:197/255.0 green:197/255.0 blue:197/255.0 alpha:1];
+    [_addBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     NSDictionary *parameter = @{@"stunum":_stuNumField.text};
     [NetWork NetRequestGETWithRequestURL:GETNAME_API WithParameter:parameter WithReturnValeuBlock:^(id returnValue) {
+        _stuNumField.text = @"";
+        [self textChange];
         if ([returnValue[@"info"] isEqualToString:@"failed"]) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"输入的学号有问题,请重新输入" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];

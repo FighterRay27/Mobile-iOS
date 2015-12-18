@@ -327,13 +327,12 @@
                     NSLog(@"%ld",_allStuCourseArray.count);
                 }
             }
-//            NSLog(@"%ld~%ld",_allStuCourseArray.count,_allStuNameArray.count);
             for (NSInteger i = 0; i<18; i++) {
                 [preStuWeekCourseArray addObject:[self getWeekCourseDic:courseDic withWeek:i+1]];
             }
             [_preWeekCourseArray addObject:preStuWeekCourseArray];
-            if (_allStuCourseArray.count == _allStuNumArray.count) {
-                NSLog(@"1212");
+            if (_allStuCourseArray.count == _allStuNameArray.count) {
+                NSLog(@"全部课表请求完毕 加载数据");
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
                 NSString *nowWeek = [user objectForKey:@"nowWeek"];
                 [self handleWeekShowDataWithWeek:[nowWeek integerValue]];
