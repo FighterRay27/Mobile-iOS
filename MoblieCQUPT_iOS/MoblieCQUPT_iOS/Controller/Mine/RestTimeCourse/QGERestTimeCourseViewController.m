@@ -41,7 +41,7 @@
 
 - (UITableView *)tableView {
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40, _table.frame.size.width, 300) style:UITableViewStylePlain];
-    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    _tableView.backgroundColor = [UIColor whiteColor    ];
     _tableView.sectionFooterHeight = 0;
     _tableView.sectionHeaderHeight = 0;
     _tableView.scrollEnabled = YES;
@@ -182,9 +182,6 @@
                 _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
             }
         }
-        for (int i = 0; i < _stuInfoArray.count; i ++) {
-            NSLog(@"%@~%@",_stuNumArray[i],_stuInfoArray[i][@"name"]);
-        }
     } WithFailureBlock:^{
         NSLog(@"请求失败");
     }];
@@ -213,8 +210,11 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentify];
     }
     cell.textLabel.text = _stuInfoArray[indexPath.row][@"name"];
-    [cell setUserInteractionEnabled:NO];
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -222,17 +222,20 @@
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.stuInfoArray removeObjectAtIndex:[indexPath row]];
-        [self.stuNumArray removeObjectAtIndex:[indexPath row]];
-        [self.tableView  deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+        [_stuInfoArray removeObjectAtIndex:[indexPath row]];
+        [_stuNumArray removeObjectAtIndex:[indexPath row]];
+        [_tableView  deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
     }
-    [self.tableView reloadData];
+    [_tableView reloadData];
+    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"1");
-//    return YES;
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

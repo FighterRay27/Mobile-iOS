@@ -52,6 +52,7 @@
     UIScrollView *labelScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(25, accountImg.frame.origin.y+accountImg.frame.size.height+20, self.frame.size.width-50, self.frame.size.height-clockImg.frame.size.height-accountImg.frame.size.height-65)];
     
     UILabel *namesLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, labelScroll.frame.size.width, labelScroll.frame.size.height)];
+    namesLabel.clipsToBounds = YES;
     namesLabel.numberOfLines = 0;
     namesLabel.font = [UIFont systemFontOfSize:15];
     namesLabel.textColor = [UIColor colorWithRed:54/255.0 green:54/255.0 blue:54/255.0 alpha:1];
@@ -64,6 +65,9 @@
         [namesLabel sizeToFit];
     }
     [labelScroll addSubview:namesLabel];
+    labelScroll.contentSize = CGSizeMake(labelScroll.frame.size.width, namesLabel.frame.size.height);
+    labelScroll.showsVerticalScrollIndicator = NO;
+    labelScroll.bounces = NO;
     [self addSubview:labelScroll];
     
 }

@@ -324,13 +324,16 @@
                 if (stuNum1 == stuNum2) {
                     [courseDic setObject:_allStuNameArray[j][@"name"] forKey:@"name"];
                     [_allStuCourseArray addObject:courseDic];
+                    NSLog(@"%ld",_allStuCourseArray.count);
                 }
             }
+//            NSLog(@"%ld~%ld",_allStuCourseArray.count,_allStuNameArray.count);
             for (NSInteger i = 0; i<18; i++) {
                 [preStuWeekCourseArray addObject:[self getWeekCourseDic:courseDic withWeek:i+1]];
             }
             [_preWeekCourseArray addObject:preStuWeekCourseArray];
             if (_allStuCourseArray.count == _allStuNumArray.count) {
+                NSLog(@"1212");
                 NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
                 NSString *nowWeek = [user objectForKey:@"nowWeek"];
                 [self handleWeekShowDataWithWeek:[nowWeek integerValue]];
@@ -643,7 +646,7 @@
     lineView.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:0.5];
     [_alertView addSubview:lineView];
     
-    QGERestTimeDetailView *detailView = [[QGERestTimeDetailView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, _alertView.frame.size.height-70) withDictionary:sender.buttonInfoDic];
+    QGERestTimeDetailView *detailView = [[QGERestTimeDetailView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, _alertView.frame.size.height-120) withDictionary:sender.buttonInfoDic];
     [_alertView addSubview:detailView];
     
     UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(15, _alertView.frame.size.height-55, _alertView.frame.size.width-30, 40)];
