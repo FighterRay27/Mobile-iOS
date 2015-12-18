@@ -53,7 +53,7 @@
                          @{@"cell":@"期末成绩",@"img":@"期末成绩.png",@"action":@"clickForExamGrade"},
                          @{@"cell":@"空教室",@"img":@"空教室.png",@"action":@"clickForEmptyClassroom"},
 //                        @{@"cell":@"去哪吃",@"img":@"zuobiao.png",@"controller":@"ShakeViewController"},
-//                         @{@"cell":@"没课约",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
+                         @{@"cell":@"没课约",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
                          @{@"cell":@"校历",@"img":@"校历.png",@"controller":@"CalendarViewController"},
                          @{@"cell":@"反馈信息",@"img":@"反馈信息.png",@"controller":@"SuggestionViewController"},
                          @{@"cell":@"关于",@"img":@"关于.png",@"controller":@"XBSAboutViewController"},

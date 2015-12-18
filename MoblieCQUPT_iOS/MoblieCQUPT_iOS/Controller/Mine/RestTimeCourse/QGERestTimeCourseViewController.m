@@ -73,7 +73,6 @@
     
     _stuNumField = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, fieldView.frame.size.width-10-_addBtn.frame.size.width, 40)];
     _stuNumField.placeholder = @"输入学号可以继续添加";
-    _stuNumField.text = @"201421307";
     _stuNumField.tintColor = MAIN_COLOR;
     _stuNumField.font = [UIFont systemFontOfSize:16];
     _stuNumField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -157,7 +156,6 @@
     [_addBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     NSDictionary *parameter = @{@"stunum":_stuNumField.text};
     [NetWork NetRequestGETWithRequestURL:GETNAME_API WithParameter:parameter WithReturnValeuBlock:^(id returnValue) {
-        _stuNumField.text = @"";
         [self textChange];
         if ([returnValue[@"info"] isEqualToString:@"failed"]) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"输入的学号有问题,请重新输入" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -187,6 +185,7 @@
                 _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
             }
         }
+        _stuNumField.text = @"";
     } WithFailureBlock:^{
         NSLog(@"请求失败");
     }];
@@ -196,6 +195,7 @@
     QGERestDetailViewController *q = [[QGERestDetailViewController alloc]init];
     q.allStuNumArray = _stuNumArray;
     q.allStuNameArray = _stuInfoArray;
+    NSLog(@"%@",_stuNumArray);
     [self.navigationController pushViewController:q animated:YES];
     [self viewDidLoad];
 }

@@ -265,20 +265,20 @@
         if (point1.y < 0) {
             if (point.y > -60) {
                 [UIView animateWithDuration:0.2 animations:^{
-                    _backView.frame = CGRectMake(0, 0, _backView.frame.size.width, _backView.frame.size.height);
-                    _shadeView.frame = CGRectMake(0, _backView.frame.size.height, ScreenWidth, ScreenHeight);
+                    _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                    _shadeView.frame = CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight);
                 } completion:^(BOOL finished) {
                     [UIView animateWithDuration:0.05 animations:^{
-                        _backView.frame = CGRectMake(0, -3, _backView.frame.size.width, _backView.frame.size.height);
-                        _shadeView.frame = CGRectMake(0, _backView.frame.size.height-3, ScreenWidth, ScreenHeight);
+                        _backView.frame = CGRectMake(0, 61, _backView.frame.size.width, _backView.frame.size.height);
+                        _shadeView.frame = CGRectMake(0, 61+_backView.frame.size.height-3, ScreenWidth, ScreenHeight);
                     } completion:^(BOOL finished) {
                         [UIView animateWithDuration:0.05 animations:^{
-                            _backView.frame = CGRectMake(0, -1, _backView.frame.size.width, _backView.frame.size.height);
-                            _shadeView.frame = CGRectMake(0, _backView.frame.size.height-1, ScreenWidth, ScreenHeight);
+                            _backView.frame = CGRectMake(0, 63, _backView.frame.size.width, _backView.frame.size.height);
+                            _shadeView.frame = CGRectMake(0, 63+_backView.frame.size.height-1, ScreenWidth, ScreenHeight);
                         } completion:^(BOOL finished) {
                             [UIView animateWithDuration:0.05 animations:^{
-                                _backView.frame = CGRectMake(0, 0, _backView.frame.size.width, _backView.frame.size.height);
-                                _shadeView.frame = CGRectMake(0, _backView.frame.size.height, ScreenWidth, ScreenHeight);
+                                _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                                _shadeView.frame = CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight);
                             } completion:nil];
                         }];
                     }];
@@ -288,20 +288,20 @@
             }
         }else if (point1.y > 0) {
             [UIView animateWithDuration:0.2 animations:^{
-                _backView.frame = CGRectMake(0, 0, _backView.frame.size.width, _backView.frame.size.height);
-                _shadeView.frame = CGRectMake(0, _backView.frame.size.height, ScreenWidth, ScreenHeight);
+                _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                _shadeView.frame = CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight);
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.05 animations:^{
-                    _backView.frame = CGRectMake(0, -3, _backView.frame.size.width, _backView.frame.size.height);
-                    _shadeView.frame = CGRectMake(0, _backView.frame.size.height-3, ScreenWidth, ScreenHeight);
+                    _backView.frame = CGRectMake(0, 61, _backView.frame.size.width, _backView.frame.size.height);
+                    _shadeView.frame = CGRectMake(0, 61+_backView.frame.size.height-3, ScreenWidth, ScreenHeight);
                 } completion:^(BOOL finished) {
                     [UIView animateWithDuration:0.05 animations:^{
-                        _backView.frame = CGRectMake(0, -1, _backView.frame.size.width, _backView.frame.size.height);
-                        _shadeView.frame = CGRectMake(0, _backView.frame.size.height-1, ScreenWidth, ScreenHeight);
+                        _backView.frame = CGRectMake(0, 63, _backView.frame.size.width, _backView.frame.size.height);
+                        _shadeView.frame = CGRectMake(0, 63+_backView.frame.size.height-1, ScreenWidth, ScreenHeight);
                     } completion:^(BOOL finished) {
                         [UIView animateWithDuration:0.05 animations:^{
-                            _backView.frame = CGRectMake(0, 0, _backView.frame.size.width, _backView.frame.size.height);
-                            _shadeView.frame = CGRectMake(0, _backView.frame.size.height, ScreenWidth, ScreenHeight);
+                            _backView.frame = CGRectMake(0, 64, _backView.frame.size.width, _backView.frame.size.height);
+                            _shadeView.frame = CGRectMake(0, 64+_backView.frame.size.height, ScreenWidth, ScreenHeight);
                         } completion:nil];
                     }];
                 }];
