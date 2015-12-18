@@ -9,6 +9,7 @@
 #import "QGERestDetailViewController.h"
 #import "Course.h"
 #import "CourseButton.h"
+#import "QGERestTimeDetailView.h"
 
 #define Course_API @"http://hongyan.cqupt.edu.cn/redapi2/api/kebiao"
 
@@ -25,6 +26,8 @@
 
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) UIView *mainView;
+@property (strong, nonatomic) UIView *backgroundView;
+@property (strong, nonatomic) UIView *alertView;
 
 @property (strong, nonatomic) NSMutableArray *weekBtnArray;
 @property (assign, nonatomic) CGPoint startPoint;
@@ -49,6 +52,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (void)initWeekSelectedList {
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     _weekViewShow = NO;
     _backView = [[UIView alloc]initWithFrame:CGRectMake(0, -ScreenHeight/2+64, ScreenWidth, ScreenHeight/2)];
     [self.view addSubview:_backView];
@@ -60,12 +64,24 @@
     [_backView addSubview:_weekScrollView];
     
     _weekArray = @[@"本学期",@"第一周",@"第二周",@"第三周",@"第四周",@"第五周",@"第六周",@"第七周",@"第八周",@"第九周",@"第十周",@"第十一周",@"第十二周",@"第十三周",@"第十四周",@"第十五周",@"第十六周",@"第十七周",@"第十八周"];
+    NSString *nowWeek = [user objectForKey:@"nowWeek"];
     _weekBtnArray = [NSMutableArray array];
     for (int i = 0; i < 19; i ++) {
         UIButton *weekBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         weekBtn.frame = CGRectMake(0, 35*i, ScreenWidth, 35);
         [weekBtn setTitle:_weekArray[i] forState:UIControlStateNormal];
-        [weekBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [weekBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (nowWeek != nil && i == [nowWeek integerValue]) {
+            weekBtn.selected = YES;
+            [weekBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            weekBtn.backgroundColor = [UIColor colorWithRed:250/255.0 green:165/255.0 blue:69/255.0 alpha:1];
+            _clickBtn = weekBtn;
+            if ([nowWeek integerValue] > 6 && [nowWeek integerValue] < 13) {
+                _weekScrollView.contentOffset = CGPointMake(0, _weekScrollView.frame.size.height/2);
+            }
+        }else {
+            [weekBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
         [weekBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
         weekBtn.tag = i;
         [_weekBtnArray addObject:weekBtn];
@@ -92,7 +108,18 @@
     
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
-    [_titleButton setTitle:@"本学期" forState:UIControlStateNormal];
+    if (nowWeek) {
+        for (int i = 1; i < _weekArray.count; i++) {
+            if (i == [nowWeek integerValue]) {
+                UIButton *weekBtn1 = _weekBtnArray[i];
+                [weekBtn1 setTitle:@"本周" forState:UIControlStateNormal];
+                [_titleButton setTitle:[NSString stringWithFormat:@"%@",weekBtn1.titleLabel.text] forState:UIControlStateNormal];
+            }
+        }
+    }else {
+        [_titleButton setTitle:[NSString stringWithFormat:@"%@",_weekArray[[nowWeek integerValue]]] forState:UIControlStateNormal];
+    }
+//    [_titleButton setTitle:@"本学期" forState:UIControlStateNormal];
     [_titleButton sizeToFit];
     _titleButton.center = CGPointMake(_titleView.frame.size.width/2, _titleView.frame.size.height/2);
     [_titleButton addTarget:self action:@selector(showWeekList) forControlEvents:UIControlEventTouchUpInside];
@@ -169,6 +196,11 @@
         _titleButton.center = CGPointMake(_titleView.frame.size.width/2, _titleView.frame.size.height/2);
         _tagView.center = CGPointMake(_titleView.frame.size.width/2+_titleButton.frame.size.width/2+_tagView.frame.size.width/2, _titleView.frame.size.height/2);
         _clickBtn = sender;
+    }
+    if (sender.tag == 0) {
+        [self handleShowData:_allStuCourseArray];
+    }else {
+        [self handleWeekShowDataWithWeek:sender.tag];
     }
     [self showWeekList];
 }
@@ -299,7 +331,9 @@
             }
             [_preWeekCourseArray addObject:preStuWeekCourseArray];
             if (_allStuCourseArray.count == _allStuNumArray.count) {
-                [self handleShowData:_allStuCourseArray];
+                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+                NSString *nowWeek = [user objectForKey:@"nowWeek"];
+                [self handleWeekShowDataWithWeek:[nowWeek integerValue]];
             }
         } WithFailureBlock:^{
             NSLog(@"请求失败");
@@ -310,10 +344,15 @@
 
 #pragma mark - 处理学期
 - (void)handleShowData:(NSMutableArray *)allStuCourseArray {
+    for (int i = 0; i < _buttonTag.count; i ++) {
+        [_buttonTag[i] removeFromSuperview];
+    }
     _showDataArray = [NSMutableArray array];
     NSArray *week = @[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18];
+    NSArray *dayArray = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
+    NSArray *lessonArray = @[@"1-2节",@"3-4节",@"5-6节",@"7-8节",@"9-10节",@"11-12节"];
     for (int day = 0; day < 7; day ++) {
-        for (int begin = 1; begin < 12; begin += 2) {
+        for (int begin = 1,lesson = 0; begin < 12; begin += 2,lesson ++) {
             NSMutableDictionary *showDic = [NSMutableDictionary dictionary];
             NSMutableArray *names = [NSMutableArray array];
             for (int i = 0; i < allStuCourseArray.count; i ++) {
@@ -387,8 +426,38 @@
                     if ([preCourse[0][@"weekModel"] isEqualToString:@"single"] && [preCourse[1][@"weekModel"] isEqualToString:@"double"]) {
                         
                     }else if ([preCourse[0][@"weekModel"] isEqualToString:@"all"]) {
-                        NSString *name = [NSString stringWithFormat:@"%@ (除%@,%@)",_allStuCourseArray[i][@"name"],preCourse[0][@"rawWeek"],preCourse[1][@"rawWeek"]];
-                        [names addObject:name];
+                        if ([preCourse[0][@"course"] isEqualToString:preCourse[1][@"course"]]) {
+                            NSString *name = [NSString stringWithFormat:@"%@ (除%@,%@)",_allStuCourseArray[i][@"name"],preCourse[0][@"rawWeek"],preCourse[1][@"rawWeek"]];
+                            [names addObject:name];
+                        }else {
+                            if (((NSArray *)preCourse[0][@"week"]).count > ((NSArray *)preCourse[1][@"week"]).count) {
+                                NSMutableArray *week4 = [NSMutableArray arrayWithArray:preCourse[1][@"week"]];
+                                NSInteger count = week4.count;
+                                for (int i = 0; i < count; i ++) {
+                                    if ([preCourse[0][@"week"] containsObject:week4[i]]) {
+                                        [week4 removeObject:week4[i]];
+                                    }
+                                }
+                                if (week4.count == 0) {
+                                    NSString *name = [NSString stringWithFormat:@"%@ (除%@)",_allStuCourseArray[i][@"name"],preCourse[0][@"rawWeek"]];
+                                    [names addObject:name];
+                                }
+                            }else if (((NSArray *)preCourse[0][@"week"]).count < ((NSArray *)preCourse[1][@"week"]).count) {
+                                NSMutableArray *week4 = [NSMutableArray arrayWithArray:preCourse[0][@"week"]];
+                                for (int i = 0; i < week4.count; i ++) {
+                                    if ([preCourse[1][@"week"] containsObject:week4[i]]) {
+                                        [week4 removeObject:week4[i]];
+                                    }
+                                }
+                                if (week4.count == 0) {
+                                    NSString *name = [NSString stringWithFormat:@"%@ (除%@)",_allStuCourseArray[i][@"name"],preCourse[1][@"rawWeek"]];
+                                    [names addObject:name];
+                                }
+                            }else {
+                                NSString *name = [NSString stringWithFormat:@"%@ (除%@)",_allStuCourseArray[i][@"name"],preCourse[0][@"rawWeek"]];
+                                [names addObject:name];
+                            }
+                        }
                     }
                 }else if (preCourse.count > 2) {
                     NSMutableArray *weeks = [NSMutableArray array];
@@ -408,6 +477,8 @@
                     [names addObject:name];
                 }
             }
+            [showDic setObject:dayArray[day] forKey:@"day"];
+            [showDic setObject:lessonArray[lesson] forKey:@"lesson"];
             [showDic setObject:[NSNumber numberWithInt:day] forKey:@"hash_day"];
             [showDic setObject:[NSNumber numberWithInt:begin] forKey:@"begin_lesson"];
             [showDic setObject:names forKey:@"names"];
@@ -415,9 +486,49 @@
         }
     }
     [self handleColor:_showDataArray];
-    NSLog(@"%@",_showDataArray);
     [self showUIWithDictionary:_showDataArray];
 }
+#pragma mark - -
+
+#pragma mark - 处理周
+
+- (void)handleWeekShowDataWithWeek:(NSInteger)week{
+    for (int i = 0; i < _buttonTag.count; i ++) {
+        [_buttonTag[i] removeFromSuperview];
+    }
+    _showDataArray = [NSMutableArray array];
+    NSArray *dayArray = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
+    NSArray *lessonArray = @[@"1-2节",@"3-4节",@"5-6节",@"7-8节",@"9-10节",@"11-12节"];
+    for (int day = 0; day < 7; day ++) {
+        for (int begin = 1,lesson = 0; begin < 12; begin += 2,lesson ++) {
+            NSMutableDictionary *showDic = [NSMutableDictionary dictionary];
+            NSMutableArray *names = [NSMutableArray array];
+            for (int i = 0; i < _preWeekCourseArray.count; i ++) {
+                BOOL isHaveCourse = NO;
+                NSArray *weekCourse = _preWeekCourseArray[i][week-1][@"data"];
+                //遍历课表内容 筛选出同一时段的 所有课程
+                for (int j = 0; j < weekCourse.count; j ++) {
+                    if ([weekCourse[j][@"hash_day"] intValue] == day && [weekCourse[j][@"begin_lesson"] intValue] == begin) {
+                        isHaveCourse = YES;
+                    }
+                }
+                if (!isHaveCourse) {
+                    NSString *name = [NSString stringWithFormat:@"%@",_preWeekCourseArray[i][week][@"name"]];
+                    [names addObject:name];
+                }
+            }
+            [showDic setObject:dayArray[day] forKey:@"day"];
+            [showDic setObject:lessonArray[lesson] forKey:@"lesson"];
+            [showDic setObject:[NSNumber numberWithInt:day] forKey:@"hash_day"];
+            [showDic setObject:[NSNumber numberWithInt:begin] forKey:@"begin_lesson"];
+            [showDic setObject:names forKey:@"names"];
+            [_showDataArray addObject:showDic];
+        }
+    }
+    [self handleColor:_showDataArray];
+    [self showUIWithDictionary:_showDataArray];
+}
+
 #pragma mark - -
 
 #pragma mark - 显示UI
@@ -433,7 +544,7 @@
             
             CourseButton *courseButton = [[CourseButton alloc] initWithFrame:CGRectMake((colNum-0.5)*kWidthGrid+1, kWidthGrid*rowNum+1, kWidthGrid-2, kWidthGrid*2-2)];
             courseButton.buttonInfoDic = dic;
-            if (names.count >2 ) {
+            if (names.count > 2) {
                 [courseButton setTitle:[NSString stringWithFormat:@"%@ %@ %@",names[0],names[1],names[2]] forState:UIControlStateNormal];
             }else if (names.count == 2) {
                 [courseButton setTitle:[NSString stringWithFormat:@"%@ %@",names[0],names[1]] forState:UIControlStateNormal];
@@ -445,6 +556,12 @@
             courseButton.backgroundColor = [self handleRandomColorStr:dic[@"color"]];
             [courseButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
             [_mainScrollView addSubview:courseButton];
+            if(names.count > 2) {
+                UIImageView *tagView = [[UIImageView alloc]initWithFrame:CGRectMake((colNum+0.5)*kWidthGrid-8, kWidthGrid*rowNum+kWidthGrid*2-8, 6, 6)];
+                tagView.image = [UIImage imageNamed:@"iconfont-tag.png"];
+                [_buttonTag addObject:tagView];
+                [_mainScrollView addSubview:tagView];
+            }
         }
     }
 }
@@ -498,6 +615,49 @@
 
 - (void)btnClick:(CourseButton *)sender {
     NSLog(@"%@",sender.buttonInfoDic[@"names"]);
+    _backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    _backgroundView.backgroundColor = [UIColor blackColor];
+    _backgroundView.alpha = 0.7;
+    UIButton *backgroundViewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backgroundViewBtn.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    [backgroundViewBtn addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
+    [_backgroundView addSubview:backgroundViewBtn];
+    [[[UIApplication sharedApplication]keyWindow]addSubview:_backgroundView];
+    
+    _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, ScreenWidth/9*7, ScreenHeight/9*5)];
+    _alertView.backgroundColor = [UIColor whiteColor];
+    _alertView.layer.cornerRadius = 1.0;
+    _alertView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
+    
+    UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 5, _alertView.frame.size.width-30, 40)];
+    [_alertView addSubview:infotitleView];
+    UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(6, 0, _alertView.frame.size.width, 40)];
+    infoLabel.text = @"无课表详情";
+    infoLabel.textAlignment = NSTextAlignmentLeft;
+    infoLabel.font = [UIFont systemFontOfSize:20];
+    infoLabel.textColor = MAIN_COLOR;
+    [infotitleView addSubview:infoLabel];
+    
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, 1)];
+    lineView.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:0.5];
+    [_alertView addSubview:lineView];
+    
+    QGERestTimeDetailView *detailView = [[QGERestTimeDetailView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, _alertView.frame.size.height-70) withDictionary:sender.buttonInfoDic];
+    [_alertView addSubview:detailView];
+    
+    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(15, _alertView.frame.size.height-55, _alertView.frame.size.width-30, 40)];
+    done.layer.cornerRadius = 2.0;
+    [done setTitle:@"确认" forState:UIControlStateNormal];
+    done.backgroundColor = MAIN_COLOR;
+    done.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [done addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
+    [_alertView addSubview:done];
+}
+
+- (void)doneClick {
+    [self.backgroundView removeFromSuperview];
+    [self.alertView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -73,6 +73,7 @@
     
     _stuNumField = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, fieldView.frame.size.width-10-_addBtn.frame.size.width, 40)];
     _stuNumField.placeholder = @"输入学号可以继续添加";
+    _stuNumField.text = @"201421307";
     _stuNumField.tintColor = MAIN_COLOR;
     _stuNumField.font = [UIFont systemFontOfSize:16];
     _stuNumField.clearButtonMode = UITextFieldViewModeWhileEditing;
