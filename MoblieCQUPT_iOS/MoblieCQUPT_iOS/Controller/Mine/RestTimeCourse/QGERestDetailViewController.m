@@ -324,7 +324,6 @@
                 if (stuNum1 == stuNum2) {
                     [courseDic setObject:_allStuNameArray[j][@"name"] forKey:@"name"];
                     [_allStuCourseArray addObject:courseDic];
-                    NSLog(@"%ld",_allStuCourseArray.count);
                 }
             }
             for (NSInteger i = 0; i<18; i++) {
@@ -498,6 +497,7 @@
     for (int i = 0; i < _buttonTag.count; i ++) {
         [_buttonTag[i] removeFromSuperview];
     }
+    NSLog(@"加载本周数据");
     _showDataArray = [NSMutableArray array];
     NSArray *dayArray = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
     NSArray *lessonArray = @[@"1-2节",@"3-4节",@"5-6节",@"7-8节",@"9-10节",@"11-12节"];
@@ -572,10 +572,10 @@
 
 #pragma mark 处理课表颜色
 - (void)handleColor:(NSMutableArray *)array {
-    _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+    _colorArray = [[NSMutableArray alloc]initWithObjects:@"153,212,59",@"157,171,242",@"245,145,158",nil];
     for (int i = 0; i < array.count; i ++) {
         if (_colorArray.count == 0) {
-            _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
+            _colorArray = [[NSMutableArray alloc]initWithObjects:@"153,212,59",@"157,171,242",@"245,145,158",nil];
         }
         int j = arc4random()%_colorArray.count;
         [array[i] setObject:_colorArray[j] forKey:@"color"];
