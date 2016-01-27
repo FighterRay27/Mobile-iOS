@@ -6,6 +6,17 @@
 //  Copyright (c) 2015年 Orange-W. All rights reserved.
 //
 #warning 先放这测试,remove
+#if DEBUG
+#define NSLog(format, ...) do {                                                                          \
+fprintf(stderr, "<%s : %d> | %s\n",                                           \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__, __func__);                                                        \
+(NSLog)((format), ##__VA_ARGS__);                                           \
+fprintf(stderr, "-------\n");                                               \
+} while (0)
+#else
+#define NSLog(format, ...) ;
+#endif
 #define kAPPGroupID @"group.com.mredrock.cyxbs"
 #define kAppGroupShareNowDay @"nowDay"
 #define kAppGroupShareThisWeekArray @"thisWeekArray"

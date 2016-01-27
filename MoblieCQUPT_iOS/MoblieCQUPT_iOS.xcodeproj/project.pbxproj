@@ -1486,6 +1486,7 @@
 				CE4334561BE7C52D000C407D /* Embed App Extensions */,
 				6020B742D2DFB7C326F08835 /* Copy Pods Resources */,
 				2F801EFE761E5727C2BB3D75 /* Embed Pods Frameworks */,
+				CE6414551C57A6B80084D589 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1508,7 +1509,7 @@
 				TargetAttributes = {
 					CE4334431BE7C52D000C407D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = MFV8K76J3Y;
+						DevelopmentTeam = FYYE36HAH8;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1517,7 +1518,7 @@
 					};
 					CEF61B291B82BC950014B980 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = MFV8K76J3Y;
+						DevelopmentTeam = FYYE36HAH8;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1728,6 +1729,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE6414551C57A6B80084D589 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 		E3A221C7D0ADA491D199C590 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1878,7 +1892,7 @@
 				INFOPLIST_FILE = ClassWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh.ClassWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs.ClassWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1894,7 +1908,7 @@
 				INFOPLIST_FILE = ClassWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh.ClassWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs.ClassWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1999,7 +2013,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoblieCQUPT_iOS/SDK/UMAnalytics_Sdk_3.5.10",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs;
 				PRODUCT_NAME = "掌上重邮";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2023,7 +2037,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoblieCQUPT_iOS/SDK/UMAnalytics_Sdk_3.5.10",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs;
 				PRODUCT_NAME = "掌上重邮";
 				PROVISIONING_PROFILE = "";
 			};
