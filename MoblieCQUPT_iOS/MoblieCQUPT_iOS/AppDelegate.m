@@ -29,8 +29,11 @@
     [self creatShortCutItemWithIcon];
     
     //友盟统计
-    [MobClick startWithAppkey:@"55dc094a67e58e92f30048eb" reportPolicy:BATCH   channelId:@"Web"];
-    [MobClick setAppVersion:@"V2.3.0"];
+    [MobClick startWithAppkey:@"55dc094a67e58e92f30048eb" reportPolicy:BATCH   channelId:@""];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+//    [MobClick startWithAppkey:@"55dc094a67e58e92f30048eb" reportPolicy:BATCH   channelId:@"Web"];
+//    [MobClick setAppVersion:@"V2.3.0"];
 
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -134,29 +137,6 @@
     }
 }
 
-#pragma mark - Location Notication
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification
-
-{
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"接收到本地提醒 in app"
-                          
-                                                    message:notification.alertBody
-                          
-                                                   delegate:nil
-                          
-                                          cancelButtonTitle:@"确定"
-                          
-                                          otherButtonTitles:nil];
-    
-    [alert show];
-    
-    //这里，你就可以通过notification的useinfo，干一些你想做的事情了
-    
-    application.applicationIconBadgeNumber -= 1;
-    
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

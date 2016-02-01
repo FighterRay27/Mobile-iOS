@@ -32,6 +32,7 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - UIColor+BFPaperColors (1.7.2)
+  - UMengAnalytics-NO-IDFA (3.6.7)
   - UPStackMenu (1.0.0)
 
 DEPENDENCIES:
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - FMDB
   - SDWebImage
   - UIColor+BFPaperColors
+  - UMengAnalytics-NO-IDFA
   - UPStackMenu
 
 SPEC CHECKSUMS:
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
+  UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
   UPStackMenu: 4e834206f76451c1d78a6cacee46e47ecf83b174
 
 COCOAPODS: 0.39.0
