@@ -48,10 +48,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## BugHD
-
-©2015 fir.im · BugHD · Made with love :).
-
 ## FMDB
 
 If you are using FMDB in your project, I'd love to hear about it.  Let Gus know

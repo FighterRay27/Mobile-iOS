@@ -254,8 +254,8 @@
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登出帐号"
                             message:@"所有的个人信息将清除,你确定要登出此帐号吗?"
                                                           delegate:self
-                                                 cancelButtonTitle:@"不,我只是手抖了（￣口￣）|||"
-                                                 otherButtonTitles:@"我确定（╯－＿－）╯╧╧ ", nil];
+                                                 cancelButtonTitle:@"取消"
+                                                 otherButtonTitles:@"确定", nil];
         [alertView show];
         
     }
