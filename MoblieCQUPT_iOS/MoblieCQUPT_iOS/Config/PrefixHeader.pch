@@ -35,7 +35,8 @@
 //#import <AFNetworking.h>
 #import <AFNetworking.h>
 #import "NetWork.h"
-#import "MobClick.h"
+#import <MobClick.h>
+//#import "MobClick.h"
 
 #pragma Group共享
 #define kAPPGroupID @"group.com.mredrock.cyxbs"

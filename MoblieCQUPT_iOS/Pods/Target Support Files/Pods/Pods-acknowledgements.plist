@@ -69,14 +69,6 @@ SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>&#169;2015 fir.im &#183; BugHD &#183; Made with love :).</string>
-			<key>Title</key>
-			<string>BugHD</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>If you are using FMDB in your project, I'd love to hear about it.  Let Gus know
 by sending an email to gus@flyingmeat.com.
 
@@ -163,6 +155,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
 			<key>Title</key>
 			<string>UIColor+BFPaperColors</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2011 - 2015 UMeng.com. All rights reserved.
+</string>
+			<key>Title</key>
+			<string>UMengAnalytics-NO-IDFA</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

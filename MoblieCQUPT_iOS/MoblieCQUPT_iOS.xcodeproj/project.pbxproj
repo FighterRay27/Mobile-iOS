@@ -221,7 +221,6 @@
 		E263C79D1BA35E60008488FA /* MeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E263C7971BA35E60008488FA /* MeCell.m */; };
 		E263C79E1BA35E60008488FA /* MeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E263C7981BA35E60008488FA /* MeCell.xib */; };
 		E263C79F1BA35E60008488FA /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E263C79A1BA35E60008488FA /* NewsViewController.m */; };
-		E28B22871BAEBE24006E4A1F /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E28B22841BAEBE24006E4A1F /* libMobClickLibrary.a */; };
 		E28BAE781B91B0E300EC4964 /* 20-3c.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BAE771B91B0E300EC4964 /* 20-3c.png */; };
 		E28D2A8F1BB3E43100490C41 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = E28D2A8E1BB3E43100490C41 /* ok.png */; };
 		E2E7DE251B94764A0081F699 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E7DE231B94764A0081F699 /* LoginViewController.m */; };
@@ -561,9 +560,6 @@
 		E263C7981BA35E60008488FA /* MeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCell.xib; sourceTree = "<group>"; };
 		E263C7991BA35E60008488FA /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		E263C79A1BA35E60008488FA /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		E28B22841BAEBE24006E4A1F /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		E28B22851BAEBE24006E4A1F /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
-		E28B22861BAEBE24006E4A1F /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		E28BAE771B91B0E300EC4964 /* 20-3c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-3c.png"; sourceTree = "<group>"; };
 		E28D2A8E1BB3E43100490C41 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		E2AFDDCD20890382879F9AB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -590,7 +586,6 @@
 				3B26610B1BA6E417008632F3 /* UIKit.framework in Frameworks */,
 				3B2661091BA6E40A008632F3 /* CoreGraphics.framework in Frameworks */,
 				3B2661071BA6E401008632F3 /* Foundation.framework in Frameworks */,
-				E28B22871BAEBE24006E4A1F /* libMobClickLibrary.a in Frameworks */,
 				3B2661051BA6E3F5008632F3 /* QuartzCore.framework in Frameworks */,
 				CEA85C9F1B9FECA500CD30EB /* AssetsLibrary.framework in Frameworks */,
 				CE81596A1B96A829002CF7B2 /* libsqlite3.dylib in Frameworks */,
@@ -1199,7 +1194,6 @@
 			children = (
 				CEE6147E1BEA4B9A004873AA /* MJRefresh */,
 				CEE614781BEA3F2B004873AA /* ProgressHUD */,
-				E28B22831BAEBE24006E4A1F /* UMAnalytics_Sdk_3.5.10 */,
 			);
 			name = SDK;
 			path = MoblieCQUPT_iOS/SDK;
@@ -1411,16 +1405,6 @@
 			path = News;
 			sourceTree = "<group>";
 		};
-		E28B22831BAEBE24006E4A1F /* UMAnalytics_Sdk_3.5.10 */ = {
-			isa = PBXGroup;
-			children = (
-				E28B22841BAEBE24006E4A1F /* libMobClickLibrary.a */,
-				E28B22851BAEBE24006E4A1F /* MobClick.h */,
-				E28B22861BAEBE24006E4A1F /* MobClickSocialAnalytics.h */,
-			);
-			path = UMAnalytics_Sdk_3.5.10;
-			sourceTree = "<group>";
-		};
 		E2E7DE211B94764A0081F699 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1486,6 +1470,7 @@
 				CE4334561BE7C52D000C407D /* Embed App Extensions */,
 				6020B742D2DFB7C326F08835 /* Copy Pods Resources */,
 				2F801EFE761E5727C2BB3D75 /* Embed Pods Frameworks */,
+				CE6414551C57A6B80084D589 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1508,7 +1493,7 @@
 				TargetAttributes = {
 					CE4334431BE7C52D000C407D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = MFV8K76J3Y;
+						DevelopmentTeam = FYYE36HAH8;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1517,7 +1502,7 @@
 					};
 					CEF61B291B82BC950014B980 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = MFV8K76J3Y;
+						DevelopmentTeam = FYYE36HAH8;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1728,6 +1713,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE6414551C57A6B80084D589 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 		E3A221C7D0ADA491D199C590 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1878,7 +1876,7 @@
 				INFOPLIST_FILE = ClassWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh.ClassWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs.ClassWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1894,7 +1892,7 @@
 				INFOPLIST_FILE = ClassWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh.ClassWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs.ClassWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -1999,7 +1997,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoblieCQUPT_iOS/SDK/UMAnalytics_Sdk_3.5.10",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs;
 				PRODUCT_NAME = "掌上重邮";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2023,7 +2021,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoblieCQUPT_iOS/SDK/UMAnalytics_Sdk_3.5.10",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mredrock.cyxbs-cxh";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mredrock.cyxbs;
 				PRODUCT_NAME = "掌上重邮";
 				PROVISIONING_PROFILE = "";
 			};

@@ -6,6 +6,17 @@
 //  Copyright (c) 2015年 Orange-W. All rights reserved.
 //
 #warning 先放这测试,remove
+#if DEBUG
+#define NSLog(format, ...) do {                                                                          \
+fprintf(stderr, "<%s : %d> | %s\n",                                           \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__, __func__);                                                        \
+(NSLog)((format), ##__VA_ARGS__);                                           \
+fprintf(stderr, "-------\n");                                               \
+} while (0)
+#else
+#define NSLog(format, ...) ;
+#endif
 #define kAPPGroupID @"group.com.mredrock.cyxbs"
 #define kAppGroupShareNowDay @"nowDay"
 #define kAppGroupShareThisWeekArray @"thisWeekArray"
@@ -68,7 +79,13 @@
     }
     if (mutableToDayClassArray.count == 0) {
         //如果今天没课
-        
+        mutableToDayClassArray = [@[
+                                    @{
+                                      @"course":@"今天没有课程",
+                                      @"classroom":@"红岩网校工作站",
+                                      @"teacher":@"难得的一天,尽情的玩耍下吧^_^",
+                                      @"begin_lesson":@"-1"}
+                                      ] mutableCopy];
     }
     NSLog(@"今日周%ld,数据:%@",today,mutableToDayClassArray);
     return mutableToDayClassArray;
@@ -141,6 +158,9 @@
                                                                [lessonDictionary[@"period"] integerValue]
                                             ]
                             ];
+    if([lessonDictionary[@"begin_lesson"] integerValue]==-1){
+        cell.classNameLabel.textColor = [UIColor orangeColor];
+    }
 
     
     cell.classNameLabel.text = lessonDictionary[@"course"];
@@ -158,6 +178,12 @@
     NSLog(@"%ld==%ld",beginLesson,time);
     NSString *startTimeString,*endTimeString,*string;
     NSInteger baseClassNum = 1;
+    if (beginLesson == -1) {
+        //没课
+        return @"全天无课";
+    }
+    
+    
     if (beginLesson<5) {
         string = @"08:00";
         
