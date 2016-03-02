@@ -239,6 +239,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_stuNumField resignFirstResponder];
+}
 
 
 

@@ -22,20 +22,18 @@ PODS:
     - AFNetworking/NSURLSession
   - BFPaperCheckbox (1.2.7):
     - UIColor+BFPaperColors
-  - FMDB (2.5):
-    - FMDB/standard (= 2.5)
-  - FMDB/common (2.5)
-  - FMDB/standard (2.5):
-    - FMDB/common
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - UIColor+BFPaperColors (1.7.2)
   - UMengAnalytics-NO-IDFA (3.6.7)
   - UPStackMenu (1.0.0)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.6.3)
   - BFPaperCheckbox
   - FMDB
   - SDWebImage
@@ -46,8 +44,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BFPaperCheckbox: 55670e5d8dc1e060972b0d1db6380771339451d8
-  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
   UPStackMenu: 4e834206f76451c1d78a6cacee46e47ecf83b174

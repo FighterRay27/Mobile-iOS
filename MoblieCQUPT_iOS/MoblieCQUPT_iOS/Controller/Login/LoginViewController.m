@@ -119,6 +119,13 @@
                      WithReturnValeuBlock:^(id returnValue) {
                          self.dataDic = returnValue;
                          if (![_dataDic[@"info"] isEqualToString:@"success"]) {
+                             if([_dataDic[@"info"] isEqualToString:@"authentication error"]) {
+                                 UIAlertView *passwordErrorAlert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"输入的密码有问题,请重新输入" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                                 [passwordErrorAlert show];
+                             }else if ([_dataDic[@"info"] isEqualToString:@"student id error"]) {
+                                 UIAlertView *idErrorAlert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"输入的学号有问题,请重新输入" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                                 [idErrorAlert show];
+                             }
                              [UIView animateWithDuration:0.8 animations:^{
                                  [sender setTitle:@"登录" forState:UIControlStateNormal];
                              } completion:nil];
