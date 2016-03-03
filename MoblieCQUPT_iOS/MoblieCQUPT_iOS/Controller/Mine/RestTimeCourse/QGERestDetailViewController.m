@@ -648,9 +648,10 @@
     QGERestTimeDetailView *detailView = [[QGERestTimeDetailView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, _alertView.frame.size.height-120) withDictionary:sender.buttonInfoDic];
     [_alertView addSubview:detailView];
     
-    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(15, _alertView.frame.size.height-55, _alertView.frame.size.width-30, 40)];
-    done.layer.cornerRadius = 2.0;
-    [done setTitle:@"确认" forState:UIControlStateNormal];
+    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(10, _alertView.frame.size.height-52, _alertView.frame.size.width-20, 40)];
+    done.layer.cornerRadius = 5.0;
+    [done setTitle:@"确定" forState:UIControlStateNormal];
+    done.titleLabel.font = [UIFont systemFontOfSize:17];
     done.backgroundColor = MAIN_COLOR;
     done.titleLabel.textAlignment = NSTextAlignmentCenter;
     [done addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];

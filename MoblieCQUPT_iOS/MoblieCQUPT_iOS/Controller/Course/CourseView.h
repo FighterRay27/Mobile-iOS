@@ -13,5 +13,6 @@
 
 @interface CourseView : UIView
 
+@property (strong, nonatomic) UILabel *thirdLabel;
 - (CourseView *)initWithFrame:(CGRect)frame withDictionary:(NSDictionary *)dic;
 @end
