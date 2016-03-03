@@ -21,7 +21,7 @@ fprintf(stderr, "-------\n");                                               \
 #define kAppGroupShareNowDay @"nowDay"
 #define kAppGroupShareThisWeekArray @"thisWeekArray"
 #define kAutoUpdateInterval 60*5
-#define kTableViewCellRowHeight 120
+#define kTableViewCellRowHeight 100
 
 #import "TodayViewController.h"
 #import "ClassTableViewCell.h"
@@ -228,6 +228,10 @@ fprintf(stderr, "-------\n");                                               \
 //        _classTableView.backgroundColor = [UIColor whiteColor]
     }
     return _classTableView;
+}
+
+- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{
+    return UIEdgeInsetsMake(0, 8, 10, 10);
 }
 
 
