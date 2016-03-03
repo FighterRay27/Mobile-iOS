@@ -419,41 +419,51 @@
     [_backgroundView addSubview:backgroundViewBtn];
     [[[UIApplication sharedApplication]keyWindow]addSubview:_backgroundView];
     
-    _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, ScreenWidth/9*7, ScreenHeight/7*5)];
+    if(ScreenWidth == 320) {
+        _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, 240, 380+10)];
+    }else {
+        _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, 292, 380+10)];
+    }
+    
     _alertView.backgroundColor = [UIColor whiteColor];
     _alertView.layer.cornerRadius = 1.0;
+    _alertView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
     [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
     
-    UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 10, ScreenWidth/9*7-30, 40)];
+    NSLog(@"%f,%f",_alertView.frame.size.width,_alertView.frame.size.height);
+    
+    UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 5, _alertView.frame.size.width-30, 40)];
     [_alertView addSubview:infotitleView];
-    UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(6, 0, ScreenWidth/9*7-10, 40)];
+    UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(6, 0, _alertView.frame.size.width, 40)];
     infoLabel.text = @"课程详细信息";
     infoLabel.textAlignment = NSTextAlignmentLeft;
     infoLabel.font = [UIFont systemFontOfSize:20];
     infoLabel.textColor = MAIN_COLOR;
     [infotitleView addSubview:infoLabel];
     
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 60, ScreenWidth/9*7, 1)];
-    lineView.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, 1)];
+    lineView.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:0.5];
     [_alertView addSubview:lineView];
                                                                                                                                                                                                                                 
-    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(10, ScreenHeight-ScreenHeight/7*2-50, ScreenWidth/9*7-20, 45)];
-    done.layer.cornerRadius = 2.0;
-    [done setTitle:@"确认" forState:UIControlStateNormal];
+    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(10, _alertView.frame.size.height-52, _alertView.frame.size.width-20, 40)];
+    done.layer.cornerRadius = 5.0;
+    [done setTitle:@"确定" forState:UIControlStateNormal];
+    done.titleLabel.font = [UIFont systemFontOfSize:17];
     done.backgroundColor = MAIN_COLOR;
     done.titleLabel.textAlignment = NSTextAlignmentCenter;
     [done addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:done];
     
-    UIScrollView *courseScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(15, 65, ScreenWidth/9*7-30, ScreenHeight/7*5-75-65)];
+    
+    UIScrollView *courseScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 50, _alertView.frame.size.width, _alertView.frame.size.height-62-50)];
     courseScroll.pagingEnabled = true;
     courseScroll.showsHorizontalScrollIndicator = NO;
-    courseScroll.contentSize = CGSizeMake((ScreenWidth/9*7-30)*(endTag-starTag+1), ScreenHeight/7*5-75-65);
+    courseScroll.contentSize = CGSizeMake((_alertView.frame.size.width)*(endTag-starTag+1), _alertView.frame.size.height-62-50);
     courseScroll.delegate = self;
     [_alertView addSubview:courseScroll];
     
     _page = [[UIPageControl alloc]initWithFrame:CGRectZero];
-    _page.center = CGPointMake(_alertView.frame.size.width/2, ScreenHeight-ScreenHeight/7*2-60);
+    _page.center = CGPointMake(_alertView.frame.size.width/2, courseScroll.frame.origin.y+courseScroll.frame.size.height);
     _page.numberOfPages = endTag-starTag+1;
     _page.currentPage = 0;
     _page.backgroundColor = [UIColor blueColor];
@@ -464,7 +474,7 @@
     CGFloat indexX = 0;
     for (NSInteger i=starTag; i<=endTag; i++) {
         NSDictionary *dataDic = _dataArray[i];
-        CourseView *courseView = [[CourseView alloc]initWithFrame:CGRectMake(indexX, 0, ScreenWidth/9*7-30, ScreenHeight/7*5-75-65) withDictionary:dataDic];
+        CourseView *courseView = [[CourseView alloc]initWithFrame:CGRectMake(indexX, 0, _alertView.frame.size.width, _alertView.frame.size.height-52-50) withDictionary:dataDic];
         [courseScroll addSubview:courseView];
         indexX += courseScroll.contentSize.width/(endTag-starTag+1);
     }
