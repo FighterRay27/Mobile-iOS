@@ -103,7 +103,6 @@
 		CEAA7C9C1C227E7C00C9B1F9 /* ic_exam_position.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAA7C981C227E7C00C9B1F9 /* ic_exam_position.png */; };
 		CEC93BE01B9B114500AC9E00 /* LoginEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93BDF1B9B114500AC9E00 /* LoginEntry.m */; };
 		CEC96BD21B9AC6F90047648A /* 0960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC96BD11B9AC6F90047648A /* 0960.jpg */; };
-		CED0F5CF1BBD7DA000C7E535 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CED0F5CE1BBD7DA000C7E535 /* Info.plist */; };
 		CEE1E21E1B9994A80088EC7C /* guanyu.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE1E21D1B9994A80088EC7C /* guanyu.png */; };
 		CEE1E2201B9994E90088EC7C /* yijianfankui.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE1E21F1B9994E90088EC7C /* yijianfankui.png */; };
 		CEE1E2261B99A1020088EC7C /* MineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE1E2251B99A1020088EC7C /* MineButton.m */; };
@@ -1470,7 +1469,6 @@
 				CE4334561BE7C52D000C407D /* Embed App Extensions */,
 				6020B742D2DFB7C326F08835 /* Copy Pods Resources */,
 				2F801EFE761E5727C2BB3D75 /* Embed Pods Frameworks */,
-				CE6414551C57A6B80084D589 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1488,7 +1486,7 @@
 		CEF61B221B82BC950014B980 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Orange-W";
 				TargetAttributes = {
 					CE4334431BE7C52D000C407D = {
@@ -1645,7 +1643,6 @@
 				E2E7DE2C1B9476730081F699 /* background.png in Resources */,
 				CE30FDDC1B9968C000C15AD4 /* chenjichaxun.png in Resources */,
 				3B1388CD1BA364530011EBF2 /* new_icon_menu_1@2x.png in Resources */,
-				CED0F5CF1BBD7DA000C7E535 /* Info.plist in Resources */,
 				CEF273911B90D573009B5BA2 /* 20-3w.png in Resources */,
 				D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */,
 				D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */,
@@ -1712,19 +1709,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CE6414551C57A6B80084D589 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
 		E3A221C7D0ADA491D199C590 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1920,6 +1904,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

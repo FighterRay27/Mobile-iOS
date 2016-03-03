@@ -96,7 +96,7 @@ static const NSInteger ORWDeafultCacheTime = 60*60*6;
     if (fectchDictory) {
         NSInteger cacheDeadTime = (NSInteger)[fectchDictory objectForKey:ORWDeadtimeCol];
         NSInteger nowTime = [[NSDate date] timeIntervalSince1970];
-        NSLog(@"比较:现在%ld-记录%ld",nowTime,(long)cacheDeadTime);
+        NSLog(@"比较:现在%ld-记录%ld",(long)nowTime,(long)cacheDeadTime);
         return (cacheDeadTime>nowTime?YES:NO);
     }
     

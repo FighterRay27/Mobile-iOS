@@ -129,8 +129,8 @@
     }else{
         returnNum = n / 4 + 1;
     }
-    NSLog(@"count = %ld",self.model.resultClassroomArray.count);
-    NSLog(@"rowNum = %ld",returnNum);
+    NSLog(@"count = %ld",(unsigned long)self.model.resultClassroomArray.count);
+    NSLog(@"rowNum = %ld",(long)returnNum);
     return returnNum;
 }
 
@@ -157,27 +157,27 @@
     if (indexPath.row == 13) {
         //do sth
     }
-    NSLog(@"——————————第%ld行",indexPath.row);
+    NSLog(@"——————————第%ld行",(long)indexPath.row);
     if (indexPath.row * 4 + 1 <= self.model.resultClassroomArray.count) {
-        NSLog(@"%ld",indexPath.row * 4 + 0);
+        NSLog(@"%d",(int)indexPath.row * 4 + 0);
         cell.cellLabel1.text = self.model.resultClassroomArray[indexPath.row * 4 + 0];
     }else{
         cell.cellLabel1.text = @"";
     }
     if (indexPath.row * 4 + 2 <= self.model.resultClassroomArray.count) {
-        NSLog(@"%ld",indexPath.row * 4 + 1);
+        NSLog(@"%d",(int)indexPath.row * 4 + 1);
         cell.cellLabel2.text = self.model.resultClassroomArray[indexPath.row * 4 + 1];
     }else{
         cell.cellLabel2.text = @"";
     }
     if (indexPath.row * 4 + 3 <= self.model.resultClassroomArray.count) {
-        NSLog(@"%ld",indexPath.row * 4 + 2);
+        NSLog(@"%d",(int)indexPath.row * 4 + 2);
         cell.cellLabel3.text = self.model.resultClassroomArray[indexPath.row * 4 + 2];
     }else{
         cell.cellLabel3.text = @"";
     }
     if (indexPath.row * 4 + 4 <= self.model.resultClassroomArray.count) {
-        NSLog(@"%ld",indexPath.row * 4 + 3);
+        NSLog(@"%d",(int)indexPath.row * 4 + 3);
         cell.cellLabel4.text = self.model.resultClassroomArray[indexPath.row * 4 + 3];
     }else{
         cell.cellLabel4.text = @"";

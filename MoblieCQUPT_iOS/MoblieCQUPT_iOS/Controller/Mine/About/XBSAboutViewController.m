@@ -52,7 +52,7 @@
 
 - (void)tapAction:(UITapGestureRecognizer *)sender {
     self.tapNum++;
-    NSLog(@"点击了%ld次",self.tapNum);
+    NSLog(@"点击了%ld次",(long)self.tapNum);
     if (self.tapNum >= 1) {
         self.tapNum = 0;
         NSLog(@"开始游戏吧！");

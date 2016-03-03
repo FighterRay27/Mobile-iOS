@@ -19,7 +19,7 @@
 #define __kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define __kScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ShopViewController ()<UITableViewDelegate, UITableViewDataSource,UIViewControllerPreviewingDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *data;

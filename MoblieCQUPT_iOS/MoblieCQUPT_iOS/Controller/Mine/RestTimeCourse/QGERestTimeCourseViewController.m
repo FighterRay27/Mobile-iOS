@@ -176,13 +176,13 @@
                     [_stuNumArray addObject:_stuNumField.text];
                     [_stuInfoArray addObject:returnValue[@"data"]];
                     [_tableView reloadData];
-                    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+                    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",(unsigned long)_stuInfoArray.count];
                 }
             }else {
                 [_stuNumArray addObject:_stuNumField.text];
                 [_stuInfoArray addObject:returnValue[@"data"]];
                 [_table addSubview:self.tableView];
-                _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+                _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",(unsigned long)_stuInfoArray.count];
             }
         }
         _stuNumField.text = @"";
@@ -232,7 +232,7 @@
         [_tableView  deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
     }
     [_tableView reloadData];
-    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",_stuInfoArray.count];
+    _addedLabel.text = [NSString stringWithFormat:@"已添加%ld人",(unsigned long)_stuInfoArray.count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

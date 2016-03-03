@@ -27,7 +27,7 @@
 {
     NSString *err[1000];
     for (int i = 0; i < 1000; i++) {
-        err[i] = [NSString stringWithFormat:@"好像发生了未知错误啦，请及时报告网校人员，错误码%ld",status];
+        err[i] = [NSString stringWithFormat:@"好像发生了未知错误啦，请及时报告网校人员，错误码%ld",(long)status];
     }
     
     err[0] = @"您没有补考哟";
