@@ -28,7 +28,7 @@
 
 - (void)initNavigationBar:(NSString *)title{
     UINavigationBar *navigaionBar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
-    UINavigationItem *navigationItem  = [[UINavigationItem alloc]initWithTitle:nil];
+    UINavigationItem *navigationItem  = [[UINavigationItem alloc]initWithTitle:@""];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(clickBack)];
     [navigaionBar pushNavigationItem:navigationItem animated:YES];
     [navigaionBar setBackgroundColor:COLOR_MAINCOLOR];

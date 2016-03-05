@@ -38,7 +38,7 @@
                 per = @"a";
                 break;
             default:
-                per = [NSString stringWithFormat:@"%ld",num / a];
+                per = [NSString stringWithFormat:@"%d",(int)num / a];
                 break;
         }
         [result appendString:per];

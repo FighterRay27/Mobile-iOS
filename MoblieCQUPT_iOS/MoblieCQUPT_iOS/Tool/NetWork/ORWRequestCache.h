@@ -15,9 +15,9 @@ typedef NS_ENUM(NSInteger, ORWCacheOption){
     ORWCacheOptionNone = 1,
 };
 
-@property (strong, nonatomic, readonly) NSString *dataBaseName;
+@property (copy, nonatomic, readonly) NSString *dataBaseName;
 @property (copy, nonatomic, readonly) NSString *filePath;
-@property (strong, nonatomic) NSString *dataBaseNameEXT;
+@property (copy, nonatomic) NSString *dataBaseNameEXT;
 @property (assign, nonatomic) NSInteger defaultCacheTime;//second
 
 + (NSString *)ORWRequestCacheDataBaseName;

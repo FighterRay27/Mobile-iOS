@@ -33,7 +33,7 @@
     self.label                     = [[UILabel alloc]init];
     self.label.backgroundColor     = MAIN_COLOR;
     self.label.textAlignment       = NSTextAlignmentCenter;
-    self.label.text                = [NSString stringWithFormat:@"%ld~%ld", index * 2 + 1, index * 2 + 2];
+    self.label.text                = [NSString stringWithFormat:@"%d~%d",(int)(index * 2 + 1), (int)(index * 2 + 2)];
     self.label.textColor           = [UIColor whiteColor];
     self.label.frame               = CGRectMake(0, ScreenWidth / 6, ScreenWidth / 6 + 1, 25);
     

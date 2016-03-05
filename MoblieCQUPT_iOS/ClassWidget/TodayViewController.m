@@ -21,7 +21,7 @@ fprintf(stderr, "-------\n");                                               \
 #define kAppGroupShareNowDay @"nowDay"
 #define kAppGroupShareThisWeekArray @"thisWeekArray"
 #define kAutoUpdateInterval 60*5
-#define kTableViewCellRowHeight 120
+#define kTableViewCellRowHeight 100
 
 #import "TodayViewController.h"
 #import "ClassTableViewCell.h"
@@ -87,7 +87,7 @@ fprintf(stderr, "-------\n");                                               \
                                       @"begin_lesson":@"-1"}
                                       ] mutableCopy];
     }
-    NSLog(@"今日周%ld,数据:%@",today,mutableToDayClassArray);
+    NSLog(@"今日周%ld,数据:%@",(long)today,mutableToDayClassArray);
     return mutableToDayClassArray;
 }
 
@@ -121,7 +121,7 @@ fprintf(stderr, "-------\n");                                               \
 
 #pragma UI 相关
 - (void) updateView{
-    NSLog(@"更新界面:%ld",self.todayClassArray.count);
+    NSLog(@"更新界面:%ld",(unsigned long)self.todayClassArray.count);
     [self.classTableView reloadData];
     self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, kTableViewCellRowHeight*self.todayClassArray.count);
     self.classTableView.frame = self.view.bounds;
@@ -175,7 +175,7 @@ fprintf(stderr, "-------\n");                                               \
 
 - (NSString *)stringWithBeginLesson:(NSInteger)beginLesson
                              period:(NSInteger)time{
-    NSLog(@"%ld==%ld",beginLesson,time);
+    NSLog(@"%ld==%ld",(long)beginLesson,(long)time);
     NSString *startTimeString,*endTimeString,*string;
     NSInteger baseClassNum = 1;
     if (beginLesson == -1) {
@@ -228,6 +228,10 @@ fprintf(stderr, "-------\n");                                               \
 //        _classTableView.backgroundColor = [UIColor whiteColor]
     }
     return _classTableView;
+}
+
+- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{
+    return UIEdgeInsetsMake(0, 8, 10, 10);
 }
 
 

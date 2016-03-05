@@ -38,7 +38,7 @@
     
     clockInfoLabel.text = [NSString stringWithFormat:@"%@  %@",dic[@"day"],dic[@"lesson"]];
     clockInfoLabel.textColor = [UIColor colorWithRed:54/255.0 green:54/255.0 blue:54/255.0 alpha:1];
-    accountInfoLabel.text = [NSString stringWithFormat:@"共计%ld人",((NSArray *)dic[@"names"]).count];
+    accountInfoLabel.text = [NSString stringWithFormat:@"共计%ld人",(unsigned long)((NSArray *)dic[@"names"]).count];
     accountInfoLabel.textColor = [UIColor colorWithRed:54/255.0 green:54/255.0 blue:54/255.0 alpha:1];
     
     [self addSubview:clockImg];
