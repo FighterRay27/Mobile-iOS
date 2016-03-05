@@ -144,9 +144,11 @@
     if (_isEdting) {
         [_tableView setEditing:NO animated:YES];
         _isEdting = NO;
+        [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     }else {
         [_tableView setEditing:YES animated:YES];
         _isEdting = YES;
+        [_editBtn setTitle:@"完成" forState:UIControlStateNormal];
     }
 }
 
@@ -163,6 +165,14 @@
             _stuNumField.text = @"";
         }else if([returnValue[@"info"] isEqualToString:@"success"]){
             BOOL isHaveSameName = NO;
+            
+            //如果名单列表处于编辑状态 点击添加按钮 取消名单的编辑状态
+            if(_isEdting) {
+                [_tableView setEditing:NO animated:YES];
+                _isEdting = NO;
+                [_editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+            }
+            
             if (_stuInfoArray.count > 0) {
                 for (int i=0; i<_stuInfoArray.count; i++) {
                     if ([returnValue[@"data"][@"name"] isEqualToString:_stuInfoArray[i][@"name"]]) {

@@ -167,6 +167,10 @@
 		D99526011C16F9D6003C27C8 /* QGERestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */; };
 		D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */; };
 		D99C4A851B9AB70200BEF33C /* iconfont-meixueqi.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */; };
+		D9A022E51C89AF6200A5F93B /* ExamGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A022E31C89AF6200A5F93B /* ExamGradeViewController.m */; };
+		D9A022E61C89AF6200A5F93B /* ExamGradeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A022E41C89AF6200A5F93B /* ExamGradeViewController.xib */; };
+		D9A022EA1C89B0A500A5F93B /* EmptyClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A022E81C89B0A500A5F93B /* EmptyClassViewController.m */; };
+		D9A022EB1C89B0A500A5F93B /* EmptyClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A022E91C89B0A500A5F93B /* EmptyClassViewController.xib */; };
 		D9A9532C1B9DA4F500D62690 /* iconfont-more.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A9532B1B9DA4F500D62690 /* iconfont-more.png */; };
 		D9B501941BFC554E008E5EE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B501931BFC554E008E5EE0 /* logo.png */; };
 		D9B5771A1B88744F005EFD18 /* iconfont-caidan-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D9B577181B88744F005EFD18 /* iconfont-caidan-selected.png */; };
@@ -178,6 +182,7 @@
 		D9D7BD1A1BD0C3EC000B0EC9 /* iconfont-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D7BD191BD0C3EC000B0EC9 /* iconfont-tag.png */; };
 		D9DF23A51BD32FF8007874D9 /* iconfont-name.png in Resources */ = {isa = PBXBuildFile; fileRef = D9DF23A31BD32FF8007874D9 /* iconfont-name.png */; };
 		D9DF23A61BD32FF8007874D9 /* iconfont-password.png in Resources */ = {isa = PBXBuildFile; fileRef = D9DF23A41BD32FF8007874D9 /* iconfont-password.png */; };
+		D9E7B8231C8AB07C00253C38 /* GradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7B8221C8AB07C00253C38 /* GradeView.m */; };
 		D9FAECF71BEDF5220010ED3F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FAECF61BEDF5220010ED3F /* View.xib */; };
 		E23827071B9477D80058970E /* CourseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E23827011B9477D80058970E /* CourseButton.m */; };
 		E23827081B9477D80058970E /* CourseView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23827031B9477D80058970E /* CourseView.m */; };
@@ -485,6 +490,12 @@
 		D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QGERestDetailViewController.xib; sourceTree = "<group>"; };
 		D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconfont_meizhou.png; sourceTree = "<group>"; };
 		D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-meixueqi.png"; sourceTree = "<group>"; };
+		D9A022E21C89AF6200A5F93B /* ExamGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamGradeViewController.h; sourceTree = "<group>"; };
+		D9A022E31C89AF6200A5F93B /* ExamGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamGradeViewController.m; sourceTree = "<group>"; };
+		D9A022E41C89AF6200A5F93B /* ExamGradeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExamGradeViewController.xib; sourceTree = "<group>"; };
+		D9A022E71C89B0A500A5F93B /* EmptyClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyClassViewController.h; sourceTree = "<group>"; };
+		D9A022E81C89B0A500A5F93B /* EmptyClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyClassViewController.m; sourceTree = "<group>"; };
+		D9A022E91C89B0A500A5F93B /* EmptyClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyClassViewController.xib; sourceTree = "<group>"; };
 		D9A9532B1B9DA4F500D62690 /* iconfont-more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-more.png"; sourceTree = "<group>"; };
 		D9B501931BFC554E008E5EE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D9B577181B88744F005EFD18 /* iconfont-caidan-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-caidan-selected.png"; sourceTree = "<group>"; };
@@ -498,6 +509,8 @@
 		D9D7BD191BD0C3EC000B0EC9 /* iconfont-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-tag.png"; sourceTree = "<group>"; };
 		D9DF23A31BD32FF8007874D9 /* iconfont-name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-name.png"; sourceTree = "<group>"; };
 		D9DF23A41BD32FF8007874D9 /* iconfont-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-password.png"; sourceTree = "<group>"; };
+		D9E7B8211C8AB07C00253C38 /* GradeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeView.h; sourceTree = "<group>"; };
+		D9E7B8221C8AB07C00253C38 /* GradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeView.m; sourceTree = "<group>"; };
 		D9F548C41B9CA83F006F5EFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D9FAECF61BEDF5220010ED3F /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		E23827001B9477D80058970E /* CourseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseButton.h; sourceTree = "<group>"; };
@@ -723,6 +736,7 @@
 		CE35D7051B9326C3005BDEBA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				D9CE91641C887252008C428B /* GQConsult */,
 				D9B7F6191C16EF750035C2EE /* RestTimeCourse */,
 				CE3BC7E21BE8C63B0002CBA4 /* Consult */,
 				CE46486C1BDFB8E700C3C24B /* Calendar */,
@@ -1252,6 +1266,53 @@
 			path = RestTimeCourse;
 			sourceTree = "<group>";
 		};
+		D9CE91641C887252008C428B /* GQConsult */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE91681C887353008C428B /* MakeUpExam */,
+				D9CE91671C88734E008C428B /* Grade */,
+				D9CE91661C887343008C428B /* ExamArrange */,
+				D9CE91651C88733D008C428B /* EmptyClass */,
+			);
+			path = GQConsult;
+			sourceTree = "<group>";
+		};
+		D9CE91651C88733D008C428B /* EmptyClass */ = {
+			isa = PBXGroup;
+			children = (
+				D9A022E71C89B0A500A5F93B /* EmptyClassViewController.h */,
+				D9A022E81C89B0A500A5F93B /* EmptyClassViewController.m */,
+				D9A022E91C89B0A500A5F93B /* EmptyClassViewController.xib */,
+			);
+			path = EmptyClass;
+			sourceTree = "<group>";
+		};
+		D9CE91661C887343008C428B /* ExamArrange */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExamArrange;
+			sourceTree = "<group>";
+		};
+		D9CE91671C88734E008C428B /* Grade */ = {
+			isa = PBXGroup;
+			children = (
+				D9A022E21C89AF6200A5F93B /* ExamGradeViewController.h */,
+				D9A022E31C89AF6200A5F93B /* ExamGradeViewController.m */,
+				D9A022E41C89AF6200A5F93B /* ExamGradeViewController.xib */,
+				D9E7B8211C8AB07C00253C38 /* GradeView.h */,
+				D9E7B8221C8AB07C00253C38 /* GradeView.m */,
+			);
+			path = Grade;
+			sourceTree = "<group>";
+		};
+		D9CE91681C887353008C428B /* MakeUpExam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MakeUpExam;
+			sourceTree = "<group>";
+		};
 		E23826FF1B9477D80058970E /* Course */ = {
 			isa = PBXGroup;
 			children = (
@@ -1645,6 +1706,7 @@
 				E2E7DE2C1B9476730081F699 /* background.png in Resources */,
 				CE30FDDC1B9968C000C15AD4 /* chenjichaxun.png in Resources */,
 				3B1388CD1BA364530011EBF2 /* new_icon_menu_1@2x.png in Resources */,
+				D9A022E61C89AF6200A5F93B /* ExamGradeViewController.xib in Resources */,
 				CED0F5CF1BBD7DA000C7E535 /* Info.plist in Resources */,
 				CEF273911B90D573009B5BA2 /* 20-3w.png in Resources */,
 				D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */,
@@ -1676,6 +1738,7 @@
 				CEF2738C1B90D573009B5BA2 /* 20-3-2.png in Resources */,
 				E263C77F1BA35E26008488FA /* shake@2x.png in Resources */,
 				E263C7751BA35E26008488FA /* CommunityViewController.xib in Resources */,
+				D9A022EB1C89B0A500A5F93B /* EmptyClassViewController.xib in Resources */,
 				E2E7DE2D1B9476730081F699 /* icon_Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1793,6 +1856,7 @@
 				E238270E1B9478190058970E /* Course.m in Sources */,
 				E263C79D1BA35E60008488FA /* MeCell.m in Sources */,
 				CE3BC7EE1BE8C63B0002CBA4 /* XBSGradeViewController.m in Sources */,
+				D9E7B8231C8AB07C00253C38 /* GradeView.m in Sources */,
 				CEE837B71B86C35000959779 /* NetWork.m in Sources */,
 				3B1388B41BA353F70011EBF2 /* XBSScheduleTableViewCell.m in Sources */,
 				E263C78D1BA35E26008488FA /* ShopDetailViewController.m in Sources */,
@@ -1805,8 +1869,10 @@
 				E263C78F1BA35E26008488FA /* ShopTableViewCell.m in Sources */,
 				CE3FC9401B9702A6000085E5 /* ORWRequestCache.m in Sources */,
 				CE3BC7DB1BE8C6270002CBA4 /* F3HQueueCommand.m in Sources */,
+				D9A022EA1C89B0A500A5F93B /* EmptyClassViewController.m in Sources */,
 				CEE614971BEA4B9A004873AA /* UIScrollView+MJRefresh.m in Sources */,
 				CEE614941BEA4B9A004873AA /* MJRefreshFooterView.m in Sources */,
+				D9A022E51C89AF6200A5F93B /* ExamGradeViewController.m in Sources */,
 				CE3BC7DF1BE8C6270002CBA4 /* F3HGameboardView.m in Sources */,
 				CE3BC7DA1BE8C6270002CBA4 /* F3HMoveOrder.m in Sources */,
 				CE4648641BDFB87C00C3C24B /* ORWInputTextView.m in Sources */,

@@ -430,8 +430,6 @@
     _alertView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
     [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
     
-    NSLog(@"%f,%f",_alertView.frame.size.width,_alertView.frame.size.height);
-    
     UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 5, _alertView.frame.size.width-30, 40)];
     [_alertView addSubview:infotitleView];
     UILabel *infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(6, 0, _alertView.frame.size.width, 40)];
