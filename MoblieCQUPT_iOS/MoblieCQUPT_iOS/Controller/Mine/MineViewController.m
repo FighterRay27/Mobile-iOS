@@ -15,6 +15,7 @@
 #import "LoginEntry.h"
 #import "LoginViewController.h"
 #import "ExamGradeViewController.h"
+#import "EmptyClassViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "LoginEntry.h"
 
@@ -52,7 +53,7 @@
                          @{@"cell":@"考试安排",@"img":@"考试安排.png",@"action":@"clickForExamSchedule"},
                          @{@"cell":@"补考安排",@"img":@"补考安排.png",@"action":@"clickForExamSchedule"},
                          @{@"cell":@"期末成绩",@"img":@"期末成绩.png",@"controller":@"ExamGradeViewController"},
-                         @{@"cell":@"空教室",@"img":@"空教室.png",@"action":@"clickForEmptyClassroom"},
+                         @{@"cell":@"空教室",@"img":@"空教室.png",@"controller":@"EmptyClassViewController"},
 //                        @{@"cell":@"去哪吃",@"img":@"zuobiao.png",@"controller":@"ShakeViewController"},
                          @{@"cell":@"没课约",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
                          @{@"cell":@"校历",@"img":@"校历.png",@"controller":@"CalendarViewController"},

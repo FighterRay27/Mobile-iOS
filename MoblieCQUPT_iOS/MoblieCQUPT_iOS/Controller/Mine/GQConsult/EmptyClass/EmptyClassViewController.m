@@ -7,6 +7,7 @@
 //
 
 #import "EmptyClassViewController.h"
+#import "PickView.h"
 
 @interface EmptyClassViewController ()
 
@@ -16,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    PickView *view = [[PickView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    [self.view addSubview:view];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -38,13 +38,13 @@
     
     if (ScreenWidth == 320) {
         _fontSize = 13;
-        _kHeight = 40;
+        _kHeight = 30;
     }else if (ScreenWidth == 375){
         _fontSize = 15;
-        _kHeight = 50;
+        _kHeight = 40;
     }else {
         _fontSize = 17;
-        _kHeight = 60;
+        _kHeight = 50;
     }
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, _kHeight)];
@@ -69,13 +69,13 @@
     _type.textColor = MAIN_COLOR;
     _type.frame = CGRectMake(_grade.frame.origin.x-_type.frame.size.width-40, 0, _type.frame.size.width, _kHeight);
     
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, ScreenHeight-_kHeight, ScreenWidth, _kHeight)];
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, ScreenHeight-_kHeight-10, ScreenWidth, _kHeight)];
     UILabel *bottomLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     bottomLabel.text = @"注:	学院没有注册的同学不能查到具体成绩";
     bottomLabel.font = [UIFont systemFontOfSize:_fontSize-2];
     bottomLabel.textColor = [UIColor colorWithRed:173/255.0 green:173/255.0 blue:173/255.0 alpha:1];
     [bottomLabel sizeToFit];
-    bottomLabel.frame = CGRectMake(20, 0, bottomLabel.frame.size.width, _kHeight);
+    bottomLabel.frame = CGRectMake(20, 0, bottomLabel.frame.size.width, _kHeight+10);
     
     [self.view addSubview:bottomView];
     [bottomView addSubview:bottomLabel];

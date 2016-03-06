@@ -143,6 +143,11 @@
 		CEF61B3E1B82BC950014B980 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF61B3C1B82BC950014B980 /* LaunchScreen.xib */; };
 		CEFDE57D1B9C4D7900E772F0 /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFDE57C1B9C4D7900E772F0 /* mobile.png */; };
 		D910EE031BD66B7900EB9E89 /* iconfont-titleTag.png in Resources */ = {isa = PBXBuildFile; fileRef = D910EE011BD66B7900EB9E89 /* iconfont-titleTag.png */; };
+		D952563E1C8BBBBC00CD7921 /* PickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D952563C1C8BBBBC00CD7921 /* PickView.xib */; };
+		D95256411C8BC32E00CD7921 /* PickView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95256401C8BC32E00CD7921 /* PickView.m */; };
+		D95256461C8BC8D200CD7921 /* GQclass.png in Resources */ = {isa = PBXBuildFile; fileRef = D95256431C8BC8D200CD7921 /* GQclass.png */; };
+		D95256471C8BC8D200CD7921 /* GQsection.png in Resources */ = {isa = PBXBuildFile; fileRef = D95256441C8BC8D200CD7921 /* GQsection.png */; };
+		D95256481C8BC8D200CD7921 /* GQtime.png in Resources */ = {isa = PBXBuildFile; fileRef = D95256451C8BC8D200CD7921 /* GQtime.png */; };
 		D952C7561C0C75B300AA24C0 /* iconfont-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7501C0C75B300AA24C0 /* iconfont-clock.png */; };
 		D952C7571C0C75B300AA24C0 /* iconfont-location.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7511C0C75B300AA24C0 /* iconfont-location.png */; };
 		D952C7581C0C75B300AA24C0 /* iconfont-menuiconaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C7521C0C75B300AA24C0 /* iconfont-menuiconaccount.png */; };
@@ -465,6 +470,12 @@
 		CEFDE57C1B9C4D7900E772F0 /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobile.png; sourceTree = "<group>"; };
 		D50AD870251D6B49755C7A6F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D910EE011BD66B7900EB9E89 /* iconfont-titleTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-titleTag.png"; sourceTree = "<group>"; };
+		D952563C1C8BBBBC00CD7921 /* PickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickView.xib; sourceTree = "<group>"; };
+		D952563F1C8BC32E00CD7921 /* PickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickView.h; sourceTree = "<group>"; };
+		D95256401C8BC32E00CD7921 /* PickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickView.m; sourceTree = "<group>"; };
+		D95256431C8BC8D200CD7921 /* GQclass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GQclass.png; sourceTree = "<group>"; };
+		D95256441C8BC8D200CD7921 /* GQsection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GQsection.png; sourceTree = "<group>"; };
+		D95256451C8BC8D200CD7921 /* GQtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GQtime.png; sourceTree = "<group>"; };
 		D952C7501C0C75B300AA24C0 /* iconfont-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-clock.png"; sourceTree = "<group>"; };
 		D952C7511C0C75B300AA24C0 /* iconfont-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-location.png"; sourceTree = "<group>"; };
 		D952C7521C0C75B300AA24C0 /* iconfont-menuiconaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-menuiconaccount.png"; sourceTree = "<group>"; };
@@ -677,6 +688,7 @@
 		CE0ADC911BDDD03E00374CDC /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				D95256421C8BC8C600CD7921 /* GQConsult */,
 				CE0ADC921BDDD03E00374CDC /* 关于@2x.png */,
 				CE0ADC931BDDD03E00374CDC /* 反馈信息@2x.png */,
 				CE0ADC941BDDD03E00374CDC /* 期末成绩@2x.png */,
@@ -1240,6 +1252,16 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		D95256421C8BC8C600CD7921 /* GQConsult */ = {
+			isa = PBXGroup;
+			children = (
+				D95256431C8BC8D200CD7921 /* GQclass.png */,
+				D95256441C8BC8D200CD7921 /* GQsection.png */,
+				D95256451C8BC8D200CD7921 /* GQtime.png */,
+			);
+			path = GQConsult;
+			sourceTree = "<group>";
+		};
 		D952C75C1C0EC43700AA24C0 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1304,9 @@
 				D9A022E71C89B0A500A5F93B /* EmptyClassViewController.h */,
 				D9A022E81C89B0A500A5F93B /* EmptyClassViewController.m */,
 				D9A022E91C89B0A500A5F93B /* EmptyClassViewController.xib */,
+				D952563F1C8BC32E00CD7921 /* PickView.h */,
+				D95256401C8BC32E00CD7921 /* PickView.m */,
+				D952563C1C8BBBBC00CD7921 /* PickView.xib */,
 			);
 			path = EmptyClass;
 			sourceTree = "<group>";
@@ -1607,6 +1632,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95256481C8BC8D200CD7921 /* GQtime.png in Resources */,
 				3BBB58741B8F6EBC0099EC58 /* iconfont.ttf in Resources */,
 				CE5C7D611B87FF5E00699E3E /* 29-2.png in Resources */,
 				CEF273841B90D573009B5BA2 /* 20-2...png in Resources */,
@@ -1628,6 +1654,7 @@
 				CE5402E21BDD2DAB00488428 /* icon_menu_1@2x.png in Resources */,
 				CE1B36E21B9A1B6800824B96 /* new_icon_menu_3_press.png in Resources */,
 				CE5402E11BDD2DAB00488428 /* icon_menu_5@2x.png in Resources */,
+				D95256471C8BC8D200CD7921 /* GQsection.png in Resources */,
 				E263C77B1BA35E26008488FA /* cqupt3@2x.jpg in Resources */,
 				E263C7731BA35E26008488FA /* ChuangyeViewController.xib in Resources */,
 				E263C7881BA35E26008488FA /* ShakeViewController.xib in Resources */,
@@ -1637,6 +1664,7 @@
 				CE5402E01BDD2DAB00488428 /* icon_menu_4@2x.png in Resources */,
 				CEF2738D1B90D573009B5BA2 /* 20-3.png in Resources */,
 				D99526011C16F9D6003C27C8 /* QGERestDetailViewController.xib in Resources */,
+				D95256461C8BC8D200CD7921 /* GQclass.png in Resources */,
 				D952C7601C0EC44500AA24C0 /* iconfont-shop2.png in Resources */,
 				D98B5D1E1C08483E0010BC9E /* shop_new@2x.png in Resources */,
 				CE30FDDB1B9968C000C15AD4 /* bukaochaxun.png in Resources */,
@@ -1705,10 +1733,10 @@
 				CE30FDDC1B9968C000C15AD4 /* chenjichaxun.png in Resources */,
 				3B1388CD1BA364530011EBF2 /* new_icon_menu_1@2x.png in Resources */,
 				D9A022E61C89AF6200A5F93B /* ExamGradeViewController.xib in Resources */,
-				CED0F5CF1BBD7DA000C7E535 /* Info.plist in Resources */,
 				CEF273911B90D573009B5BA2 /* 20-3w.png in Resources */,
 				D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */,
 				D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */,
+				D952563E1C8BBBBC00CD7921 /* PickView.xib in Resources */,
 				D9C66AE41C23C9BD0086AEE6 /* RestTimeDetailView.xib in Resources */,
 				E28BAE781B91B0E300EC4964 /* 20-3c.png in Resources */,
 				CE267A221BA4A9B90059C2A5 /* splash.jpg in Resources */,
@@ -1847,6 +1875,7 @@
 				E263C78D1BA35E26008488FA /* ShopDetailViewController.m in Sources */,
 				E263C7721BA35E26008488FA /* ChuangyeViewController.m in Sources */,
 				E263C78B1BA35E26008488FA /* MenuViewController.m in Sources */,
+				D95256411C8BC32E00CD7921 /* PickView.m in Sources */,
 				E23827091B9477D80058970E /* CourseViewController.m in Sources */,
 				3B37F0B71B8C4691009C1E94 /* We.m in Sources */,
 				D9B7F61D1C16EFAA0035C2EE /* QGERestTimeCourseViewController.m in Sources */,
