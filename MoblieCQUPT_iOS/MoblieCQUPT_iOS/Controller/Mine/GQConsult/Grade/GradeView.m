@@ -15,10 +15,11 @@
              fontSize:(CGFloat)fontSize
            gradeFrame:(CGRect)gradeFrame
             typeFrame:(CGRect)typeFrame {
+    
+    
     self = [super initWithFrame:frame];
-//    UIView *view = [[UIView alloc]initWithFrame:frame];
     UILabel *grade = [[UILabel alloc]initWithFrame:CGRectZero];
-    grade.text = @"100";
+    grade.text = dic[@"grade"];
     grade.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1];
     grade.font = [UIFont systemFontOfSize:fontSize];
     [grade sizeToFit];
@@ -26,17 +27,20 @@
     grade.center = CGPointMake(gradeFrame.origin.x+gradeFrame.size.width/2, self.frame.size.height/2);
     
     UILabel *type = [[UILabel alloc]initWithFrame:CGRectZero];
-    type.text = @"独立实践";
+    type.text = dic[@"property"];
     type.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1];
     type.font = [UIFont systemFontOfSize:fontSize];
     [type sizeToFit];
     type.frame = CGRectMake(grade.frame.origin.x-40, 0, type.frame.size.width, self.frame.size.height);
     type.center = CGPointMake(typeFrame.origin.x+typeFrame.size.width/2, self.frame.size.height/2);
     
-    UILabel *courseName = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, self.frame.size.width-type.frame.origin.x-20, self.frame.size.height)];
-    courseName.text = @"中国近代史纲要";
+    UILabel *courseName = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, self.frame.size.width-type.frame.origin.x-10, self.frame.size.height)];
+    courseName.text = dic[@"course"];
     courseName.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1];
     courseName.font = [UIFont systemFontOfSize:fontSize];
+    [courseName sizeToFit];
+    CGFloat nameWidth = courseName.frame.size.width > type.frame.origin.x-10 ? type.frame.origin.x-10:courseName.frame.size.width;
+    courseName.frame = CGRectMake(20, 0, nameWidth, self.frame.size.height);
     
 
     [self addSubview:grade];

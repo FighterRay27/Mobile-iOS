@@ -22,7 +22,19 @@
 @property (strong, nonatomic) UIButton *classBtn;
 @property (strong, nonatomic) UIButton *sectionBtn;
 
+@property (strong, nonatomic) UIImageView *tag1;
+@property (strong, nonatomic) UIImageView *tag2;
+@property (strong, nonatomic) UIImageView *tag3;
+
 @property (strong, nonatomic) UIButton *searchBtn;
+
+@property (assign, nonatomic) CGFloat margin;
+@property (assign, nonatomic) CGFloat margin1;
+@property (assign, nonatomic) CGFloat imageWidth;
+@property (assign, nonatomic) CGFloat fontSize;
+
+
+- (void)updateBtnFrame;
 
 
 @end

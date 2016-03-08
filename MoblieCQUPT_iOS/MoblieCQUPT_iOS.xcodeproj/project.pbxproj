@@ -143,7 +143,6 @@
 		CEF61B3E1B82BC950014B980 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF61B3C1B82BC950014B980 /* LaunchScreen.xib */; };
 		CEFDE57D1B9C4D7900E772F0 /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFDE57C1B9C4D7900E772F0 /* mobile.png */; };
 		D910EE031BD66B7900EB9E89 /* iconfont-titleTag.png in Resources */ = {isa = PBXBuildFile; fileRef = D910EE011BD66B7900EB9E89 /* iconfont-titleTag.png */; };
-		D952563E1C8BBBBC00CD7921 /* PickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D952563C1C8BBBBC00CD7921 /* PickView.xib */; };
 		D95256411C8BC32E00CD7921 /* PickView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95256401C8BC32E00CD7921 /* PickView.m */; };
 		D95256461C8BC8D200CD7921 /* GQclass.png in Resources */ = {isa = PBXBuildFile; fileRef = D95256431C8BC8D200CD7921 /* GQclass.png */; };
 		D95256471C8BC8D200CD7921 /* GQsection.png in Resources */ = {isa = PBXBuildFile; fileRef = D95256441C8BC8D200CD7921 /* GQsection.png */; };
@@ -157,6 +156,7 @@
 		D952C75F1C0EC44500AA24C0 /* iconfont-shop1.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C75D1C0EC44500AA24C0 /* iconfont-shop1.png */; };
 		D952C7601C0EC44500AA24C0 /* iconfont-shop2.png in Resources */ = {isa = PBXBuildFile; fileRef = D952C75E1C0EC44500AA24C0 /* iconfont-shop2.png */; };
 		D95E8E5B1BD91AC8001776D5 /* iconfont-backTag.png in Resources */ = {isa = PBXBuildFile; fileRef = D95E8E5A1BD91AC8001776D5 /* iconfont-backTag.png */; };
+		D98216DB1C8C4D7000412FE7 /* emptyClass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98216DA1C8C4D7000412FE7 /* emptyClass.png */; };
 		D98B5D1A1C08483E0010BC9E /* chuangye_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98B5D151C08483E0010BC9E /* chuangye_new@2x.png */; };
 		D98B5D1B1C08483E0010BC9E /* community_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98B5D161C08483E0010BC9E /* community_new@2x.png */; };
 		D98B5D1C1C08483E0010BC9E /* map_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98B5D171C08483E0010BC9E /* map_new@2x.png */; };
@@ -169,6 +169,9 @@
 		D98BFDF01C06F40000B7D53A /* icon_menu_selected_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98BFDEC1C06F40000B7D53A /* icon_menu_selected_5@2x.png */; };
 		D99526001C16F9D6003C27C8 /* QGERestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99525FE1C16F9D6003C27C8 /* QGERestDetailViewController.m */; };
 		D99526011C16F9D6003C27C8 /* QGERestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */; };
+		D99B76981C8DBC9B00FFE538 /* emptyClassTag.png in Resources */ = {isa = PBXBuildFile; fileRef = D99B76971C8DBC9B00FFE538 /* emptyClassTag.png */; };
+		D99B769A1C8DBD4F00FFE538 /* emptyClassTag1.png in Resources */ = {isa = PBXBuildFile; fileRef = D99B76991C8DBD4F00FFE538 /* emptyClassTag1.png */; };
+		D99B769C1C8DBD7D00FFE538 /* emptyClassTag2.png in Resources */ = {isa = PBXBuildFile; fileRef = D99B769B1C8DBD7D00FFE538 /* emptyClassTag2.png */; };
 		D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */; };
 		D99C4A851B9AB70200BEF33C /* iconfont-meixueqi.png in Resources */ = {isa = PBXBuildFile; fileRef = D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */; };
 		D9A022E51C89AF6200A5F93B /* ExamGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A022E31C89AF6200A5F93B /* ExamGradeViewController.m */; };
@@ -470,7 +473,6 @@
 		CEFDE57C1B9C4D7900E772F0 /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobile.png; sourceTree = "<group>"; };
 		D50AD870251D6B49755C7A6F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D910EE011BD66B7900EB9E89 /* iconfont-titleTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-titleTag.png"; sourceTree = "<group>"; };
-		D952563C1C8BBBBC00CD7921 /* PickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickView.xib; sourceTree = "<group>"; };
 		D952563F1C8BC32E00CD7921 /* PickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickView.h; sourceTree = "<group>"; };
 		D95256401C8BC32E00CD7921 /* PickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickView.m; sourceTree = "<group>"; };
 		D95256431C8BC8D200CD7921 /* GQclass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GQclass.png; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 		D952C75D1C0EC44500AA24C0 /* iconfont-shop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-shop1.png"; sourceTree = "<group>"; };
 		D952C75E1C0EC44500AA24C0 /* iconfont-shop2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-shop2.png"; sourceTree = "<group>"; };
 		D95E8E5A1BD91AC8001776D5 /* iconfont-backTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-backTag.png"; sourceTree = "<group>"; };
+		D98216DA1C8C4D7000412FE7 /* emptyClass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyClass.png; sourceTree = "<group>"; };
 		D98B5D151C08483E0010BC9E /* chuangye_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chuangye_new@2x.png"; sourceTree = "<group>"; };
 		D98B5D161C08483E0010BC9E /* community_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_new@2x.png"; sourceTree = "<group>"; };
 		D98B5D171C08483E0010BC9E /* map_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_new@2x.png"; sourceTree = "<group>"; };
@@ -498,6 +501,9 @@
 		D99525FD1C16F9D6003C27C8 /* QGERestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGERestDetailViewController.h; sourceTree = "<group>"; };
 		D99525FE1C16F9D6003C27C8 /* QGERestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGERestDetailViewController.m; sourceTree = "<group>"; };
 		D99525FF1C16F9D6003C27C8 /* QGERestDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QGERestDetailViewController.xib; sourceTree = "<group>"; };
+		D99B76971C8DBC9B00FFE538 /* emptyClassTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyClassTag.png; sourceTree = "<group>"; };
+		D99B76991C8DBD4F00FFE538 /* emptyClassTag1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyClassTag1.png; sourceTree = "<group>"; };
+		D99B769B1C8DBD7D00FFE538 /* emptyClassTag2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyClassTag2.png; sourceTree = "<group>"; };
 		D99C4A821B9AB70200BEF33C /* iconfont_meizhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconfont_meizhou.png; sourceTree = "<group>"; };
 		D99C4A831B9AB70200BEF33C /* iconfont-meixueqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-meixueqi.png"; sourceTree = "<group>"; };
 		D9A022E21C89AF6200A5F93B /* ExamGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamGradeViewController.h; sourceTree = "<group>"; };
@@ -1255,6 +1261,10 @@
 		D95256421C8BC8C600CD7921 /* GQConsult */ = {
 			isa = PBXGroup;
 			children = (
+				D99B769B1C8DBD7D00FFE538 /* emptyClassTag2.png */,
+				D99B76991C8DBD4F00FFE538 /* emptyClassTag1.png */,
+				D99B76971C8DBC9B00FFE538 /* emptyClassTag.png */,
+				D98216DA1C8C4D7000412FE7 /* emptyClass.png */,
 				D95256431C8BC8D200CD7921 /* GQclass.png */,
 				D95256441C8BC8D200CD7921 /* GQsection.png */,
 				D95256451C8BC8D200CD7921 /* GQtime.png */,
@@ -1306,7 +1316,6 @@
 				D9A022E91C89B0A500A5F93B /* EmptyClassViewController.xib */,
 				D952563F1C8BC32E00CD7921 /* PickView.h */,
 				D95256401C8BC32E00CD7921 /* PickView.m */,
-				D952563C1C8BBBBC00CD7921 /* PickView.xib */,
 			);
 			path = EmptyClass;
 			sourceTree = "<group>";
@@ -1647,7 +1656,9 @@
 				3B1388D01BA369890011EBF2 /* new_icon_menu_2@2x.png in Resources */,
 				CEF2738F1B90D573009B5BA2 /* 20-3b.png in Resources */,
 				CE1B36EA1B9A207100824B96 /* calendar.png in Resources */,
+				D99B769A1C8DBD4F00FFE538 /* emptyClassTag1.png in Resources */,
 				E263C7861BA35E26008488FA /* WebViewController.xib in Resources */,
+				D99B76981C8DBC9B00FFE538 /* emptyClassTag.png in Resources */,
 				CE78939B1B87067B000D8B57 /* 60-2.png in Resources */,
 				D952C7561C0C75B300AA24C0 /* iconfont-clock.png in Resources */,
 				3BC309FC1BA52CF7000E6FD7 /* XBSFindClassroomTableViewCell.xib in Resources */,
@@ -1736,13 +1747,13 @@
 				CEF273911B90D573009B5BA2 /* 20-3w.png in Resources */,
 				D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */,
 				D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */,
-				D952563E1C8BBBBC00CD7921 /* PickView.xib in Resources */,
 				D9C66AE41C23C9BD0086AEE6 /* RestTimeDetailView.xib in Resources */,
 				E28BAE781B91B0E300EC4964 /* 20-3c.png in Resources */,
 				CE267A221BA4A9B90059C2A5 /* splash.jpg in Resources */,
 				CEE6147C1BEA3F2B004873AA /* ProgressHUD.bundle in Resources */,
 				D952C75F1C0EC44500AA24C0 /* iconfont-shop1.png in Resources */,
 				CE5C7D5B1B87FF3900699E3E /* 40-3.png in Resources */,
+				D99B769C1C8DBD7D00FFE538 /* emptyClassTag2.png in Resources */,
 				CE0ADC9A1BDDD03E00374CDC /* 反馈信息@2x.png in Resources */,
 				E263C79E1BA35E60008488FA /* MeCell.xib in Resources */,
 				E263C7901BA35E26008488FA /* ShopTableViewCell.xib in Resources */,
@@ -1763,6 +1774,7 @@
 				D952C7581C0C75B300AA24C0 /* iconfont-menuiconaccount.png in Resources */,
 				CEF2738C1B90D573009B5BA2 /* 20-3-2.png in Resources */,
 				E263C77F1BA35E26008488FA /* shake@2x.png in Resources */,
+				D98216DB1C8C4D7000412FE7 /* emptyClass.png in Resources */,
 				E263C7751BA35E26008488FA /* CommunityViewController.xib in Resources */,
 				D9A022EB1C89B0A500A5F93B /* EmptyClassViewController.xib in Resources */,
 				E2E7DE2D1B9476730081F699 /* icon_Logo.png in Resources */,

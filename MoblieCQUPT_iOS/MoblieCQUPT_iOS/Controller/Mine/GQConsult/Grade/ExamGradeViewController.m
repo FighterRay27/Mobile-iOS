@@ -9,6 +9,7 @@
 #import "ExamGradeViewController.h"
 #import "GradeView.h"
 #import "LoginEntry.h"
+#import "MBProgressHUD.h"
 
 #define GRADEAPI @"http://hongyan.cqupt.edu.cn/api/examGrade"
 
@@ -20,6 +21,11 @@
 @property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UILabel *grade;
 @property (strong, nonatomic) UILabel *type;
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+@property (strong, nonatomic) UIView *topView;
+
+@property (strong, nonatomic) MBProgressHUD *hub;
 
 @end
 
@@ -38,7 +44,7 @@
     
     if (ScreenWidth == 320) {
         _fontSize = 13;
-        _kHeight = 30;
+        _kHeight = 35;
     }else if (ScreenWidth == 375){
         _fontSize = 15;
         _kHeight = 40;
@@ -47,7 +53,7 @@
         _kHeight = 50;
     }
     
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, _kHeight)];
+    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, _kHeight)];
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, _kHeight)];
     _nameLabel.text = @"课程名称";
     _nameLabel.font = [UIFont systemFontOfSize:_fontSize];
@@ -60,7 +66,7 @@
     _grade.font = [UIFont systemFontOfSize:_fontSize];
     [_grade sizeToFit];
     _grade.textColor = MAIN_COLOR;
-    _grade.frame = CGRectMake(topView.frame.size.width-_grade.frame.size.width-35, 0, _grade.frame.size.width, _kHeight);
+    _grade.frame = CGRectMake(_topView.frame.size.width-_grade.frame.size.width-35, 0, _grade.frame.size.width, _kHeight);
     
     _type = [[UILabel alloc]initWithFrame:CGRectZero];
     _type.text = @"课程类型";
@@ -79,34 +85,46 @@
     
     [self.view addSubview:bottomView];
     [bottomView addSubview:bottomLabel];
-    [self.view addSubview:topView];
-    [topView addSubview:_nameLabel];
-    [topView addSubview:_grade];
-    [topView addSubview:_type];
+    [self.view addSubview:_topView];
+    [_topView addSubview:_nameLabel];
+    [_topView addSubview:_grade];
+    [_topView addSubview:_type];
     
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, topView.frame.origin.y+topView.frame.size.height, ScreenWidth, ScreenHeight-_kHeight*2-64)];
-    scrollView.contentSize = CGSizeMake(ScreenWidth, 11*_kHeight);
-//    scrollView.bounces = NO;
-    [self.view addSubview:scrollView];
     
-    NSDictionary *dic = @{@"name":@"aaa"};
-    
-    for (int i = 0; i < 11; i ++) {
-        GradeView *view = [[GradeView alloc]initWithFrame:CGRectMake(0, i*_kHeight, ScreenWidth, _kHeight) titileWithDic:dic fontSize:_fontSize gradeFrame:_grade.frame typeFrame:_type.frame];
-        if (i%2 == 0) {
-            view.backgroundColor = [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1];
-        }else if (i%2 == 1) {
-            view.backgroundColor = [UIColor whiteColor];
-        }
-        [scrollView addSubview:view];
-    }
 }
 
 - (void)postGradeData {
     NSString *stuNum = [NSString stringWithFormat:@"%@",[LoginEntry getByUserdefaultWithKey:@"stuNum"]];
     
+    _hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hub.labelText = @"正在加载...";
+    
     [NetWork NetRequestPOSTWithRequestURL:GRADEAPI WithParameter:@{@"stuNum":stuNum} WithReturnValeuBlock:^(id returnValue) {
-        NSLog(@"%@",returnValue);
+
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        NSMutableArray *dataArray = returnValue[@"data"];
+        
+        NSLog(@"%ld",dataArray.count);
+        
+        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _topView.frame.origin.y+_topView.frame.size.height, ScreenWidth, ScreenHeight-_kHeight*2-64)];
+        _scrollView.contentSize = CGSizeMake(ScreenWidth, (dataArray.count)*_kHeight);
+        _scrollView.showsVerticalScrollIndicator = NO;
+        [self.view addSubview:_scrollView];
+        
+        
+        
+        for (int i = 0; i < dataArray.count; i ++) {
+            NSDictionary *dic = dataArray[i];
+            
+            GradeView *view = [[GradeView alloc]initWithFrame:CGRectMake(0, i*_kHeight, ScreenWidth, _kHeight) titileWithDic:dic fontSize:_fontSize gradeFrame:_grade.frame typeFrame:_type.frame];
+            if (i%2 == 0) {
+                view.backgroundColor = [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1];
+            }else if (i%2 == 1) {
+                view.backgroundColor = [UIColor whiteColor];
+            }
+            [_scrollView addSubview:view];
+        }
+        
     } WithFailureBlock:^{
         NSLog(@"network is boomshakalaka");
     }];

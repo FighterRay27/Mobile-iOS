@@ -15,9 +15,10 @@
 #import "CourseButton.h"
 #import "CourseView.h"
 #import "LoginViewController.h"
+#import "MBProgressHUD.h"
 
 
-@interface CourseViewController ()<UIScrollViewDelegate,UPStackMenuItemDelegate,UPStackMenuDelegate>
+@interface CourseViewController ()<UIScrollViewDelegate>
 
 @property (assign, nonatomic) BOOL weekViewShow;
 @property (strong, nonatomic) UIButton *titleButton;
@@ -46,6 +47,7 @@
 @property (strong, nonatomic) NSMutableDictionary *parameter;
 @property (assign, nonatomic) CGPoint startPoint;
 @property (assign, nonatomic) CGPoint startPoint1;
+
 @end
 
 @implementation CourseViewController
