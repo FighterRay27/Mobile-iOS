@@ -44,6 +44,8 @@
 
 @property (assign, nonatomic) NSInteger buildRow;
 
+@property (strong, nonatomic) NSMutableArray *cellViewArray;
+
 
 @end
 
@@ -57,7 +59,9 @@
                           @"weekdayNum":@""};
     _loadDic = [[NSMutableDictionary alloc]initWithDictionary:dic];
     
-    _foolArray = @[@"",@"一楼",@"二楼",@"三楼",@"四楼",@"五楼",@"六楼"];
+    _cellViewArray = [NSMutableArray array];
+    
+    _foolArray = @[@"",@"一楼",@"二楼",@"三楼",@"四楼",@"五楼"];
     
     _timePickArray = @[@"请选择周",@"第一周",@"第二周",@"第三周",@"第四周",@"第五周",@"第六周",@"第七周",@"第八周",@"第九周",@"第十周",@"第十一周",@"第十二周",@"第十三周",@"第十四周",@"第十五周",@"第十六周",@"第十七周",@"第十八周",@"第十九周",@"第二十周"];
     _timePickArray1 = @[@"请选择日期",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
@@ -65,10 +69,11 @@
     _sectionPickArray = @[@"请选择时间",@"1~2节",@"3~4节",@"5~6节",@"7~8节",@"9~10节",@"11~12节"];
     
     
-    _kCellHeight = 80;
+
+    
     _isDone = NO;
     
-    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
+//    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 84, 17, 20)];
@@ -82,6 +87,7 @@
     [label sizeToFit];
     [self.view addSubview:label];
     
+    [self.view addSubview:self.tableView];
     _pickView = [[PickView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     [_pickView.searchBtn addTarget:self action:@selector(searchBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_pickView];
@@ -307,9 +313,18 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         _classDic = [self handleData:returnValue[@"data"]];
         NSLog(@"%@",_classDic);
-        [self.view addSubview:self.tableView];
+        
+        for (int i = 0; i < _cellViewArray.count; i ++) {
+            [_cellViewArray[i] removeFromSuperview];
+        }
+        [_tableView reloadData];
+        _tableView.contentSize = CGSizeMake(ScreenWidth, _tableView.frame.size.height);
+        _tableView.frame = CGRectMake(0, 120, ScreenWidth, ScreenHeight-_tableView.frame.origin.y);
     } WithFailureBlock:^{
         NSLog(@"boom shakaleka");
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"网络不好，请重试！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
     }];
 }
 
@@ -338,6 +353,7 @@
         _tableView.sectionHeaderHeight = 0;
         _tableView.sectionFooterHeight = 0;
         [_tableView setAutoresizesSubviews:NO];
+        _tableView.backgroundColor = [UIColor whiteColor];
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
     
@@ -360,11 +376,33 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _kCellHeight;
+    NSString *row = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    NSInteger classCount = ((NSArray *)_classDic[row]).count;
+    if (classCount >= 0 && classCount <= 5) {
+        return 55;
+    }else if (classCount > 5 && classCount <= 10) {
+        return 80;
+    }else if (classCount > 10 && classCount <= 15) {
+        return 110;
+    }else {
+        return 135;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    NSString *row = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    NSInteger classCount = ((NSArray *)_classDic[row]).count;
+    if (classCount >= 0 && classCount <= 5) {
+        _kCellHeight = 55;
+    }else if (classCount > 5 && classCount <= 10) {
+        _kCellHeight = 80;
+    }else if (classCount > 10 && classCount <= 15) {
+        _kCellHeight = 110;
+    }else {
+        _kCellHeight = 135;
+    }
+    
     static NSString *identifler = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifler];
     if (!cell) {
@@ -380,10 +418,12 @@
     if (indexPath.row == 0) {
         line.frame = CGRectMake(24, 2, 2, _kCellHeight-2);
         line.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
+        [_cellViewArray addObject:line];
         [cell addSubview:line];
-    }else {
-        line.frame = CGRectMake(24, 0, 2, _kCellHeight);
+    }else if (indexPath.row > 0 && indexPath.row < 4) {
+        line.frame = CGRectMake(24, 0, 2, _kCellHeight+2);
         line.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
+        [_cellViewArray addObject:line];
         [cell addSubview:line];
     }
     
@@ -422,28 +462,46 @@
         labelWidth = 46;
         labelHeight = 23;
     }
-    for (int i = 0; i < ((NSArray *)_classDic[count]).count; i ++) {
-        if (i == 0 || i == 5 || i == 10 || i == 15) {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(topLabel.frame.origin.x, topLabel.frame.origin.y+topLabel.frame.size.height+7, labelWidth, labelHeight)];
-            label.text = _classDic[count][i];
-            label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
-            label.font = [UIFont systemFontOfSize:fontSize];
-            [cell addSubview:label];
-            lastLabel = label;
-            topLabel = label;
-        }else {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(lastLabel.frame.origin.x+lastLabel.frame.size.width+margin, lastLabel.frame.origin.y, labelWidth, labelHeight)];
-            label.text = _classDic[count][i];
-            label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
-            label.font = [UIFont systemFontOfSize:fontSize];
-            [cell addSubview:label];
-            lastLabel = label;
+    if (((NSArray *)_classDic[count]).count == 0) {
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(topLabel.frame.origin.x, topLabel.frame.origin.y+topLabel.frame.size.height+7, labelWidth, labelHeight)];
+        label.text = @"此楼爆满，学霸请到别处练功";
+        label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:0.8];
+        label.font = [UIFont systemFontOfSize:fontSize];
+        [label sizeToFit];
+        label.frame = CGRectMake(topLabel.frame.origin.x, topLabel.frame.origin.y+topLabel.frame.size.height+7, label.frame.size.width, label.frame.size.height);
+        [cell addSubview:label];
+        [_cellViewArray addObject:label];
+    }else {
+        for (int i = 0; i < ((NSArray *)_classDic[count]).count; i ++) {
+            if (i == 0 || i == 5 || i == 10 || i == 15) {
+                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(topLabel.frame.origin.x, topLabel.frame.origin.y+topLabel.frame.size.height+7, labelWidth, labelHeight)];
+                label.text = _classDic[count][i];
+                label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
+                label.font = [UIFont systemFontOfSize:fontSize];
+                [cell addSubview:label];
+                [_cellViewArray addObject:label];
+                lastLabel = label;
+                topLabel = label;
+            }else {
+                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(lastLabel.frame.origin.x+lastLabel.frame.size.width+margin, lastLabel.frame.origin.y, labelWidth, labelHeight)];
+                label.text = _classDic[count][i];
+                label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
+                label.font = [UIFont systemFontOfSize:fontSize];
+                [cell addSubview:label];
+                [_cellViewArray addObject:label];
+                lastLabel = label;
+            }
         }
     }
     
+    
     [cell addSubview:foolLabel];
     [cell addSubview:ball];
+    [_cellViewArray addObject:foolLabel];
+    [_cellViewArray addObject:ball];
     [cell setUserInteractionEnabled:NO];
+    
+    
     
     return cell;
     
