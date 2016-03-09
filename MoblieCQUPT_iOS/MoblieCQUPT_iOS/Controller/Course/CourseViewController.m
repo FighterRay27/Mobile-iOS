@@ -15,9 +15,10 @@
 #import "CourseButton.h"
 #import "CourseView.h"
 #import "LoginViewController.h"
+#import "MBProgressHUD.h"
 
 
-@interface CourseViewController ()<UIScrollViewDelegate,UPStackMenuItemDelegate,UPStackMenuDelegate>
+@interface CourseViewController ()<UIScrollViewDelegate>
 
 @property (assign, nonatomic) BOOL weekViewShow;
 @property (strong, nonatomic) UIButton *titleButton;
@@ -46,6 +47,7 @@
 @property (strong, nonatomic) NSMutableDictionary *parameter;
 @property (assign, nonatomic) CGPoint startPoint;
 @property (assign, nonatomic) CGPoint startPoint1;
+
 @end
 
 @implementation CourseViewController
@@ -429,8 +431,6 @@
     _alertView.layer.cornerRadius = 1.0;
     _alertView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
     [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
-    
-    NSLog(@"%f,%f",_alertView.frame.size.width,_alertView.frame.size.height);
     
     UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 5, _alertView.frame.size.width-30, 40)];
     [_alertView addSubview:infotitleView];

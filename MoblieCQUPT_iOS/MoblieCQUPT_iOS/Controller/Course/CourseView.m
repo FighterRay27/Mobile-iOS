@@ -30,8 +30,6 @@
     NSArray *array4 = [[NSArray alloc]initWithObjects:@"8:00-9:40",@"10:05-11:45",@"14:00-15:40",@"16:05-17:45",@"19:00-20:40",@"21:05-22:45",nil];
     NSArray *array5 = [[NSArray alloc]initWithObjects:@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日", nil];
     
-//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, kViewHeight)];
-    
     UIImageView *imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(25, 15, 16, 20)];
     imageView1.image = [UIImage imageNamed:array2[0]];
     imageView1.contentMode = UIViewContentModeScaleAspectFit;
@@ -48,39 +46,11 @@
     label2.numberOfLines = 0;
     CGRect rect = [label2.text boundingRectWithSize:CGSizeMake(infoView.frame.size.width-imageView1.frame.size.width-label1.frame.size.width-60, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:label2.font} context:nil];
     label2.frame = CGRectMake(label1.frame.origin.x+label1.frame.size.width+10, 15, rect.size.width, rect.size.height);
-//    label2.center = CGPointMake(label2.frame.origin.x+label2.frame.size.width/2, label1.frame.origin.y+label1.frame.size.height/2);
     
     [infoView addSubview:imageView1];
     [infoView addSubview:label1];
     [infoView addSubview:label2];
-    
-//    for (int i = 0; i < 6; i ++) {
-//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, kViewHeight*i, kViewWidth, kViewHeight)];
-//        [infoView addSubview:view];
-//        
-//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(view.frame.size.width/20, view.frame.size.height/2.5, view.frame.size.width/15, view.frame.size.width/15)];
-//        imageView.center = CGPointMake(view.frame.size.width/15, view.frame.size.height/2);
-//        imageView.image = [UIImage imageNamed:array2[i]];
-//        imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        [view addSubview:imageView];
-//        
-//        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(imageView.frame.size.width+view.frame.size.width/25*2, view.frame.size.height/3, view.frame.size.width/10*1.5, view.frame.size.height/3)];
-//        label1.text = array1[i];
-//        label1.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-//        label1.font = [UIFont systemFontOfSize:14];
-//        [label1 sizeToFit];
-//        label1.center = CGPointMake(view.frame.size.width/10*2, view.frame.size.height/2);
-//        label1.textAlignment = NSTextAlignmentCenter;
-//        [view addSubview:label1];
-//        
-//        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectZero];
-//        label2.font = [UIFont systemFontOfSize:14];
-//        label2.text = array3[i];
-//        label2.numberOfLines = 0;
-//        CGRect rect = [label2.text boundingRectWithSize:CGSizeMake(view.frame.size.width/10*6, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:label2.font} context:nil];
-//        label2.frame = CGRectMake(label1.frame.size.width+view.frame.size.width/10*2, label1.frame.origin.y, rect.size.width, rect.size.height);
-//        [view addSubview:label2];
-//    }
+
     NSMutableArray *imageArray = [NSMutableArray array];
     [imageArray addObject:imageView1];
     for (int i =1; i < 6; i++) {

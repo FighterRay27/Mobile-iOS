@@ -75,7 +75,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.picture.frame.size.height, MAIN_SCREEN_W, MAIN_SCREEN_H - self.picture.frame.size.height) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.picture.frame.origin.y+self.picture.frame.size.height, MAIN_SCREEN_W, MAIN_SCREEN_H - self.picture.frame.size.height) style:UITableViewStyleGrouped];
         _tableView.scrollEnabled = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -133,7 +133,6 @@
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
    
    
-//    NSLog(@"%lf", [self tableView:tableView heightForRowAtIndexPath:indexPath]);
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 15)];

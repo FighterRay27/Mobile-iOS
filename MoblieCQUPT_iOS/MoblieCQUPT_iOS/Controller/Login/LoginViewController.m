@@ -10,6 +10,7 @@
 #import "NetWork.h"
 #import "CourseViewController.h"
 #import "LoginEntry.h"
+#import "MBProgressHUD.h"
 
 #define Base_Login @"http://hongyan.cqupt.edu.cn/api/verify"
 
@@ -18,6 +19,8 @@
 @property (strong, nonatomic)UITextField *nameField;
 @property (strong, nonatomic)UITextField *passwordField;
 @property (strong, nonatomic)UIButton *loginButton;
+
+@property (strong, nonatomic) MBProgressHUD *hub;
 
 @end
 
@@ -107,6 +110,8 @@
 }
 
 - (void)loginButton:(UIButton *)sender {
+    _hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hub.labelText = @"正在登陆...";
     sender.enabled = NO;
     [UIView animateWithDuration:1.5 animations:^{
         [sender setTitle:@"登录中" forState:UIControlStateNormal];
@@ -117,6 +122,7 @@
     [NetWork NetRequestPOSTWithRequestURL:Base_Login
                             WithParameter:parameter
                      WithReturnValeuBlock:^(id returnValue) {
+                         [MBProgressHUD hideHUDForView:self.view animated:YES];
                          self.dataDic = returnValue;
                          if (![_dataDic[@"info"] isEqualToString:@"success"]) {
                              if([_dataDic[@"info"] isEqualToString:@"authentication error"]) {
