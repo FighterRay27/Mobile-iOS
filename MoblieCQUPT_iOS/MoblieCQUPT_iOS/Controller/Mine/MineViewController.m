@@ -42,27 +42,15 @@
     _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H-20)];
     _mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 600);
     _mainScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _mainScrollView.showsVerticalScrollIndicator=NO;
+    _mainScrollView.showsVerticalScrollIndicator = NO;
     _mainScrollView.bounces = YES;
     [self.view addSubview:_mainScrollView];
     
     _currentHeight = 65;
-    _cellDictionary = [NSMutableArray array];
-//    SEL s[4] = {@selector(clickForExamSchedule),@selector(clickForReexamSchedule), @selector(clickForExamGrade),@selector(clickForEmptyClassroom)};
-    _cellDictionary = [@[@{},
-                         @{@"cell":@"考试安排",@"img":@"考试安排.png",@"action":@"clickForExamSchedule"},
-                         @{@"cell":@"补考安排",@"img":@"补考安排.png",@"action":@"clickForExamSchedule"},
-                         @{@"cell":@"期末成绩",@"img":@"期末成绩.png",@"controller":@"ExamGradeViewController"},
-                         @{@"cell":@"空教室",@"img":@"空教室.png",@"controller":@"EmptyClassViewController"},
-//                        @{@"cell":@"去哪吃",@"img":@"zuobiao.png",@"controller":@"ShakeViewController"},
-                         @{@"cell":@"没课约",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
-                         @{@"cell":@"校历",@"img":@"校历.png",@"controller":@"CalendarViewController"},
-                         @{@"cell":@"反馈信息",@"img":@"反馈信息.png",@"controller":@"SuggestionViewController"},
-                         @{@"cell":@"关于",@"img":@"关于.png",@"controller":@"XBSAboutViewController"},
-                         @{@"cell":@"退出登录",@"img":@"tuichu_red_blod.png"},
-                         
-                        ]
-                       mutableCopy];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Menu" ofType:@"plist"];
+    _cellDictionary = [[NSMutableArray alloc] initWithContentsOfFile:path];
+
+    NSLog(@"%@",path);
     
     /**button **/
 //    self.clicker = [[XBSConsultButtonClicker alloc]init];

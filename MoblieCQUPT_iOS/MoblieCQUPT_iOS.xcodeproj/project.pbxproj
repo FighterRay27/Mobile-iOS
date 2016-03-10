@@ -103,6 +103,7 @@
 		CEAA7C9C1C227E7C00C9B1F9 /* ic_exam_position.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAA7C981C227E7C00C9B1F9 /* ic_exam_position.png */; };
 		CEC93BE01B9B114500AC9E00 /* LoginEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93BDF1B9B114500AC9E00 /* LoginEntry.m */; };
 		CEC96BD21B9AC6F90047648A /* 0960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC96BD11B9AC6F90047648A /* 0960.jpg */; };
+		CED552E51C8EF31E00599430 /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = CED552E41C8EF31E00599430 /* Menu.plist */; };
 		CEE1E21E1B9994A80088EC7C /* guanyu.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE1E21D1B9994A80088EC7C /* guanyu.png */; };
 		CEE1E2201B9994E90088EC7C /* yijianfankui.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE1E21F1B9994E90088EC7C /* yijianfankui.png */; };
 		CEE1E2261B99A1020088EC7C /* MineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE1E2251B99A1020088EC7C /* MineButton.m */; };
@@ -408,6 +409,7 @@
 		CEC93BDF1B9B114500AC9E00 /* LoginEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEntry.m; sourceTree = "<group>"; };
 		CEC96BD11B9AC6F90047648A /* 0960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0960.jpg; sourceTree = "<group>"; };
 		CED0F5CE1BBD7DA000C7E535 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED552E41C8EF31E00599430 /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
 		CEE1E21D1B9994A80088EC7C /* guanyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanyu.png; sourceTree = "<group>"; };
 		CEE1E21F1B9994E90088EC7C /* yijianfankui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yijianfankui.png; sourceTree = "<group>"; };
 		CEE1E2241B99A1020088EC7C /* MineButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineButton.h; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				CE46485E1BDFB87C00C3C24B /* Suggestion */,
 				CE4648581BDFB85900C3C24B /* About */,
 				CEE1E2231B99A0D80088EC7C /* ButtonView */,
+				CED552E41C8EF31E00599430 /* Menu.plist */,
 				CE35D7061B932700005BDEBA /* MineViewController.h */,
 				CE35D7071B932700005BDEBA /* MineViewController.m */,
 			);
@@ -1736,6 +1739,7 @@
 				CEF273911B90D573009B5BA2 /* 20-3w.png in Resources */,
 				D952C75B1C0C75B300AA24C0 /* iconfont-wodekecheng.png in Resources */,
 				D99C4A841B9AB70200BEF33C /* iconfont_meizhou.png in Resources */,
+				CED552E51C8EF31E00599430 /* Menu.plist in Resources */,
 				D952563E1C8BBBBC00CD7921 /* PickView.xib in Resources */,
 				D9C66AE41C23C9BD0086AEE6 /* RestTimeDetailView.xib in Resources */,
 				E28BAE781B91B0E300EC4964 /* 20-3c.png in Resources */,
