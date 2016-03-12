@@ -34,12 +34,12 @@
     type.frame = CGRectMake(grade.frame.origin.x-40, 0, type.frame.size.width, self.frame.size.height);
     type.center = CGPointMake(typeFrame.origin.x+typeFrame.size.width/2, self.frame.size.height/2);
     
-    UILabel *courseName = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, self.frame.size.width-type.frame.origin.x-10, self.frame.size.height)];
+    UILabel *courseName = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, self.frame.size.width-type.frame.origin.x-5, self.frame.size.height)];
     courseName.text = dic[@"course"];
     courseName.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1];
     courseName.font = [UIFont systemFontOfSize:fontSize];
     [courseName sizeToFit];
-    CGFloat nameWidth = courseName.frame.size.width > type.frame.origin.x-10 ? type.frame.origin.x-10:courseName.frame.size.width;
+    CGFloat nameWidth = courseName.frame.size.width > type.frame.origin.x-30 ? type.frame.origin.x-30:courseName.frame.size.width;
     courseName.frame = CGRectMake(20, 0, nameWidth, self.frame.size.height);
     
 

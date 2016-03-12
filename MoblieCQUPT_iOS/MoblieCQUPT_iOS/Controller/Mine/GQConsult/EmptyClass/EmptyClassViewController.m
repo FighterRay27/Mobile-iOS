@@ -396,7 +396,7 @@
     }else if (classCount > 5 && classCount <= 10) {
         return 80;
     }else if (classCount > 10 && classCount <= 15) {
-        return 110;
+        return 105;
     }else {
         return 135;
     }
@@ -411,7 +411,7 @@
     }else if (classCount > 5 && classCount <= 10) {
         _kCellHeight = 80;
     }else if (classCount > 10 && classCount <= 15) {
-        _kCellHeight = 110;
+        _kCellHeight = 105;
     }else {
         _kCellHeight = 135;
     }
@@ -467,7 +467,7 @@
     }else if (ScreenWidth == 320) {
         margin = 18;
         fontSize = 15;
-        labelWidth = 37;
+        labelWidth = 38;
         labelHeight = 18;
     }else {
         margin = 28;

@@ -73,15 +73,15 @@
     
     [_timeBtn setTitle:@"请选择周~请选择日期" forState:UIControlStateNormal];
     [_timeBtn setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
-    _timeBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-4];
+    _timeBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-3];
     
     [_classBtn setTitle:@"请选择教学楼" forState:UIControlStateNormal];
     [_classBtn setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
-    _classBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-4];
+    _classBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-3];
     
     [_sectionBtn setTitle:@"请选择时间" forState:UIControlStateNormal];
     [_sectionBtn setTitleColor:[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1] forState:UIControlStateNormal];
-    _sectionBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-4];
+    _sectionBtn.titleLabel.font = [UIFont systemFontOfSize:_fontSize-3];
     
     [_timeBtn sizeToFit];
     [_classBtn sizeToFit];
