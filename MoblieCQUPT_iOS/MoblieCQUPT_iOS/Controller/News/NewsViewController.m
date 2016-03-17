@@ -32,7 +32,7 @@ static int nowPage= 1;
     
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.title = @"教务信息";
+    self.navigationItem.title = @"教育信息";
     self.navigationController.navigationBar.barTintColor = MAIN_COLOR;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     
@@ -136,16 +136,15 @@ static int nowPage= 1;
             [NetWork NetRequestPOSTWithRequestURL:@"http://hongyan.cqupt.edu.cn/api/jwNewsContent" WithParameter:@{@"id":self.data[@"data"][i][@"id"]} WithReturnValeuBlock:^(id returnValue) {
                 NSMutableDictionary *dic = [self.data[@"data"][i] mutableCopy];
                 NSString *contentDetail = returnValue[@"data"][@"content"];
+                
                 contentDetail = [contentDetail stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 [dic setValue:contentDetail forKey:@"newsContent"];
-
-
+                
                 [_BothData addObject:dic];
                 [_tableView reloadData];
 
                 [_indicatorView stopAnimating];
             } WithFailureBlock:nil];
-//            [self dataFresh];
         }
                          
         [self.tableView headerEndRefreshing];
@@ -181,7 +180,6 @@ static int nowPage= 1;
     
     cell.toplable.text = _BothData[indexPath.section][@"title"];
     cell.daylable.text = _BothData[indexPath.section][@"date"];
-    cell.timelabel.text = _BothData[indexPath.section][@"read"];
     cell.specificlable.text = _BothData[indexPath.section][@"newsContent"];
 
     cell.backview.layer.cornerRadius = 1;
@@ -192,15 +190,16 @@ static int nowPage= 1;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 109;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FirstViewController *fvc = [[FirstViewController alloc]init];
-    //NSLog(@"%@",self.data);
+
     fvc.data1 = [[NSMutableDictionary alloc] init];
     fvc.data1 = _BothData[indexPath.section];
-   // DDLog(@"dTA1：%@",_data[@"data"]);
+    fvc.info = _data;
+
     [self.navigationController pushViewController:fvc animated:YES];
 }
 

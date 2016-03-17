@@ -11,7 +11,6 @@
 @interface MeCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *toplable;
 @property (weak, nonatomic) IBOutlet UILabel *daylable;
-@property (weak, nonatomic) IBOutlet UILabel *timelabel;
 
 @property (weak, nonatomic) IBOutlet UIView *backview;
 @property (weak, nonatomic) IBOutlet UILabel *specificlable;
