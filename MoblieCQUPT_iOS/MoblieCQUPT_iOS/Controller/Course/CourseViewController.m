@@ -109,7 +109,7 @@
     [_backView addSubview:underLine];
     
     _nav = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
-    _nav.backgroundColor = [UIColor colorWithRed:74/255.0 green:171/255.0 blue:189/255.0 alpha:1];
+    _nav.backgroundColor = MAIN_COLOR;
     [self.view addSubview:_nav];
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
@@ -150,6 +150,10 @@
     [self loadNetData];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -314,23 +318,6 @@
 }
 #pragma mark 处理课表颜色
 - (void)handleColor:(NSMutableArray *)courses {
-//    NSMutableArray *courseArray = [[NSMutableArray alloc]init];
-//    for (int i = 0; i < courses.count; i ++) {
-//        [courseArray addObject:[courses[i] objectForKey:@"course"]];
-//    }
-//    NSSet *courseSet = [NSSet setWithArray:courseArray];
-//    for (NSString *string in courseSet) {
-//        if (_colorArray.count == 0) {
-//            _colorArray = ColorArray;
-//        }
-//        int j = arc4random()%_colorArray.count;
-//        for (int i = 0; i < courses.count; i ++) {
-//            if ([string isEqualToString:[NSString stringWithFormat:@"%@",[courses[i] objectForKey:@"course"]]]) {
-//                [courses[i] setObject:_colorArray[j] forKey:@"color"];
-//            }
-//        }
-//        [_colorArray removeObject:_colorArray[j]];
-//    }
     _colorArray = ColorArray;
     for (int i = 0; i < courses.count; i ++) {
         NSString *day = courses[i][@"hash_day"];

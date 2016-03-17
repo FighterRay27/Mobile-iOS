@@ -70,7 +70,6 @@
         UIButton *weekBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         weekBtn.frame = CGRectMake(0, 35*i, ScreenWidth, 35);
         [weekBtn setTitle:_weekArray[i] forState:UIControlStateNormal];
-//        [weekBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         if (nowWeek != nil && i == [nowWeek integerValue]) {
             weekBtn.selected = YES;
             [weekBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -571,15 +570,22 @@
 #pragma mark - -
 
 #pragma mark 处理课表颜色
-- (void)handleColor:(NSMutableArray *)array {
-    _colorArray = [[NSMutableArray alloc]initWithObjects:@"153,212,59",@"157,171,242",@"245,145,158",nil];
-    for (int i = 0; i < array.count; i ++) {
-        if (_colorArray.count == 0) {
-            _colorArray = [[NSMutableArray alloc]initWithObjects:@"153,212,59",@"157,171,242",@"245,145,158",nil];
+- (void)handleColor:(NSMutableArray *)courses {
+    _colorArray = ColorArray;
+    for (int i = 0; i < courses.count; i ++) {
+        NSString *day = courses[i][@"hash_day"];
+        NSString *lesson = courses[i][@"hash_lesson"];
+        if (day.integerValue >= 0 && day.integerValue < 5) {
+            if (lesson.integerValue >= 0 && lesson.integerValue < 2) {
+                [courses[i] setObject:_colorArray[0] forKey:@"color"];
+            }else if (lesson.integerValue >= 2 && lesson.integerValue < 4) {
+                [courses[i] setObject:_colorArray[1] forKey:@"color"];
+            }else {
+                [courses[i] setObject:_colorArray[2] forKey:@"color"];
+            }
+        }else {
+            [courses[i] setObject:_colorArray[3] forKey:@"color"];
         }
-        int j = arc4random()%_colorArray.count;
-        [array[i] setObject:_colorArray[j] forKey:@"color"];
-        [_colorArray removeObject:_colorArray[j]];
     }
 }
 #pragma mark - -
