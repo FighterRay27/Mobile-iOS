@@ -26,7 +26,8 @@
     #define NSLog(format, ...) ;
 #endif
 
-#define MAIN_COLOR  [UIColor colorWithRed:3/255.0 green:169/255.0 blue:244/255.0 alpha:1]
+#define MAIN_COLOR  [UIColor colorWithRed:43/255.0 green:157/255.0 blue:178/255.0 alpha:1]
+//#define MAIN_COLOR  [UIColor colorWithRed:111/255.0 green:219/255.0 blue:188/255.0 alpha:1]
 #define MAIN_SCREEN_H [UIScreen mainScreen].bounds.size.height
 #define MAIN_SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define kBarTintColor MAIN_COLOR
@@ -51,6 +52,6 @@
 #define kWidthGrid  (ScreenWidth/7.5)
 #define RGBColor(r,g,b,a) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a])
 
-
+#define ColorArray [[NSMutableArray alloc]initWithObjects:@"254,145,103",@"120,201,252",@"111,219,188",@"191,161,233",nil];
 
 #endif

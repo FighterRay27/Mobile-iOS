@@ -53,6 +53,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSArray *fontFamilies = [UIFont familyNames];
+    for (int i = 0; i < [fontFamilies count]; i++)
+    {
+        NSString *fontFamily = [fontFamilies objectAtIndex:i];
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+        NSLog (@"%@: %@", fontFamily, fontNames);
+    }
     NSDictionary *dic = @{@"buildNum":@"",
                           @"week":@"",
                           @"sectionNum":@"",
@@ -73,7 +81,6 @@
     
     _isDone = NO;
     
-//    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 84, 17, 20)];
@@ -117,8 +124,14 @@
 
 - (UIBarButtonItem *)edit {
     if (!_edit) {
-        _edit = [[UIBarButtonItem alloc]initWithTitle:@"修改" style:UIBarButtonItemStylePlain target:self action:@selector(editEmptyClass)];
+//        _edit = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"edit2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(editEmptyClass)];
         _edit.tintColor = [UIColor whiteColor];
+        
+        UIButton *barBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [barBtn setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
+        [barBtn addTarget:self  action:@selector(editEmptyClass) forControlEvents:UIControlEventTouchUpInside];
+        barBtn.frame = CGRectMake(0, 0, 22, 22);
+        _edit = [[UIBarButtonItem alloc]initWithCustomView:barBtn];
 
     }
     return _edit;
@@ -330,7 +343,7 @@
 
 - (NSMutableDictionary *)handleData:(NSArray *)array {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    NSArray *array1 = @[@"1",@"2",@"3",@"4",@"5",@"6"];
+    NSArray *array1 = @[@"1",@"2",@"3",@"4",@"5"];
     for (int i = 0; i < array1.count; i ++) {
         NSMutableArray *newArray = [NSMutableArray array];
         for (int j = 0; j < array.count; j++) {
@@ -383,7 +396,7 @@
     }else if (classCount > 5 && classCount <= 10) {
         return 80;
     }else if (classCount > 10 && classCount <= 15) {
-        return 110;
+        return 105;
     }else {
         return 135;
     }
@@ -398,7 +411,7 @@
     }else if (classCount > 5 && classCount <= 10) {
         _kCellHeight = 80;
     }else if (classCount > 10 && classCount <= 15) {
-        _kCellHeight = 110;
+        _kCellHeight = 105;
     }else {
         _kCellHeight = 135;
     }
@@ -447,14 +460,14 @@
     CGFloat labelWidth;
     CGFloat labelHeight;
     if (ScreenWidth == 375) {
-        margin = 25;
+        margin = 20;
         fontSize = 17;
-        labelWidth = 42;
+        labelWidth = 49;
         labelHeight = 20;
     }else if (ScreenWidth == 320) {
         margin = 18;
         fontSize = 15;
-        labelWidth = 37;
+        labelWidth = 38;
         labelHeight = 18;
     }else {
         margin = 28;
@@ -467,6 +480,7 @@
         label.text = @"此楼爆满，学霸请到别处练功";
         label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:0.8];
         label.font = [UIFont systemFontOfSize:fontSize];
+        label.font = [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize];
         [label sizeToFit];
         label.frame = CGRectMake(topLabel.frame.origin.x, topLabel.frame.origin.y+topLabel.frame.size.height+7, label.frame.size.width, label.frame.size.height);
         [cell addSubview:label];
@@ -478,6 +492,7 @@
                 label.text = _classDic[count][i];
                 label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
                 label.font = [UIFont systemFontOfSize:fontSize];
+//                label.font = [UIFont fontWithName:@"PingFang Light" size:fontSize];
                 [cell addSubview:label];
                 [_cellViewArray addObject:label];
                 lastLabel = label;
@@ -487,6 +502,11 @@
                 label.text = _classDic[count][i];
                 label.textColor = [UIColor colorWithRed:77/255.0 green:77/255.0 blue:77/255.0 alpha:1];
                 label.font = [UIFont systemFontOfSize:fontSize];
+//                label.font = [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize];
+                //字间距
+//                NSMutableAttributedString *attributedString =  [[NSMutableAttributedString alloc] initWithString:label.text attributes:@{NSKernAttributeName : @(2.0f)}];
+//                [label setAttributedText:attributedString];
+                
                 [cell addSubview:label];
                 [_cellViewArray addObject:label];
                 lastLabel = label;
@@ -550,7 +570,7 @@
         pickView.hidden = NO;
         _pickViewToolBar.hidden = NO;
         _backView.hidden = NO;
-        [UIView animateWithDuration:0.1 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             pickView.frame = CGRectMake(0, ScreenHeight-ScreenHeight/10*4, ScreenWidth, ScreenHeight/10*4);
             _pickViewToolBar.frame = CGRectMake(0, pickView.frame.origin.y, ScreenWidth, 45);
             _backView.alpha = 0.7;
@@ -558,7 +578,7 @@
             
         }];
     }else if (mode == 1) {
-        [UIView animateWithDuration:0.1 animations:^{
+        [UIView animateWithDuration:0.15 animations:^{
             pickView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight/10*4);
             _pickViewToolBar.frame = CGRectMake(0, pickView.frame.origin.y, ScreenWidth, 45);
             _backView.alpha = 0;

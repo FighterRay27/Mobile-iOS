@@ -109,7 +109,7 @@
     [_backView addSubview:underLine];
     
     _nav = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
-    _nav.backgroundColor = MAIN_COLOR;
+    _nav.backgroundColor = [UIColor colorWithRed:74/255.0 green:171/255.0 blue:189/255.0 alpha:1];
     [self.view addSubview:_nav];
     _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _titleButton.frame = CGRectMake(0, 0, 100, 44);
@@ -314,23 +314,38 @@
 }
 #pragma mark 处理课表颜色
 - (void)handleColor:(NSMutableArray *)courses {
-    _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
-    NSMutableArray *courseArray = [[NSMutableArray alloc]init];
+//    NSMutableArray *courseArray = [[NSMutableArray alloc]init];
+//    for (int i = 0; i < courses.count; i ++) {
+//        [courseArray addObject:[courses[i] objectForKey:@"course"]];
+//    }
+//    NSSet *courseSet = [NSSet setWithArray:courseArray];
+//    for (NSString *string in courseSet) {
+//        if (_colorArray.count == 0) {
+//            _colorArray = ColorArray;
+//        }
+//        int j = arc4random()%_colorArray.count;
+//        for (int i = 0; i < courses.count; i ++) {
+//            if ([string isEqualToString:[NSString stringWithFormat:@"%@",[courses[i] objectForKey:@"course"]]]) {
+//                [courses[i] setObject:_colorArray[j] forKey:@"color"];
+//            }
+//        }
+//        [_colorArray removeObject:_colorArray[j]];
+//    }
+    _colorArray = ColorArray;
     for (int i = 0; i < courses.count; i ++) {
-        [courseArray addObject:[courses[i] objectForKey:@"course"]];
-    }
-    NSSet *courseSet = [NSSet setWithArray:courseArray];
-    for (NSString *string in courseSet) {
-        if (_colorArray.count == 0) {
-            _colorArray = [[NSMutableArray alloc]initWithObjects:@"156,171,246",@"255,161,16",@"249,141,156",@"149,213,27",@"56,188,242",nil];
-        }
-        int j = arc4random()%_colorArray.count;
-        for (int i = 0; i < courses.count; i ++) {
-            if ([string isEqualToString:[NSString stringWithFormat:@"%@",[courses[i] objectForKey:@"course"]]]) {
-                [courses[i] setObject:_colorArray[j] forKey:@"color"];
+        NSString *day = courses[i][@"hash_day"];
+        NSString *lesson = courses[i][@"hash_lesson"];
+        if (day.integerValue >= 0 && day.integerValue < 5) {
+            if (lesson.integerValue >= 0 && lesson.integerValue < 2) {
+                [courses[i] setObject:_colorArray[0] forKey:@"color"];
+            }else if (lesson.integerValue >= 2 && lesson.integerValue < 4) {
+                [courses[i] setObject:_colorArray[1] forKey:@"color"];
+            }else {
+                [courses[i] setObject:_colorArray[2] forKey:@"color"];
             }
+        }else {
+            [courses[i] setObject:_colorArray[3] forKey:@"color"];
         }
-        [_colorArray removeObject:_colorArray[j]];
     }
 }
 
@@ -364,7 +379,8 @@
                 }
                 courseButton.tag = i;
                 [_buttonTag addObject:courseButton];
-                courseButton.backgroundColor = [self handleRandomColorStr:course.color];
+                [courseButton setBackgroundImage:[self imageWithColor:[self handleRandomColorStr:course.color withLightModel:0]] forState:UIControlStateNormal];
+                [courseButton setBackgroundImage:[self imageWithColor:[self handleRandomColorStr:course.color withLightModel:1]] forState:UIControlStateHighlighted];
                 [courseButton addTarget:self action:@selector(courseClick:) forControlEvents:UIControlEventTouchUpInside];
                 [_mainScrollView addSubview:courseButton];
                 currentTag = courseButton.tag;
@@ -377,16 +393,36 @@
 
 #pragma mark - 颜色私有方法
 //处理随机颜色字符串
-- (UIColor *)handleRandomColorStr:(NSString *)randomColorStr
+- (UIColor *)handleRandomColorStr:(NSString *)randomColorStr withLightModel:(NSInteger)model
 {
     NSArray *array = [randomColorStr componentsSeparatedByString:@","];
-    if (array.count >2) {
+    if (array.count > 2) {
         NSString *red = array[0];
         NSString *green = array[1];
         NSString *blue = array[2];
-        return RGBColor(red.floatValue, green.floatValue, blue.floatValue, 1);
+        if (model == 0) {
+            return RGBColor(red.floatValue, green.floatValue, blue.floatValue, 1);
+        }else if (model == 1) {
+            return RGBColor(red.floatValue, green.floatValue, blue.floatValue, 0.7);
+        }
     }
+    
     return [UIColor lightGrayColor];
+}
+
+//颜色转image
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 #pragma mark 课表button点击方法
@@ -414,12 +450,12 @@
 - (void)viewCourseWithTag:(NSInteger )starTag endTag:(NSInteger)endTag {
     _backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     _backgroundView.backgroundColor = [UIColor blackColor];
-    _backgroundView.alpha = 0.7;
+    _backgroundView.alpha = 0;
     UIButton *backgroundViewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backgroundViewBtn.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     [backgroundViewBtn addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
     [_backgroundView addSubview:backgroundViewBtn];
-    [[[UIApplication sharedApplication]keyWindow]addSubview:_backgroundView];
+    
     
     if(ScreenWidth == 320) {
         _alertView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth/9, ScreenHeight/7, 240, 380+10)];
@@ -429,8 +465,9 @@
     
     _alertView.backgroundColor = [UIColor whiteColor];
     _alertView.layer.cornerRadius = 1.0;
+    _alertView.alpha = 0;
     _alertView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
+    
     
     UIView *infotitleView = [[UIView alloc]initWithFrame:CGRectMake(15, 5, _alertView.frame.size.width-30, 40)];
     [_alertView addSubview:infotitleView];
@@ -478,6 +515,17 @@
         [courseScroll addSubview:courseView];
         indexX += courseScroll.contentSize.width/(endTag-starTag+1);
     }
+    
+    
+    [[[UIApplication sharedApplication]keyWindow]addSubview:_backgroundView];
+    [[[UIApplication sharedApplication]keyWindow]addSubview:_alertView];
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        _backgroundView.alpha = 0.7;
+        _alertView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -488,9 +536,14 @@
 }
 
 - (void)doneClick {
-    [self.backgroundView removeFromSuperview];
-    [self.alertView removeFromSuperview];
-    [self.page removeFromSuperview];
+    [UIView animateWithDuration:0.2 animations:^{
+        _backgroundView.alpha = 0;
+        _alertView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.backgroundView removeFromSuperview];
+        [self.alertView removeFromSuperview];
+        [self.page removeFromSuperview];
+    }];
 }
 
 - (void)showWeekList {
@@ -670,6 +723,5 @@
         }
     }
 }
-
 
 @end
