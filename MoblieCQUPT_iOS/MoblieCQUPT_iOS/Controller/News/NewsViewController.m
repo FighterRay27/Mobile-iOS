@@ -32,12 +32,12 @@ static int nowPage= 1;
     
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.title = @"教务信息";
+    self.navigationItem.title = @"教育信息";
     self.navigationController.navigationBar.barTintColor = MAIN_COLOR;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     
     _flag = 1;
-    self.data = [[NSMutableDictionary alloc] init];
+    _data = [[NSMutableDictionary alloc] init];
     _BothData = [[NSMutableArray alloc] init];
     
     [self.view addSubview:self.tableview];
@@ -52,8 +52,8 @@ static int nowPage= 1;
     
     // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
     [self.tableView addHeaderWithTarget:self action:@selector(dataFresh)];
-//     2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
-    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+//     2.上拉加载更多(进入刷新状态就会调用self的footerRefreshing)
+    [self.tableView addFooterWithTarget:self action:@selector(footerRefreshing)];
     
     // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
     self.tableView.headerPullToRefreshText = @"下拉即可刷新";
@@ -66,7 +66,7 @@ static int nowPage= 1;
 }
 
 #pragma mark 开始进入刷新状态
-- (void)footerRereshing{
+- (void)footerRefreshing{
     
     [self dataFresh:EnumDataAdd];
 
@@ -95,6 +95,8 @@ static int nowPage= 1;
 }
 
 - (void)dataFresh:(EnumFreshType)type{
+    
+    //判断是否刷新了页数page
     void (^typeFunction)(id objet);
     switch (type) {
         case EnumDataRefresh:
@@ -115,10 +117,12 @@ static int nowPage= 1;
             break;
     }
     
+    //开始网络请求
     
     [NetWork NetRequestPOSTWithRequestURL:@"http://hongyan.cqupt.edu.cn/api/jwNewsList"
                             WithParameter:@{@"page":[NSNumber numberWithInt:nowPage]}
                      WithReturnValeuBlock:^(id returnValue) {
+        //开始转菊花
         _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         _indicatorView.frame = CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H);
         [_indicatorView setCenter:CGPointMake(MAIN_SCREEN_W/2, MAIN_SCREEN_H/2)];
@@ -131,17 +135,16 @@ static int nowPage= 1;
         for (int i = 0; i<[self.data[@"data"] count]; i++) {
             [NetWork NetRequestPOSTWithRequestURL:@"http://hongyan.cqupt.edu.cn/api/jwNewsContent" WithParameter:@{@"id":self.data[@"data"][i][@"id"]} WithReturnValeuBlock:^(id returnValue) {
                 NSMutableDictionary *dic = [self.data[@"data"][i] mutableCopy];
-                NSString *contentDetil = returnValue[@"data"][@"content"];
-                contentDetil = [contentDetil stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                [dic setValue:contentDetil forKey:@"newsContent"];
-
-
+                NSString *contentDetail = returnValue[@"data"][@"content"];
+                
+                contentDetail = [contentDetail stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                [dic setValue:contentDetail forKey:@"newsContent"];
+                
                 [_BothData addObject:dic];
                 [_tableView reloadData];
 
                 [_indicatorView stopAnimating];
             } WithFailureBlock:nil];
-//            [self dataFresh];
         }
                          
         [self.tableView headerEndRefreshing];
@@ -170,14 +173,13 @@ static int nowPage= 1;
     if (!cell) {
         cell = [[MeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
-        cell.backview.layer.cornerRadius = 0;
+    cell.backview.layer.cornerRadius = 0;
     
     tableView.separatorInset = UIEdgeInsetsMake(0, 1, 0, 8);//修改分隔线长度
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     cell.toplable.text = _BothData[indexPath.section][@"title"];
     cell.daylable.text = _BothData[indexPath.section][@"date"];
-     cell.timelabel.text = _BothData[indexPath.section][@"read"];
     cell.specificlable.text = _BothData[indexPath.section][@"newsContent"];
 
     cell.backview.layer.cornerRadius = 1;
@@ -188,15 +190,16 @@ static int nowPage= 1;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 109;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FirstViewController *fvc = [[FirstViewController alloc]init];
-    //NSLog(@"%@",self.data);
+
     fvc.data1 = [[NSMutableDictionary alloc] init];
     fvc.data1 = _BothData[indexPath.section];
-   // DDLog(@"dTA1：%@",_data[@"data"]);
+    fvc.info = _data;
+
     [self.navigationController pushViewController:fvc animated:YES];
 }
 

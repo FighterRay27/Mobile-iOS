@@ -80,7 +80,7 @@
     
     NSMutableArray *items = [[NSMutableArray alloc] init];
     [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"course" localizedTitle:@"本周课表" localizedSubtitle:nil icon:icon1 userInfo:nil]];
-    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"news" localizedTitle:@"教务信息" localizedSubtitle:nil icon:icon2 userInfo:nil]];
+    [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"news" localizedTitle:@"教育信息" localizedSubtitle:nil icon:icon2 userInfo:nil]];
     [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"exam" localizedTitle:@"考试安排" localizedSubtitle:nil icon:icon3 userInfo:nil]];
     [items addObject:[[UIApplicationShortcutItem alloc] initWithType:@"classroom" localizedTitle:@"查空教室" localizedSubtitle:nil icon:icon4 userInfo:nil]];
     [UIApplication sharedApplication].shortcutItems = items;

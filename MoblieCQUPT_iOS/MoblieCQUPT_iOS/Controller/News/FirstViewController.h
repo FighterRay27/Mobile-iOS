@@ -12,6 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *top1label;
 @property (strong ,nonatomic)NSMutableDictionary *data1;
 @property (weak, nonatomic) IBOutlet UILabel *day1label;
+@property (strong, nonatomic) NSMutableDictionary *info;//记录page、size、type、aritcleid参数
 
-@property (weak, nonatomic) IBOutlet UILabel *time1lable;
 @end

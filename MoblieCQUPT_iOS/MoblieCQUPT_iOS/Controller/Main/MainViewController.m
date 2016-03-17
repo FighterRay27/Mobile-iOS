@@ -30,7 +30,7 @@ static Boolean isClick = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self findButtonInit];
-    NSArray *item = @[@"课程",@"教务信息",@"查询",@"发现",@"我的"];
+    NSArray *item = @[@"课程",@"教育信息",@"查询",@"发现",@"我的"];
     
 //    self.navigationController.title=@"22";
     
@@ -62,7 +62,6 @@ static Boolean isClick = NO;
         whichVc==1?whichVc+=2:whichVc++;
     }
 
-
     self.delegate = self;
 }
 
@@ -84,14 +83,13 @@ static Boolean isClick = NO;
         self.navigationController.navigationBarHidden = NO;
     }
     
-    NSArray *names = @[@"课程",@"教务信息",@"发现",@"我的"];
+    NSArray *names = @[@"课程",@"教育信息",@"发现",@"我的"];
     for (int i=0; i<=3; i++) {
         if ([item isEqual:self.tabBar.items[i]]){
             self.navigationItem.title = names[i];
         }
     }
 }
-
 
 
 - (void)findButtonInit{
@@ -112,8 +110,6 @@ static Boolean isClick = NO;
                           };
     
     self.btnNum = 4;
-    
-    
     
     NSArray *tempStrArr = @[@"20-3b.png",@"20-3补考.png",@"20-3exam.png",@"20-3c.png"];
     //NSArray *textArray = @[@"考试查询",@"补考查询",@"成绩查询",@"找空教室"];
@@ -201,7 +197,7 @@ static Boolean isClick = NO;
     self.centerBar.image = [self.centerBar.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     NSInteger num = self.btnNum;
-    int finalSize = [self.buttonConfig[@"finalSize"] intValue];;
+    int finalSize = [self.buttonConfig[@"finalSize"] intValue];
     [UIView animateWithDuration:0.2 animations:^{
         for (int i=0; i<num; i++) {
             UIButton *button = self.btnArray[i];

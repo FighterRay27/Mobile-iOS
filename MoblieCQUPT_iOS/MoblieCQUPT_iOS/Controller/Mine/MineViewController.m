@@ -36,8 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //处理shortCutItem
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableView:cellForRowAtIndexPath:) name:@"gotoExam" object:nil];
     
     _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_W, MAIN_SCREEN_H-20)];
     _mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_W, 600);
@@ -54,13 +52,11 @@
                          @{@"cell":@"补考安排",@"img":@"补考安排.png",@"action":@"clickForExamSchedule"},
                          @{@"cell":@"期末成绩",@"img":@"期末成绩.png",@"controller":@"ExamGradeViewController"},
                          @{@"cell":@"空教室",@"img":@"空教室.png",@"controller":@"EmptyClassViewController"},
-//                        @{@"cell":@"去哪吃",@"img":@"zuobiao.png",@"controller":@"ShakeViewController"},
                          @{@"cell":@"没课约",@"img":@"校历.png",@"controller":@"QGERestTimeCourseViewController"},
                          @{@"cell":@"校历",@"img":@"校历.png",@"controller":@"CalendarViewController"},
                          @{@"cell":@"反馈信息",@"img":@"反馈信息.png",@"controller":@"SuggestionViewController"},
                          @{@"cell":@"关于",@"img":@"关于.png",@"controller":@"XBSAboutViewController"},
                          @{@"cell":@"退出登录",@"img":@"tuichu_red_blod.png"},
-                         
                         ]
                        mutableCopy];
     
@@ -72,7 +68,6 @@
 
     [_mainScrollView addSubview:self.tableView];
     _currentHeight += _tableView.frame.size.height;
-    
 }
 
 - (XBSConsultButtonClicker *)clicker{
@@ -112,7 +107,7 @@
     _myPhoto = [[UIButton alloc] initWithFrame:rect];
     NSString *url = [LoginEntry getByUserdefaultWithKey:@"defaultImageNSUrl"];
     if (url) {
-        ALAssetsLibrary   *lib = [[ALAssetsLibrary alloc] init];
+        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
         [lib assetForURL:[NSURL URLWithString:url] resultBlock:^(ALAsset *asset) {
             UIImage *saveImage = [self fullResolutionImageFromALAsset:asset];
             [_myPhoto setImage:saveImage forState:UIControlStateNormal];
